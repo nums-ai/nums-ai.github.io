@@ -82,21 +82,6 @@ function Navbar() {
               {label}
             </a>
           ))}
-          <a
-            href="#cta"
-            className="rounded-lg px-4 py-2 text-sm font-medium text-white transition-all"
-            style={{
-              background: "var(--accent)",
-            }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.background = "var(--accent-hover)")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.background = "var(--accent)")
-            }
-          >
-            Get Started
-          </a>
         </div>
       </div>
     </nav>
@@ -375,21 +360,12 @@ function CTA() {
             borderColor: "var(--card-border)",
           }}
         >
-          <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            Your data already has the answers.
-          </h2>
-          <p className="mt-4 text-lg text-muted">
-            Let&apos;s find them together.
+          <p className="text-sm font-medium uppercase tracking-[0.3em] text-accent">
+            Currently
           </p>
-          <div className="mt-8">
-            <a
-              href="mailto:nums.ai.official@gmail.com"
-              className="inline-block rounded-lg px-8 py-3 text-sm font-medium text-white transition-all hover:opacity-90"
-              style={{ background: "var(--accent)" }}
-            >
-              Get in Touch
-            </a>
-          </div>
+          <h2 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+            Stealth
+          </h2>
         </div>
       </div>
     </section>
@@ -408,20 +384,12 @@ function Footer() {
         />
         <div className="flex flex-col gap-4 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
           <p><span className="whitespace-nowrap">Nums AI</span> &copy; 2026</p>
-          <div className="flex gap-6">
-            <a
-              href="mailto:nums.ai.official@gmail.com"
-              className="transition-colors hover:text-foreground"
-            >
-              Contact
-            </a>
-            <a
-              href="#hero"
-              className="transition-colors hover:text-foreground"
-            >
-              Back to Top
-            </a>
-          </div>
+          <a
+            href="#hero"
+            className="transition-colors hover:text-foreground"
+          >
+            Back to Top
+          </a>
         </div>
       </div>
     </footer>
