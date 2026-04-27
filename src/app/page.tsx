@@ -213,7 +213,7 @@ const steps: { num: string; title: string; description: React.ReactNode }[] = [
     num: "03",
     title: "Predict.",
     description:
-      "Ask the question. Get the answer. Yes, 91% probability of repayment. That's the output.",
+      "Ask the question. Get the answer in a single inference pass. Yes, 91% probability of repayment. That's the output.",
   },
 ];
 
