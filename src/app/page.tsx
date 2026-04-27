@@ -391,7 +391,7 @@ function Footer() {
           style={{ background: "rgba(255, 255, 255, 0.06)" }}
         />
         <div className="flex flex-col gap-4 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
-          <p><span className="whitespace-nowrap">Nums AI</span> &copy; 2026</p>
+          <p><span className="whitespace-nowrap">Nums AI Inc.</span> &copy; 2026</p>
           <a
             href="#hero"
             className="transition-colors hover:text-foreground"
