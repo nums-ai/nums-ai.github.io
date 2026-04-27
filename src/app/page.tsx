@@ -289,11 +289,11 @@ const useCases: { industry: string; description?: string }[] = [
   },
   {
     industry: "Manufacturing",
-    description: "Predictions for production and processing.",
+    description: "Which units in production should we inspect?",
   },
   {
     industry: "Defense",
-    description: "Anomaly detection where it matters most.",
+    description: "Which signals are most anomalous?",
   },
 ];
 
