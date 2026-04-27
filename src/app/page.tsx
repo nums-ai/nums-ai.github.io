@@ -135,7 +135,7 @@ const features = [
   {
     title: "One model. Every industry.",
     description:
-      "A single pre-trained model that predicts across commerce, healthcare, finance, manufacturing, and beyond.",
+      "A single pre-trained model that predicts across commerce, healthcare, finance, manufacturing, and defense.",
   },
   {
     title: "The new data engineer.",
