@@ -159,7 +159,7 @@ function Product() {
             Product
           </p>
           <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            LLMs reason in words. LTM reasons in numbers.
+            One pre-trained model. Every table. No pipelines.
           </h2>
         </div>
 
