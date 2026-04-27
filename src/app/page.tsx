@@ -107,7 +107,7 @@ function Hero() {
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
         <p className="animate-fade-up text-sm font-medium uppercase tracking-widest text-accent">
-          Stealth — Nums AI
+          Nums AI
         </p>
         <h1
           className="animate-fade-up delay-100 mt-4 text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl"
