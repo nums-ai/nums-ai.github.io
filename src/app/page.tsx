@@ -271,7 +271,7 @@ function HowItWorks() {
 
 /* ── Use Cases ──────────────────────────────── */
 
-const useCases = [
+const useCases: { industry: string; description?: string }[] = [
   {
     industry: "Commerce",
     description:
@@ -287,6 +287,8 @@ const useCases = [
     description:
       "Is there any fraudulent transaction between user A and user B?",
   },
+  { industry: "Manufacturing" },
+  { industry: "Defense" },
 ];
 
 function UseCases() {
@@ -308,12 +310,12 @@ function UseCases() {
           </h2>
         </div>
 
-        <div className="mt-16 grid gap-4 md:grid-cols-3">
+        <div className="mt-16 grid gap-4 sm:grid-cols-2 md:grid-cols-6">
           {useCases.map((uc, i) => (
             <div
               key={uc.industry}
               data-reveal
-              className={`delay-${(i + 1) * 100} rounded-xl border p-8 transition-all duration-300 hover:-translate-y-1`}
+              className={`delay-${(i + 1) * 100} md:col-span-2 ${i === 3 ? "md:col-start-2" : ""} rounded-xl border p-8 transition-all duration-300 hover:-translate-y-1`}
               style={{
                 background: "var(--card-bg)",
                 borderColor: "var(--card-border)",
@@ -328,9 +330,11 @@ function UseCases() {
               <h3 className="text-lg font-semibold text-foreground">
                 {uc.industry}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted">
-                {uc.description}
-              </p>
+              {uc.description && (
+                <p className="mt-2 text-sm leading-relaxed text-muted">
+                  {uc.description}
+                </p>
+              )}
             </div>
           ))}
         </div>
