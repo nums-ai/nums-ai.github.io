@@ -110,10 +110,10 @@ function Hero() {
           Stealth — Nums AI
         </p>
         <h1
-          className="animate-fade-up delay-100 mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl"
-          style={{ lineHeight: 1.1 }}
+          className="animate-fade-up delay-100 mt-4 text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl"
+          style={{ lineHeight: 1.05 }}
         >
-          The foundation model that understands numbers.
+          The Large Tabular Model.
         </h1>
 
         <p className="animate-fade-up delay-200 mx-auto mt-6 text-lg font-light text-muted sm:text-xl">
