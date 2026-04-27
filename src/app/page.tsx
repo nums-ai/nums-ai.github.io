@@ -70,7 +70,7 @@ function Navbar() {
 
         <div className="hidden items-center gap-8 md:flex">
           {[
-            ["What We Do", "#what-we-do"],
+            ["Product", "#product"],
             ["How It Works", "#how-it-works"],
             ["Use Cases", "#use-cases"],
           ].map(([label, href]) => (
@@ -106,56 +106,64 @@ function Hero() {
       />
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
+        <p className="animate-fade-up text-sm font-medium uppercase tracking-widest text-accent">
+          AI after LLMs
+        </p>
         <h1
-          className="animate-fade-up text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl"
+          className="animate-fade-up delay-100 mt-4 text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl"
           style={{ lineHeight: 1.05 }}
         >
-          All You Need Is Your Spreadsheets
+          The Large Tabular Model
         </h1>
 
         <p className="animate-fade-up delay-200 mx-auto mt-6 text-lg font-light text-muted sm:text-xl">
-          Turn your data into clear decisions.
+          LLMs read text. LTM reads tables — and tells you what to do. No training. No pipelines. Decisions in seconds.
         </p>
       </div>
     </section>
   );
 }
 
-/* ── What We Do ─────────────────────────────── */
+/* ── Product ────────────────────────────────── */
 
 const features = [
   {
-    title: "Decision Making",
+    title: "No Training Required",
     description:
-      "Get specific, data-backed recommendations — not just dashboards.",
+      "In-context learning. Point LTM at your tables and get decisions in seconds — no fine-tuning, no labeled data.",
   },
   {
-    title: "Fast Integration",
+    title: "Built for Numbers",
     description:
-      "Works with spreadsheets, databases, and existing tools. No infrastructure overhaul needed.",
+      "A foundation model that reads tables the way LLMs read text — natively, not by translation.",
+  },
+  {
+    title: "Replaces the ML Stack",
+    description:
+      "Skip the data engineer, data scientist, ML engineer, and DevOps chain. One model. One answer.",
   },
 ];
 
-function WhatWeDo() {
+function Product() {
   const ref = useScrollReveal();
 
   return (
     <section
-      id="what-we-do"
+      id="product"
       ref={ref}
       className="px-6 py-24 sm:py-32"
     >
       <div className="mx-auto max-w-6xl">
         <div className="text-center" data-reveal>
           <p className="text-sm font-medium uppercase tracking-widest text-accent">
-            Capabilities
+            Product
           </p>
           <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            What We Do
+            One Model. Every Table.
           </h2>
         </div>
 
-        <div className="mt-16 grid gap-6 sm:grid-cols-2">
+        <div className="mt-16 grid gap-6 md:grid-cols-3">
           {features.map((f, i) => (
             <div
               key={f.title}
@@ -192,24 +200,18 @@ const steps: { num: string; title: string; description: React.ReactNode }[] = [
   {
     num: "01",
     title: "Connect",
-    description:
-      "Point us to your data. CSV, database, API — we handle it all.",
+    description: "Point LTM at your tables. CSVs, databases, warehouses.",
   },
   {
     num: "02",
-    title: "Analyze",
-    description: (
-      <>
-        Our <span className="whitespace-nowrap">Large Tabular Model</span>{" "}
-        finds patterns humans miss — in minutes.
-      </>
-    ),
+    title: "Understand",
+    description: "LTM reads your data instantly. No fine-tuning. No retraining.",
   },
   {
     num: "03",
-    title: "Act",
+    title: "Decide",
     description:
-      "Know exactly what to do next — backed by your own data.",
+      "Specific, data-backed recommendations. Not dashboards. Not predictions. Decisions.",
   },
 ];
 
@@ -269,28 +271,29 @@ function HowItWorks() {
 
 const useCases = [
   {
-    industry: "E-Commerce",
-    description: "Predict churn, optimize pricing, personalize recommendations",
-  },
-  {
-    industry: "Finance",
-    description: "Credit scoring, fraud detection, portfolio optimization",
-  },
-  {
-    industry: "Manufacturing",
-    description: "Demand forecasting, quality prediction, supply chain",
+    industry: "Commerce",
+    description:
+      "Decide what to recommend, what to charge, and which customers to retain.",
   },
   {
     industry: "Healthcare",
-    description: "Patient risk assessment, resource allocation",
+    description:
+      "Decide which patients need intervention, and where to allocate care.",
   },
   {
-    industry: "Insurance",
-    description: "Claims prediction, pricing optimization",
+    industry: "Finance",
+    description:
+      "Decide which transactions to approve, which to flag, and how to rebalance.",
   },
   {
-    industry: "Logistics",
-    description: "Route optimization, demand planning",
+    industry: "Manufacturing",
+    description:
+      "Decide what to build, what to inspect, and which suppliers to trust.",
+  },
+  {
+    industry: "Defense",
+    description:
+      "Decide which signals matter, which assets to service, and where to look next.",
   },
 ];
 
@@ -403,7 +406,7 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
-      <WhatWeDo />
+      <Product />
       <HowItWorks />
       <UseCases />
       <CTA />
