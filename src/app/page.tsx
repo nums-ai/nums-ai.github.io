@@ -289,11 +289,11 @@ const useCases: { industry: string; description?: string }[] = [
   },
   {
     industry: "Manufacturing",
-    description: "Which units in production should we inspect?",
+    description: "Which units off the line in the next shift will fail QA?",
   },
   {
     industry: "Defense",
-    description: "Which signals are most anomalous?",
+    description: "Which radar tracks in the last hour deviate from baseline patterns?",
   },
 ];
 
@@ -316,7 +316,7 @@ function UseCases() {
           </h2>
         </div>
 
-        <div className="mt-16 grid gap-4 sm:grid-cols-2 md:grid-cols-6">
+        <div className="mt-16 grid gap-4 md:grid-cols-6">
           {useCases.map((uc, i) => (
             <div
               key={uc.industry}
