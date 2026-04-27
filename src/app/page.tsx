@@ -159,7 +159,7 @@ function Product() {
             Product
           </p>
           <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            LTM. Large Tabular Model.
+            LLMs reason in words. LTM reasons in numbers.
           </h2>
         </div>
 
