@@ -383,7 +383,7 @@ function CTA() {
           </p>
           <div className="mt-8">
             <a
-              href="mailto:hello@nums.world"
+              href="mailto:nums.ai.official@gmail.com"
               className="inline-block rounded-lg px-8 py-3 text-sm font-medium text-white transition-all hover:opacity-90"
               style={{ background: "var(--accent)" }}
             >
@@ -410,7 +410,7 @@ function Footer() {
           <p><span className="whitespace-nowrap">Nums AI</span> &copy; 2026</p>
           <div className="flex gap-6">
             <a
-              href="mailto:hello@nums.world"
+              href="mailto:nums.ai.official@gmail.com"
               className="transition-colors hover:text-foreground"
             >
               Contact
