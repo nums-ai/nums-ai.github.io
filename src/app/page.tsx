@@ -287,8 +287,14 @@ const useCases: { industry: string; description?: string }[] = [
     description:
       "Is there any fraudulent transaction between user A and user B?",
   },
-  { industry: "Manufacturing" },
-  { industry: "Defense" },
+  {
+    industry: "Manufacturing",
+    description: "Predictions for production and processing.",
+  },
+  {
+    industry: "Defense",
+    description: "Anomaly detection where it matters most.",
+  },
 ];
 
 function UseCases() {
