@@ -117,7 +117,7 @@ function Hero() {
         </h1>
 
         <p className="animate-fade-up delay-200 mx-auto mt-6 text-lg font-light text-muted sm:text-xl">
-          LLMs reason in words. LTM reasons in numbers. A pre-trained model that predicts across every industry.
+          A pre-trained model that predicts across every industry — in a single inference pass.
         </p>
       </div>
     </section>
@@ -128,7 +128,7 @@ function Hero() {
 
 const features = [
   {
-    title: "Reasons in numbers.",
+    title: "Numerical reasoning.",
     description:
       "LTM sees the patterns of numbers and fills in the missing values. It answers predictive questions that LLMs cannot.",
   },
@@ -138,7 +138,7 @@ const features = [
       "A single pre-trained model that predicts across commerce, healthcare, finance, manufacturing, and defense.",
   },
   {
-    title: "The new data engineer.",
+    title: "The first scalable numerical model.",
     description:
       "Typical ML projects take 3 to 9 months. LTM takes seconds. From raw data to predictions.",
   },
@@ -207,7 +207,7 @@ const steps: { num: string; title: string; description: React.ReactNode }[] = [
     num: "02",
     title: "In-context learning.",
     description:
-      "LTM reads the patterns of your numbers the way LLMs read text — pre-trained once, adapted in-context to your domain.",
+      "LTM reads the patterns of your numbers. Pre-trained once, adapted in-context to your domain.",
   },
   {
     num: "03",
@@ -287,16 +287,6 @@ const useCases = [
     description:
       "Is there any fraudulent transaction between user A and user B?",
   },
-  {
-    industry: "Manufacturing",
-    description:
-      "Which units on today's line are most likely to fail QA?",
-  },
-  {
-    industry: "Defense",
-    description:
-      "Which signals in the next 24 hours indicate an anomalous threat?",
-  },
 ];
 
 function UseCases() {
@@ -318,12 +308,12 @@ function UseCases() {
           </h2>
         </div>
 
-        <div className="mt-16 grid gap-4 sm:grid-cols-2 md:grid-cols-6">
+        <div className="mt-16 grid gap-4 md:grid-cols-3">
           {useCases.map((uc, i) => (
             <div
               key={uc.industry}
               data-reveal
-              className={`delay-${(i + 1) * 100} md:col-span-2 ${i === 3 ? "md:col-start-2" : ""} rounded-xl border p-8 transition-all duration-300 hover:-translate-y-1`}
+              className={`delay-${(i + 1) * 100} rounded-xl border p-8 transition-all duration-300 hover:-translate-y-1`}
               style={{
                 background: "var(--card-bg)",
                 borderColor: "var(--card-border)",

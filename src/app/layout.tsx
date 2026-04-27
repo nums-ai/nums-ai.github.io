@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Nums AI — The Large Tabular Model",
     description:
-      "LLMs reason in words. LTM reasons in numbers. The ChatGPT moment for prediction hasn't happened yet — we're building it.",
+      "A pre-trained model that predicts across every industry. The ChatGPT moment for prediction hasn't happened yet — we're building it.",
     type: "website",
     siteName: "Nums AI",
   },
