@@ -107,17 +107,17 @@ function Hero() {
 
       <div className="relative z-10 mx-auto max-w-4xl text-center">
         <p className="animate-fade-up text-sm font-medium uppercase tracking-widest text-accent">
-          AI after LLMs
+          Stealth — Nums AI
         </p>
         <h1
-          className="animate-fade-up delay-100 mt-4 text-4xl font-bold tracking-tight text-white sm:text-6xl lg:text-7xl"
-          style={{ lineHeight: 1.05 }}
+          className="animate-fade-up delay-100 mt-4 text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl"
+          style={{ lineHeight: 1.1 }}
         >
-          The Large Tabular Model
+          The foundation model that understands numbers.
         </h1>
 
         <p className="animate-fade-up delay-200 mx-auto mt-6 text-lg font-light text-muted sm:text-xl">
-          LLMs read text. LTM reads tables — and tells you what to do. No training. No pipelines. Decisions in seconds.
+          LLMs transformed how we code, search, write, learn, and everything. Numbers are next. We&apos;re building LTM — a Large Tabular Model that predicts across industries.
         </p>
       </div>
     </section>
@@ -128,19 +128,19 @@ function Hero() {
 
 const features = [
   {
-    title: "No Training Required",
+    title: "Reasons in numbers.",
     description:
-      "In-context learning. Point LTM at your tables and get decisions in seconds — no fine-tuning, no labeled data.",
+      "LTM sees the patterns of numbers and fills in the missing values. It answers predictive questions that LLMs cannot.",
   },
   {
-    title: "Built for Numbers",
+    title: "One model. Every industry.",
     description:
-      "A foundation model that reads tables the way LLMs read text — natively, not by translation.",
+      "A single pre-trained model that predicts across industries: commerce, healthcare, finance, manufacturing, and beyond. Numbers are the global language.",
   },
   {
-    title: "Replaces the ML Stack",
+    title: "The new data engineer.",
     description:
-      "Skip the data engineer, data scientist, ML engineer, and DevOps chain. One model. One answer.",
+      "Typical ML projects take 3 to 9 months. With LTM, it takes only seconds. From raw data to predictions.",
   },
 ];
 
@@ -159,7 +159,7 @@ function Product() {
             Product
           </p>
           <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            One Model. Every Table.
+            LTM. Large Tabular Model.
           </h2>
         </div>
 
@@ -199,19 +199,21 @@ function Product() {
 const steps: { num: string; title: string; description: React.ReactNode }[] = [
   {
     num: "01",
-    title: "Connect",
-    description: "Point LTM at your tables. CSVs, databases, warehouses.",
+    title: "Bring your table.",
+    description:
+      "Point LTM at any tabular dataset. No feature engineering, no training pipeline, no months of ML work.",
   },
   {
     num: "02",
-    title: "Understand",
-    description: "LTM reads your data instantly. No fine-tuning. No retraining.",
+    title: "In-context learning.",
+    description:
+      "LTM reads the patterns of your numbers the way LLMs read text — pre-trained once, adapted in-context to your domain.",
   },
   {
     num: "03",
-    title: "Decide",
+    title: "Predict.",
     description:
-      "Specific, data-backed recommendations. Not dashboards. Not predictions. Decisions.",
+      "Ask the question. Get the answer. Yes, 91% probability of repayment. That's the output.",
   },
 ];
 
@@ -273,27 +275,27 @@ const useCases = [
   {
     industry: "Commerce",
     description:
-      "Decide what to recommend, what to charge, and which customers to retain.",
+      "Which price and release date would maximize profit over the next month?",
   },
   {
     industry: "Healthcare",
     description:
-      "Decide which patients need intervention, and where to allocate care.",
+      "Among ICU admissions, how many patients will be discharged within 3 days?",
   },
   {
     industry: "Finance",
     description:
-      "Decide which transactions to approve, which to flag, and how to rebalance.",
+      "Is there any fraudulent transaction between user A and user B?",
   },
   {
     industry: "Manufacturing",
     description:
-      "Decide what to build, what to inspect, and which suppliers to trust.",
+      "Which units on today's line are most likely to fail QA?",
   },
   {
     industry: "Defense",
     description:
-      "Decide which signals matter, which assets to service, and where to look next.",
+      "Which signals in the next 24 hours indicate an anomalous threat?",
   },
 ];
 
@@ -309,10 +311,10 @@ function UseCases() {
       <div className="mx-auto max-w-6xl">
         <div className="text-center" data-reveal>
           <p className="text-sm font-medium uppercase tracking-widest text-accent">
-            Industries
+            Use Cases
           </p>
           <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            Use Cases
+            Numbers are the language of the world.
           </h2>
         </div>
 
@@ -364,10 +366,13 @@ function CTA() {
           }}
         >
           <p className="text-sm font-medium uppercase tracking-[0.3em] text-accent">
-            Currently
+            Currently in stealth
           </p>
-          <h2 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-            Stealth
+          <h2
+            className="mt-4 text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl"
+            style={{ lineHeight: 1.2 }}
+          >
+            The ChatGPT moment for prediction hasn&apos;t happened yet. We&apos;re building it.
           </h2>
         </div>
       </div>

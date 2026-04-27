@@ -13,22 +13,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nums AI — The Large Tabular Model",
+  title: "Nums AI — The foundation model that understands numbers",
   description:
-    "LTM (Large Tabular Model) is a foundation model for tabular data. In-context learning. No training, no pipelines. Decisions in seconds.",
+    "Nums AI is building LTM (Large Tabular Model), a foundation model that predicts across industries — commerce, healthcare, finance, manufacturing, and defense. The ChatGPT moment for prediction hasn't happened yet. We're building it.",
   keywords: [
-    "AI",
-    "large tabular model",
+    "Nums AI",
     "LTM",
+    "Large Tabular Model",
     "foundation model",
     "tabular AI",
+    "tabular foundation model",
+    "prediction",
     "in-context learning",
-    "decision making",
   ],
   openGraph: {
-    title: "Nums AI — The Large Tabular Model",
+    title: "Nums AI — The foundation model that understands numbers",
     description:
-      "LLMs read text. LTM reads tables. A foundation model for tabular data — no training, no pipelines, decisions in seconds.",
+      "LLMs reason in words. LTM reasons in numbers. The ChatGPT moment for prediction hasn't happened yet — we're building it.",
     type: "website",
     siteName: "Nums AI",
   },
