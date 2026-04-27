@@ -318,12 +318,12 @@ function UseCases() {
           </h2>
         </div>
 
-        <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
           {useCases.map((uc, i) => (
             <div
               key={uc.industry}
               data-reveal
-              className={`delay-${(i + 1) * 100} rounded-xl border p-8 transition-all duration-300 hover:-translate-y-1`}
+              className={`delay-${(i + 1) * 100} lg:col-span-2 ${i === 3 ? "lg:col-start-2" : ""} rounded-xl border p-8 transition-all duration-300 hover:-translate-y-1`}
               style={{
                 background: "var(--card-bg)",
                 borderColor: "var(--card-border)",
