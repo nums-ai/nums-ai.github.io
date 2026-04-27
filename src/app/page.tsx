@@ -117,7 +117,7 @@ function Hero() {
         </h1>
 
         <p className="animate-fade-up delay-200 mx-auto mt-6 text-lg font-light text-muted sm:text-xl">
-          LLMs transformed how we code, search, write, learn, and everything. Numbers are next. We&apos;re building LTM — a Large Tabular Model that predicts across industries.
+          LLMs reason in words. LTM reasons in numbers. A pre-trained model that predicts across every industry.
         </p>
       </div>
     </section>
@@ -135,12 +135,12 @@ const features = [
   {
     title: "One model. Every industry.",
     description:
-      "A single pre-trained model that predicts across industries: commerce, healthcare, finance, manufacturing, and beyond. Numbers are the global language.",
+      "A single pre-trained model that predicts across commerce, healthcare, finance, manufacturing, and beyond.",
   },
   {
     title: "The new data engineer.",
     description:
-      "Typical ML projects take 3 to 9 months. With LTM, it takes only seconds. From raw data to predictions.",
+      "Typical ML projects take 3 to 9 months. LTM takes seconds. From raw data to predictions.",
   },
 ];
 
@@ -232,7 +232,7 @@ function HowItWorks() {
             Process
           </p>
           <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-            How It Works
+            How it works.
           </h2>
         </div>
 
@@ -242,7 +242,7 @@ function HowItWorks() {
               {/* Connecting line */}
               {i < steps.length - 1 && (
                 <div
-                  className="absolute right-0 top-10 hidden h-px w-full translate-x-1/2 md:block"
+                  className="absolute right-0 top-14 hidden h-px w-full translate-x-1/2 md:block"
                   style={{ background: "var(--card-border)" }}
                 />
               )}
@@ -254,7 +254,7 @@ function HowItWorks() {
                 >
                   {s.num}
                 </span>
-                <h3 className="mt-4 text-xl font-semibold text-foreground">
+                <h3 className="mt-4 text-lg font-semibold text-foreground">
                   {s.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted">
@@ -318,12 +318,12 @@ function UseCases() {
           </h2>
         </div>
 
-        <div className="mt-16 grid gap-4 sm:grid-cols-2 lg:grid-cols-6">
+        <div className="mt-16 grid gap-4 sm:grid-cols-2 md:grid-cols-6">
           {useCases.map((uc, i) => (
             <div
               key={uc.industry}
               data-reveal
-              className={`delay-${(i + 1) * 100} lg:col-span-2 ${i === 3 ? "lg:col-start-2" : ""} rounded-xl border p-8 transition-all duration-300 hover:-translate-y-1`}
+              className={`delay-${(i + 1) * 100} md:col-span-2 ${i === 3 ? "md:col-start-2" : ""} rounded-xl border p-8 transition-all duration-300 hover:-translate-y-1`}
               style={{
                 background: "var(--card-bg)",
                 borderColor: "var(--card-border)",
@@ -335,7 +335,7 @@ function UseCases() {
                 (e.currentTarget.style.borderColor = "var(--card-border)")
               }
             >
-              <h3 className="text-base font-semibold text-foreground">
+              <h3 className="text-lg font-semibold text-foreground">
                 {uc.industry}
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-muted">

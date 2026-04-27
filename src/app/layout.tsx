@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Nums AI — The Large Tabular Model",
   description:
-    "Nums AI is building LTM (Large Tabular Model), a foundation model that predicts across industries — commerce, healthcare, finance, manufacturing, and defense. The ChatGPT moment for prediction hasn't happened yet. We're building it.",
+    "Nums AI is building LTM — one pre-trained model that predicts across commerce, healthcare, finance, manufacturing, and defense. The ChatGPT moment for prediction hasn't happened yet. We're building it.",
   keywords: [
     "Nums AI",
     "LTM",
