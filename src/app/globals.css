@@ -106,6 +106,10 @@ table.uc-table{width:100%;border-collapse:collapse;font-family:var(--mono);font-
 .contact-card .ind{font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
 .contact-card h3{margin-top:12px;font-weight:700;font-size:clamp(19px,2vw,24px);letter-spacing:-0.02em;color:var(--ink)}
 .contact-card p{margin-top:12px;font-size:15px;line-height:1.6;color:var(--muted)}
+.contact-card-link{display:block;position:relative;padding-right:48px;transition:border-color .2s}
+.contact-card-link::after{content:"↗";position:absolute;top:18px;right:0;font-size:20px;line-height:1;color:var(--muted);transition:transform .2s,color .2s}
+.contact-card-link:hover{border-color:var(--muted)}
+.contact-card-link:hover::after{color:var(--ink);transform:translate(2px,-2px)}
 .mail{display:inline-block;margin-top:18px;font-family:var(--mono);font-size:clamp(15px,1.6vw,18px);letter-spacing:-0.01em;color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:3px;transition:border-color .3s}
 .mail:hover{border-color:var(--ink)}
 /* footer */

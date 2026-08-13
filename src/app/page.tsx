@@ -184,6 +184,7 @@ export default function Home() {
           <a href="#what">What it does</a>
           <a href="#use">Use cases</a>
           <a href="#contact">Contact</a>
+          <a href="/careers/">Careers</a>
         </div>
         <button
           className="menu-btn"
@@ -229,6 +230,9 @@ export default function Home() {
           </a>
           <a className="overlay-link" href="#contact">
             Contact
+          </a>
+          <a className="overlay-link" href="/careers/">
+            Careers
           </a>
         </nav>
       </div>
@@ -608,14 +612,14 @@ export default function Home() {
                 can do.
               </p>
             </div>
-            <div className="contact-card reveal">
+            <a className="contact-card contact-card-link reveal" href="/careers/">
               <span className="ind">Careers</span>
               <p>
                 We&apos;re looking for researchers and engineers who want to shape
                 a foundation model for the world&apos;s tables. Tell us what
                 you&apos;d build.
               </p>
-            </div>
+            </a>
           </div>
         </div>
       </section>

@@ -1,0 +1,215 @@
+.nav{
+  position:fixed;
+}
+
+.homeLink{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  font-size:14px;
+  color:var(--muted);
+  transition:color .2s;
+}
+
+.homeLink:hover{color:var(--ink)}
+
+.page{
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 clamp(20px,5vw,56px);
+}
+
+.hero{
+  min-height:min(640px,76vh);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:clamp(110px,14vh,150px) 0 clamp(60px,8vh,84px);
+  border-bottom:1px solid var(--line);
+}
+
+.kicker,.indexLabel{
+  font-family:var(--mono);
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+
+.hero h1{
+  max-width:920px;
+  margin-top:26px;
+  font-size:clamp(42px,6.2vw,76px);
+  line-height:1.08;
+  letter-spacing:-.045em;
+  word-break:keep-all;
+}
+
+.heroLead{
+  max-width:610px;
+  margin-top:28px;
+  font-size:clamp(17px,1.7vw,20px);
+  line-height:1.7;
+  color:var(--muted);
+  word-break:keep-all;
+}
+
+.primaryCta{
+  align-self:flex-start;
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  margin-top:34px;
+  padding:13px 21px;
+  border-radius:100px;
+  background:var(--ink);
+  color:var(--bg);
+  font-size:15px;
+  font-weight:700;
+  transition:transform .2s;
+}
+
+.primaryCta:hover{transform:translateY(-2px)}
+
+.contentGrid{
+  display:grid;
+  grid-template-columns:minmax(210px,280px) minmax(0,1fr);
+  gap:clamp(48px,8vw,110px);
+  padding:clamp(60px,8vh,90px) 0;
+}
+
+.index{
+  align-self:start;
+  position:sticky;
+  top:104px;
+}
+
+.index ol{
+  list-style:none;
+  margin-top:20px;
+  border-top:1px solid var(--line);
+}
+
+.index li{border-bottom:1px solid var(--line2)}
+
+.index a{
+  display:grid;
+  grid-template-columns:28px 1fr;
+  gap:10px;
+  padding:13px 0;
+  font-size:12px;
+  line-height:1.35;
+  color:var(--muted);
+  transition:color .2s;
+}
+
+.index a:hover{color:var(--ink)}
+.index a span{font-family:var(--mono);color:var(--faint)}
+.roleOutlineItem a{padding-left:12px}
+
+.article{min-width:0}
+
+.section{
+  scroll-margin-top:100px;
+  padding:0 0 clamp(60px,8vh,84px);
+  margin-bottom:clamp(60px,8vh,84px);
+  border-bottom:1px solid var(--line);
+}
+
+.section:last-child{margin-bottom:0;border-bottom:0}
+
+.section h2{
+  max-width:740px;
+  margin-top:15px;
+  font-size:clamp(26px,3vw,38px);
+  line-height:1.1;
+  letter-spacing:-.035em;
+  word-break:keep-all;
+}
+
+.prose,.roleIntroduction,.closingParagraph{
+  max-width:740px;
+  font-size:15px;
+  line-height:1.9;
+  color:var(--muted);
+  word-break:keep-all;
+}
+
+.prose{margin-top:26px}
+.prose p+p{margin-top:18px}
+.roleIntroduction{margin-top:22px}
+.closingParagraph{margin-top:22px}
+
+.requirementBlock{margin-top:36px}
+
+.requirementBlock h3{
+  font-size:18px;
+  line-height:1.4;
+  letter-spacing:-.015em;
+}
+
+.list{
+  list-style:none;
+  max-width:740px;
+  margin-top:20px;
+}
+
+.list li{
+  position:relative;
+  padding:4px 0 4px 22px;
+  font-size:16px;
+  line-height:1.7;
+  color:var(--muted);
+  word-break:keep-all;
+}
+
+.list li::before{
+  content:"";
+  position:absolute;
+  top:15px;
+  left:2px;
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:var(--ink);
+}
+
+.textLink{
+  display:inline-flex;
+  gap:8px;
+  margin-top:24px;
+  padding-bottom:3px;
+  border-bottom:1px solid var(--line);
+  font-size:14px;
+  font-weight:700;
+}
+
+.applicationCta{
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+  margin-top:34px;
+  font-family:var(--mono);
+  font-size:14px;
+  padding-bottom:4px;
+  border-bottom:1px solid var(--ink);
+}
+
+.footer{margin-top:0}
+
+@media (max-width:800px){
+  .hero{min-height:auto}
+  .contentGrid{grid-template-columns:1fr;gap:70px}
+  .index{position:static}
+  .index a{grid-template-columns:32px 1fr;font-size:13px}
+}
+
+@media (max-width:560px){
+  .nav{padding-top:15px;padding-bottom:15px}
+  .homeLink{font-size:13px}
+  .hero h1{font-size:clamp(36px,11vw,48px)}
+  .heroLead{font-size:16px}
+  .section h2{font-size:clamp(25px,7.5vw,32px)}
+  .prose,.roleIntroduction,.closingParagraph{font-size:15px;line-height:1.82}
+}
