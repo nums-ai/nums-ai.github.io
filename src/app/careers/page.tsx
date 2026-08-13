@@ -106,11 +106,7 @@ export default function CareersPage() {
       <main className={styles.page} lang="ko">
         <header className={styles.hero}>
           <span className={styles.kicker}>Careers / Nums AI</span>
-          <h1>
-            Build the future of
-            <br />
-            prediction with us.
-          </h1>
+          <h1>Build the future of prediction.</h1>
           <p className={styles.heroLead}>
             Join our first team expansion as we build a foundation model for
             tables and numbers.

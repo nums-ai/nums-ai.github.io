@@ -37,20 +37,33 @@
   color:var(--muted);
 }
 
+.kicker{
+  align-self:flex-start;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+
+.kicker::before{
+  content:"";
+  width:22px;
+  height:1px;
+  background:var(--muted);
+  opacity:.7;
+}
+
 .hero h1{
-  max-width:920px;
   margin-top:26px;
-  font-size:clamp(42px,6.2vw,76px);
-  line-height:1.08;
-  letter-spacing:-.045em;
+  font-size:clamp(38px,5.2vw,68px);
+  line-height:1.02;
+  letter-spacing:-.03em;
   word-break:keep-all;
 }
 
 .heroLead{
-  max-width:610px;
-  margin-top:28px;
-  font-size:clamp(17px,1.7vw,20px);
-  line-height:1.7;
+  margin-top:22px;
+  font-size:clamp(16px,1.6vw,19px);
+  line-height:1.55;
   color:var(--muted);
   word-break:keep-all;
 }
@@ -60,17 +73,17 @@
   display:inline-flex;
   align-items:center;
   gap:12px;
-  margin-top:34px;
-  padding:13px 21px;
+  margin-top:30px;
+  padding:13px 22px;
   border-radius:100px;
   background:var(--ink);
   color:var(--bg);
   font-size:15px;
-  font-weight:700;
+  font-weight:600;
   transition:transform .2s;
 }
 
-.primaryCta:hover{transform:translateY(-2px)}
+.primaryCta:hover{transform:translateY(-1px)}
 
 .contentGrid{
   display:grid;
@@ -98,7 +111,7 @@
   grid-template-columns:28px 1fr;
   gap:10px;
   padding:13px 0;
-  font-size:12px;
+  font-size:13px;
   line-height:1.35;
   color:var(--muted);
   transition:color .2s;
@@ -121,17 +134,16 @@
 
 .section h2{
   max-width:740px;
-  margin-top:15px;
   font-size:clamp(26px,3vw,38px);
-  line-height:1.1;
-  letter-spacing:-.035em;
+  line-height:1.06;
+  letter-spacing:-.028em;
   word-break:keep-all;
 }
 
 .prose,.roleIntroduction,.closingParagraph{
   max-width:740px;
   font-size:15px;
-  line-height:1.9;
+  line-height:1.6;
   color:var(--muted);
   word-break:keep-all;
 }
@@ -158,8 +170,8 @@
 .list li{
   position:relative;
   padding:4px 0 4px 22px;
-  font-size:16px;
-  line-height:1.7;
+  font-size:14px;
+  line-height:1.6;
   color:var(--muted);
   word-break:keep-all;
 }
@@ -167,7 +179,7 @@
 .list li::before{
   content:"";
   position:absolute;
-  top:15px;
+  top:14px;
   left:2px;
   width:5px;
   height:5px;
@@ -208,8 +220,5 @@
 @media (max-width:560px){
   .nav{padding-top:15px;padding-bottom:15px}
   .homeLink{font-size:13px}
-  .hero h1{font-size:clamp(36px,11vw,48px)}
   .heroLead{font-size:16px}
-  .section h2{font-size:clamp(25px,7.5vw,32px)}
-  .prose,.roleIntroduction,.closingParagraph{font-size:15px;line-height:1.82}
 }
