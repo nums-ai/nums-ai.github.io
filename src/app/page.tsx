@@ -183,8 +183,8 @@ export default function Home() {
           <a href="#why">Why numbers</a>
           <a href="#what">What it does</a>
           <a href="#use">Use cases</a>
-          <a href="#contact">Contact</a>
           <a href="/careers/">Careers</a>
+          <a href="#contact">Contact</a>
         </div>
         <button
           className="menu-btn"
@@ -228,11 +228,11 @@ export default function Home() {
           <a className="overlay-link" href="#use">
             Use cases
           </a>
-          <a className="overlay-link" href="#contact">
-            Contact
-          </a>
           <a className="overlay-link" href="/careers/">
             Careers
+          </a>
+          <a className="overlay-link" href="#contact">
+            Contact
           </a>
         </nav>
       </div>
