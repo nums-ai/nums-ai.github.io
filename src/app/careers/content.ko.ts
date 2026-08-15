@@ -1,7 +1,7 @@
-// Edit this file to change the Careers page copy.
-// Page structure and styling live in page.tsx and careers.module.css.
+// Original Korean Careers page copy.
+// Page structure and styling live in [[...locale]]/page.tsx and careers.module.css.
 
-export const careersContent = {
+export const careersContentKo = {
   metadata: {
     title: "Careers — Nums AI",
     description:

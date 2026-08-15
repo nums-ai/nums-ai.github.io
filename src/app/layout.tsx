@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="js">
+    <html lang="en" className="js" data-scroll-behavior="smooth">
       <body>
         <noscript>
           <style>{`.reveal{opacity:1!important;transform:none!important}.feat .feat-icon{opacity:1!important;transform:none!important}.uc .uc-table .pred{opacity:1!important}.why-viz .link{stroke-dashoffset:0!important}`}</style>
