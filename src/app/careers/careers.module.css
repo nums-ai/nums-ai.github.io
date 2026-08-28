@@ -1,5 +1,7 @@
 .nav{
   position:fixed;
+  height:60px;
+  padding-block:7px;
 }
 
 .navActions{
@@ -21,11 +23,11 @@
   display:flex;
   align-items:center;
   justify-content:center;
-  min-height:29px;
-  padding:0 11px;
+  min-height:36px;
+  padding:0 14px;
   border-radius:100px;
   font-family:var(--mono);
-  font-size:10px;
+  font-size:11px;
   font-weight:600;
   letter-spacing:.06em;
   color:var(--muted);
@@ -256,10 +258,12 @@
   .index a{grid-template-columns:32px 1fr;font-size:13px}
 }
 
+@media (max-width:860px){
+  .nav{height:77px;padding-block:15px}
+}
+
 @media (max-width:560px){
-  .nav{padding-top:15px;padding-bottom:15px}
   .navActions{gap:10px}
   .homeLink{display:none}
-  .languageToggle a{min-height:27px;padding:0 9px;font-size:9px}
   .heroLead{font-size:16px}
 }
