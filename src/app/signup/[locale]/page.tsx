@@ -9,7 +9,7 @@ import { signupContentKo } from "../content.ko";
 // Intake service from the causilo-serve repository, `signup/`.
 // It validates the request, stores it, and emails a one-time link to the key.
 const SIGNUP_ENDPOINT =
-  "https://radix-signup-43947296796.asia-southeast1.run.app/signup";
+  "https://causilo-signup-43947296796.asia-southeast1.run.app/signup";
 
 const contentByLocale = {
   en: signupContentEn,
