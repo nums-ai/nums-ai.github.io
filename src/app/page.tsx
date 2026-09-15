@@ -2,6 +2,19 @@
 
 import { useEffect } from "react";
 
+const INSTALL_SNIPPET = "$ pip install causilo-client";
+
+const PREDICT_SNIPPET = `import os
+from causilo_client import Causilo
+
+client = Causilo(
+    os.environ["CAUSILO_ENDPOINT"],
+    token=os.environ["CAUSILO_API_KEY"],
+)
+pred = client.predict(
+    context_df, query_df, target="churned", model="causilo-clf"
+)`;
+
 export default function Home() {
   useEffect(() => {
     /* ---- mobile menu overlay ---- */
@@ -183,6 +196,7 @@ export default function Home() {
           <a href="#why">Why numbers</a>
           <a href="#what">What it does</a>
           <a href="#use">Use cases</a>
+          <a href="#api">API</a>
           <a href="/careers/">Careers</a>
           <a href="#contact">Contact</a>
         </div>
@@ -227,6 +241,9 @@ export default function Home() {
           </a>
           <a className="overlay-link" href="#use">
             Use cases
+          </a>
+          <a className="overlay-link" href="#api">
+            API
           </a>
           <a className="overlay-link" href="/careers/">
             Careers
@@ -585,6 +602,71 @@ export default function Home() {
                     </tr>
                   </tbody>
                 </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="sec" id="api">
+        <div className="wrap">
+          <span className="eyebrow reveal">API</span>
+          <h2 className="reveal">
+            Send two tables.
+            <br />
+            Get predictions back.
+          </h2>
+          <p className="lead reveal">
+            Causilo, our tabular foundation model, is available as a hosted
+            inference API. You send one table where the answer column is
+            filled in and one where it is empty, and the model fills in the
+            empty column. The Python client handles the exchange, so a first
+            prediction is a package install and a few lines of code away.
+          </p>
+          <div className="api-grid">
+            <div className="api-code reveal">
+              <pre className="code">
+                <code>{INSTALL_SNIPPET}</code>
+              </pre>
+              <pre className="code">
+                <code>{PREDICT_SNIPPET}</code>
+              </pre>
+              <p className="api-note">
+                <code>context_df</code> holds the rows with known answers and{" "}
+                <code>query_df</code> the rows you want answered. The result is
+                one prediction per query row.
+              </p>
+            </div>
+            <div className="api-side reveal">
+              <span className="ind">Free tier</span>
+              <table className="tier-table">
+                <tbody>
+                  <tr>
+                    <th scope="row">Cells per month</th>
+                    <td>25,000,000</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Cells per day</th>
+                    <td>6,250,000</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Requests per minute</th>
+                    <td>60</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p>
+                Sign up with an email address and we send a link to your key.
+                Commercial use beyond the free tier is by agreement; write to{" "}
+                <a href="mailto:contact@nums.world">contact@nums.world</a>.
+              </p>
+              <div className="api-links">
+                <a className="api-link" href="/signup/">
+                  Get an API key <span aria-hidden="true">↗</span>
+                </a>
+                <a className="api-link" href="/docs/causilo-api/">
+                  Read the guide <span aria-hidden="true">↗</span>
+                </a>
               </div>
             </div>
           </div>
