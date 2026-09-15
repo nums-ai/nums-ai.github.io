@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Usage, limits and cancellation · Causilo API</title>
+<style>
+:root{--ink:#131426;--muted:#66677a;--line:#e8e8ef;--accent:#4938c9;--paper:#fff;--code-bg:#f6f6fa}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Geist,Inter,system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.7}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+.top{height:62px;display:flex;align-items:center;gap:12px;padding:0 24px;border-bottom:1px solid var(--line);font-weight:650}
+.top .sep{color:var(--muted);font-weight:400}
+main{max-width:690px;margin:0 auto;padding:36px 20px 80px}
+h1{font-size:28px;line-height:1.25;letter-spacing:-.01em;margin:0 0 6px}
+h2{font-size:18px;margin:38px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+p{margin:0 0 14px}
+.lead{color:var(--muted);margin-bottom:26px}
+pre{margin:0 0 18px;padding:14px 16px;border:1px solid var(--line);border-radius:6px;background:var(--code-bg);overflow-x:auto;font-size:13px;line-height:1.55}
+code,pre{font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+p code{background:var(--code-bg);padding:1px 5px;border-radius:4px;font-size:13px}
+.out{border-left:3px solid var(--accent)}
+.label{font-size:12px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;margin:0 0 6px}
+ol.toc{padding-left:22px}ol.toc li{margin-bottom:14px}ol.toc small{display:block;color:var(--muted)}
+.foot{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media (max-width:760px){main{padding:24px 16px 60px}h1{font-size:24px}}
+pre { line-height: 125%; }
+td.linenos .normal { color: #666666; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: #666666; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.hl .hll { background-color: #ffffcc }
+.hl { background: #f0f0f0; }
+.hl .c { color: #60A0B0; font-style: italic } /* Comment */
+.hl .err { border: 1px solid #F00 } /* Error */
+.hl .k { color: #007020; font-weight: bold } /* Keyword */
+.hl .o { color: #666 } /* Operator */
+.hl .ch { color: #60A0B0; font-style: italic } /* Comment.Hashbang */
+.hl .cm { color: #60A0B0; font-style: italic } /* Comment.Multiline */
+.hl .cp { color: #007020 } /* Comment.Preproc */
+.hl .cpf { color: #60A0B0; font-style: italic } /* Comment.PreprocFile */
+.hl .c1 { color: #60A0B0; font-style: italic } /* Comment.Single */
+.hl .cs { color: #60A0B0; background-color: #FFF0F0 } /* Comment.Special */
+.hl .gd { color: #A00000 } /* Generic.Deleted */
+.hl .ge { font-style: italic } /* Generic.Emph */
+.hl .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.hl .gr { color: #F00 } /* Generic.Error */
+.hl .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.hl .gi { color: #00A000 } /* Generic.Inserted */
+.hl .go { color: #888 } /* Generic.Output */
+.hl .gp { color: #C65D09; font-weight: bold } /* Generic.Prompt */
+.hl .gs { font-weight: bold } /* Generic.Strong */
+.hl .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.hl .gt { color: #04D } /* Generic.Traceback */
+.hl .kc { color: #007020; font-weight: bold } /* Keyword.Constant */
+.hl .kd { color: #007020; font-weight: bold } /* Keyword.Declaration */
+.hl .kn { color: #007020; font-weight: bold } /* Keyword.Namespace */
+.hl .kp { color: #007020 } /* Keyword.Pseudo */
+.hl .kr { color: #007020; font-weight: bold } /* Keyword.Reserved */
+.hl .kt { color: #902000 } /* Keyword.Type */
+.hl .m { color: #40A070 } /* Literal.Number */
+.hl .s { color: #4070A0 } /* Literal.String */
+.hl .na { color: #4070A0 } /* Name.Attribute */
+.hl .nb { color: #007020 } /* Name.Builtin */
+.hl .nc { color: #0E84B5; font-weight: bold } /* Name.Class */
+.hl .no { color: #60ADD5 } /* Name.Constant */
+.hl .nd { color: #555; font-weight: bold } /* Name.Decorator */
+.hl .ni { color: #D55537; font-weight: bold } /* Name.Entity */
+.hl .ne { color: #007020 } /* Name.Exception */
+.hl .nf { color: #06287E } /* Name.Function */
+.hl .nl { color: #002070; font-weight: bold } /* Name.Label */
+.hl .nn { color: #0E84B5; font-weight: bold } /* Name.Namespace */
+.hl .nt { color: #062873; font-weight: bold } /* Name.Tag */
+.hl .nv { color: #BB60D5 } /* Name.Variable */
+.hl .ow { color: #007020; font-weight: bold } /* Operator.Word */
+.hl .w { color: #BBB } /* Text.Whitespace */
+.hl .mb { color: #40A070 } /* Literal.Number.Bin */
+.hl .mf { color: #40A070 } /* Literal.Number.Float */
+.hl .mh { color: #40A070 } /* Literal.Number.Hex */
+.hl .mi { color: #40A070 } /* Literal.Number.Integer */
+.hl .mo { color: #40A070 } /* Literal.Number.Oct */
+.hl .sa { color: #4070A0 } /* Literal.String.Affix */
+.hl .sb { color: #4070A0 } /* Literal.String.Backtick */
+.hl .sc { color: #4070A0 } /* Literal.String.Char */
+.hl .dl { color: #4070A0 } /* Literal.String.Delimiter */
+.hl .sd { color: #4070A0; font-style: italic } /* Literal.String.Doc */
+.hl .s2 { color: #4070A0 } /* Literal.String.Double */
+.hl .se { color: #4070A0; font-weight: bold } /* Literal.String.Escape */
+.hl .sh { color: #4070A0 } /* Literal.String.Heredoc */
+.hl .si { color: #70A0D0; font-style: italic } /* Literal.String.Interpol */
+.hl .sx { color: #C65D09 } /* Literal.String.Other */
+.hl .sr { color: #235388 } /* Literal.String.Regex */
+.hl .s1 { color: #4070A0 } /* Literal.String.Single */
+.hl .ss { color: #517918 } /* Literal.String.Symbol */
+.hl .bp { color: #007020 } /* Name.Builtin.Pseudo */
+.hl .fm { color: #06287E } /* Name.Function.Magic */
+.hl .vc { color: #BB60D5 } /* Name.Variable.Class */
+.hl .vg { color: #BB60D5 } /* Name.Variable.Global */
+.hl .vi { color: #BB60D5 } /* Name.Variable.Instance */
+.hl .vm { color: #BB60D5 } /* Name.Variable.Magic */
+.hl .il { color: #40A070 } /* Literal.Number.Integer.Long */</style></head>
+<body><div class="top"><a href="../">Causilo API guide</a><span class="sep">/</span>Usage, limits and cancellation</div>
+<main><h1>Usage, limits and cancellation</h1>
+<div class="lead"><p>Three things the API tells you that are worth reading before you build on it:
+what it will accept, what a call costs, and what happens to the charge when
+you give up on a call.</p>
+<pre><code>pip install -U causilo-client scikit-learn requests
+python usage_limits_and_cancel.py
+</code></pre></div>
+<div class="hl"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">load_diabetes</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">causilo_client</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Causilo</span><span class="p">,</span>
+    <span class="n">RadixError</span><span class="p">,</span>
+    <span class="n">RadixQuotaExceeded</span><span class="p">,</span>
+    <span class="n">RadixRateLimited</span><span class="p">,</span>
+    <span class="n">RadixTimeout</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">ENDPOINT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"CAUSILO_ENDPOINT"</span><span class="p">]</span>
+<span class="n">cx</span> <span class="o">=</span> <span class="n">Causilo</span><span class="p">(</span><span class="n">ENDPOINT</span><span class="p">,</span> <span class="n">token</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"CAUSILO_KEY"</span><span class="p">])</span>
+</pre></div>
+
+<h2>Limits, before you send anything</h2>
+<p>GET /limits needs no key. The numbers are the contract, so a client can
+refuse a table locally rather than uploading it to be told no.</p>
+<div class="hl"><pre><span></span><span class="n">limits</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">ENDPOINT</span><span class="si">}</span><span class="s2">/limits"</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"limits:"</span><span class="p">,</span> <span class="n">limits</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">fits</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="n">query</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">cells</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">context</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">query</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">context</span><span class="p">)</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">query</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">limits</span><span class="p">[</span><span class="s2">"max_rows"</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="s2">"too many rows"</span>
+    <span class="k">if</span> <span class="n">context</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">limits</span><span class="p">[</span><span class="s2">"max_cols"</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="s2">"too many columns"</span>
+    <span class="k">if</span> <span class="n">cells</span> <span class="o">&gt;</span> <span class="n">limits</span><span class="p">[</span><span class="s2">"max_cells"</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="s2">"too many cells"</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">"fits; </span><span class="si">{</span><span class="n">cells</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2"> cells would be charged"</span>
+
+
+<span class="n">big</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3_000_000</span><span class="p">,</span> <span class="mi">5</span><span class="p">)),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s2">"abcde"</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"3,000,000 x 5 table:"</span><span class="p">,</span> <span class="n">fits</span><span class="p">(</span><span class="n">big</span><span class="p">,</span> <span class="n">big</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">10</span><span class="p">]))</span>
+</pre></div>
+
+<h2>What a call costs</h2>
+<p>One cell of the table you sent, context and query together; a 1,000 by 21
+context with a 200 by 20 query is 24,000 cells. The month and the day each
+have a cap, and usage() reads both without spending anything.</p>
+<div class="hl"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">cx</span><span class="o">.</span><span class="n">usage</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="s2">"scopes"</span><span class="p">])[[</span><span class="s2">"scope"</span><span class="p">,</span> <span class="s2">"limit"</span><span class="p">,</span> <span class="s2">"used"</span><span class="p">,</span> <span class="s2">"remaining"</span><span class="p">,</span> <span class="s2">"resets_at"</span><span class="p">]]</span><span class="o">.</span><span class="n">to_string</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+</pre></div>
+
+<p>When a cap is spent the server answers 429 and the client raises
+RadixQuotaExceeded. The exception carries which cap it was, the figures, and
+when it resets, so the calling code can wait for the day to turn rather than
+retry into the same wall. A minute or hour of too many requests is the same
+status code but a different exception, RadixRateLimited; the client has
+already waited out Retry-After three times before it lets that one through.</p>
+<div class="hl"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict_or_wait</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">cx</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="o">**</span><span class="n">kw</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">RadixQuotaExceeded</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">exc</span><span class="o">.</span><span class="n">scope</span><span class="si">}</span><span class="s2"> cap of </span><span class="si">{</span><span class="n">exc</span><span class="o">.</span><span class="n">limit</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2"> cells spent (</span><span class="si">{</span><span class="n">exc</span><span class="o">.</span><span class="n">used</span><span class="si">:</span><span class="s2">,</span><span class="si">}</span><span class="s2"> used); resets at </span><span class="si">{</span><span class="n">exc</span><span class="o">.</span><span class="n">resets_at</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">raise</span>
+    <span class="k">except</span> <span class="n">RadixRateLimited</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"rate limited on the </span><span class="si">{</span><span class="n">exc</span><span class="o">.</span><span class="n">scope</span><span class="si">}</span><span class="s2"> window; resets at </span><span class="si">{</span><span class="n">exc</span><span class="o">.</span><span class="n">resets_at</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+        <span class="k">raise</span>
+</pre></div>
+
+<h2>Input the server refuses</h2>
+<p>Tables travel as Parquet. Datetime, timedelta, Period and decimal columns are
+refused with a message naming the column, rather than being silently turned
+into something the model treats as a number. Split dates into the parts that
+carry meaning for your problem.</p>
+<div class="hl"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">load_diabetes</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">context</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">progression</span><span class="o">=</span><span class="n">d</span><span class="o">.</span><span class="n">target</span><span class="p">)</span>
+<span class="n">query</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span>
+
+<span class="n">visit</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s2">"2024-01-01"</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">context</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="s2">"D"</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">cx</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">context</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">visit</span><span class="o">=</span><span class="n">visit</span><span class="p">),</span> <span class="n">query</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">visit</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s2">"2024-01-01"</span><span class="p">)),</span>
+               <span class="n">target</span><span class="o">=</span><span class="s2">"progression"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"causilo-reg"</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">RadixError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"refused:"</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="s2">"-"</span><span class="p">,</span> <span class="n">exc</span><span class="p">)</span>
+
+<span class="n">context2</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">visit_month</span><span class="o">=</span><span class="n">visit</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">visit_dow</span><span class="o">=</span><span class="n">visit</span><span class="o">.</span><span class="n">dayofweek</span><span class="p">)</span>
+<span class="n">query2</span> <span class="o">=</span> <span class="n">query</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">visit_month</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">visit_dow</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">pred</span> <span class="o">=</span> <span class="n">cx</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">context2</span><span class="p">,</span> <span class="n">query2</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">"progression"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"causilo-reg"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"with the date split into parts:"</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">pred</span><span class="p">),</span> <span class="s2">"predictions"</span><span class="p">)</span>
+</pre></div>
+
+<h2>Giving up on a call</h2>
+<p>The client waits 900 seconds by default. If you set a shorter timeout and it
+expires, the client does not retry: the server is very likely still
+computing, and a retry would be charged for work that completes anyway.
+Instead it tells the server the call was abandoned, and the server refunds
+the cells if it can. RadixTimeout.refunded says how many came back.</p>
+<p>The table below is small on the wire and slow to compute: 60,000 context rows
+take the server about twenty seconds, and the client gives up after five.</p>
+<div class="hl"><pre><span></span><span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">context</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rng</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">60_000</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"f0"</span><span class="p">,</span> <span class="s2">"f1"</span><span class="p">,</span> <span class="s2">"f2"</span><span class="p">])</span>
+<span class="n">context</span><span class="p">[</span><span class="s2">"y"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">context</span><span class="p">[</span><span class="s2">"f0"</span><span class="p">]</span> <span class="o">+</span> <span class="n">context</span><span class="p">[</span><span class="s2">"f1"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">query</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">"y"</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
+
+<span class="n">before</span> <span class="o">=</span> <span class="n">cx</span><span class="o">.</span><span class="n">usage</span><span class="p">()[</span><span class="s2">"used"</span><span class="p">]</span>
+<span class="n">impatient</span> <span class="o">=</span> <span class="n">Causilo</span><span class="p">(</span><span class="n">ENDPOINT</span><span class="p">,</span> <span class="n">token</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"CAUSILO_KEY"</span><span class="p">],</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">impatient</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">"y"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"causilo-clf"</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">RadixTimeout</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"timed out; cells refunded:"</span><span class="p">,</span> <span class="n">exc</span><span class="o">.</span><span class="n">refunded</span><span class="p">)</span>
+<span class="n">after</span> <span class="o">=</span> <span class="n">cx</span><span class="o">.</span><span class="n">usage</span><span class="p">()[</span><span class="s2">"used"</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"cells charged after the refund:"</span><span class="p">,</span> <span class="n">after</span> <span class="o">-</span> <span class="n">before</span><span class="p">)</span>
+</pre></div>
+
+<p>A refund of None means the cancel itself could not be delivered and the
+charge may stand; the message says so. The cancel is tied to the call that
+timed out, so a key that leaks cannot be used to refund anybody else's work.</p>
+<p>Every error, in one place:</p>
+<p>RadixValidationError   400, 415, 422   fix the request; the message names the column or parameter
+  RadixTooLarge          413             the message names a row count that fits; nothing was charged
+  RadixQuotaExceeded     429             wait for resets_at, or ask for a higher cap
+  RadixRateLimited       429             the client already waited; slow the loop down
+  RadixOverloaded        503             retry once the queue drains
+  RadixUnavailable       503             the client already retried three times
+  RadixAuthError         401, 403        check the key
+  RadixTimeout           none            not retried; see above</p>
+<p>Every one carries .status, .error_code and .request_id, the identifier to
+quote when asking us about a call.</p><h2>Output</h2><p class="label">stdout</p><div class="hl out"><pre><span></span>limits: {'models': ['radix-a-clf', 'radix-a-reg', 'causilo-clf', 'causilo-reg'], 'output_types': {'classification': ['probas', 'preds'], 'regression': ['mean', 'median', 'quantiles']}, 'max_request_bytes': 33554432, 'max_response_bytes': 33554432, 'max_rows': 2000000, 'max_cols': 4096, 'max_cells': 200000000, 'max_classes': 64}
+3,000,000 x 5 table: too many rows
+ scope    limit   used  remaining                 resets_at
+caller 25000000 636884   24363116 2026-10-01T00:00:00+00:00
+ daily  6250000 636884    5613116 2026-09-16T00:00:00+00:00
+refused: RadixValidationError - Datetime-like columns are not accepted: visit. Preprocessing drops them without warning. Convert to a number (epoch seconds) or a string. (request 824793499e98cafe)
+with the date split into parts: 20 predictions
+timed out; cells refunded: 180300
+cells charged after the refund: 0
+</pre></div>
+<p class="foot">Run on 2026-09-15 against the live API, image 0.8.17. The output shown is what came back that day.</p></main></body></html>

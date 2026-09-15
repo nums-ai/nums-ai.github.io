@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quickstart · Causilo API</title>
+<style>
+:root{--ink:#131426;--muted:#66677a;--line:#e8e8ef;--accent:#4938c9;--paper:#fff;--code-bg:#f6f6fa}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Geist,Inter,system-ui,-apple-system,sans-serif;font-size:15px;line-height:1.7}
+a{color:var(--accent);text-decoration:none}a:hover{text-decoration:underline}
+.top{height:62px;display:flex;align-items:center;gap:12px;padding:0 24px;border-bottom:1px solid var(--line);font-weight:650}
+.top .sep{color:var(--muted);font-weight:400}
+main{max-width:690px;margin:0 auto;padding:36px 20px 80px}
+h1{font-size:28px;line-height:1.25;letter-spacing:-.01em;margin:0 0 6px}
+h2{font-size:18px;margin:38px 0 10px;padding-top:18px;border-top:1px solid var(--line)}
+p{margin:0 0 14px}
+.lead{color:var(--muted);margin-bottom:26px}
+pre{margin:0 0 18px;padding:14px 16px;border:1px solid var(--line);border-radius:6px;background:var(--code-bg);overflow-x:auto;font-size:13px;line-height:1.55}
+code,pre{font-family:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+p code{background:var(--code-bg);padding:1px 5px;border-radius:4px;font-size:13px}
+.out{border-left:3px solid var(--accent)}
+.label{font-size:12px;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;margin:0 0 6px}
+ol.toc{padding-left:22px}ol.toc li{margin-bottom:14px}ol.toc small{display:block;color:var(--muted)}
+.foot{margin-top:56px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+@media (max-width:760px){main{padding:24px 16px 60px}h1{font-size:24px}}
+pre { line-height: 125%; }
+td.linenos .normal { color: #666666; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: #666666; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.hl .hll { background-color: #ffffcc }
+.hl { background: #f0f0f0; }
+.hl .c { color: #60A0B0; font-style: italic } /* Comment */
+.hl .err { border: 1px solid #F00 } /* Error */
+.hl .k { color: #007020; font-weight: bold } /* Keyword */
+.hl .o { color: #666 } /* Operator */
+.hl .ch { color: #60A0B0; font-style: italic } /* Comment.Hashbang */
+.hl .cm { color: #60A0B0; font-style: italic } /* Comment.Multiline */
+.hl .cp { color: #007020 } /* Comment.Preproc */
+.hl .cpf { color: #60A0B0; font-style: italic } /* Comment.PreprocFile */
+.hl .c1 { color: #60A0B0; font-style: italic } /* Comment.Single */
+.hl .cs { color: #60A0B0; background-color: #FFF0F0 } /* Comment.Special */
+.hl .gd { color: #A00000 } /* Generic.Deleted */
+.hl .ge { font-style: italic } /* Generic.Emph */
+.hl .ges { font-weight: bold; font-style: italic } /* Generic.EmphStrong */
+.hl .gr { color: #F00 } /* Generic.Error */
+.hl .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.hl .gi { color: #00A000 } /* Generic.Inserted */
+.hl .go { color: #888 } /* Generic.Output */
+.hl .gp { color: #C65D09; font-weight: bold } /* Generic.Prompt */
+.hl .gs { font-weight: bold } /* Generic.Strong */
+.hl .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.hl .gt { color: #04D } /* Generic.Traceback */
+.hl .kc { color: #007020; font-weight: bold } /* Keyword.Constant */
+.hl .kd { color: #007020; font-weight: bold } /* Keyword.Declaration */
+.hl .kn { color: #007020; font-weight: bold } /* Keyword.Namespace */
+.hl .kp { color: #007020 } /* Keyword.Pseudo */
+.hl .kr { color: #007020; font-weight: bold } /* Keyword.Reserved */
+.hl .kt { color: #902000 } /* Keyword.Type */
+.hl .m { color: #40A070 } /* Literal.Number */
+.hl .s { color: #4070A0 } /* Literal.String */
+.hl .na { color: #4070A0 } /* Name.Attribute */
+.hl .nb { color: #007020 } /* Name.Builtin */
+.hl .nc { color: #0E84B5; font-weight: bold } /* Name.Class */
+.hl .no { color: #60ADD5 } /* Name.Constant */
+.hl .nd { color: #555; font-weight: bold } /* Name.Decorator */
+.hl .ni { color: #D55537; font-weight: bold } /* Name.Entity */
+.hl .ne { color: #007020 } /* Name.Exception */
+.hl .nf { color: #06287E } /* Name.Function */
+.hl .nl { color: #002070; font-weight: bold } /* Name.Label */
+.hl .nn { color: #0E84B5; font-weight: bold } /* Name.Namespace */
+.hl .nt { color: #062873; font-weight: bold } /* Name.Tag */
+.hl .nv { color: #BB60D5 } /* Name.Variable */
+.hl .ow { color: #007020; font-weight: bold } /* Operator.Word */
+.hl .w { color: #BBB } /* Text.Whitespace */
+.hl .mb { color: #40A070 } /* Literal.Number.Bin */
+.hl .mf { color: #40A070 } /* Literal.Number.Float */
+.hl .mh { color: #40A070 } /* Literal.Number.Hex */
+.hl .mi { color: #40A070 } /* Literal.Number.Integer */
+.hl .mo { color: #40A070 } /* Literal.Number.Oct */
+.hl .sa { color: #4070A0 } /* Literal.String.Affix */
+.hl .sb { color: #4070A0 } /* Literal.String.Backtick */
+.hl .sc { color: #4070A0 } /* Literal.String.Char */
+.hl .dl { color: #4070A0 } /* Literal.String.Delimiter */
+.hl .sd { color: #4070A0; font-style: italic } /* Literal.String.Doc */
+.hl .s2 { color: #4070A0 } /* Literal.String.Double */
+.hl .se { color: #4070A0; font-weight: bold } /* Literal.String.Escape */
+.hl .sh { color: #4070A0 } /* Literal.String.Heredoc */
+.hl .si { color: #70A0D0; font-style: italic } /* Literal.String.Interpol */
+.hl .sx { color: #C65D09 } /* Literal.String.Other */
+.hl .sr { color: #235388 } /* Literal.String.Regex */
+.hl .s1 { color: #4070A0 } /* Literal.String.Single */
+.hl .ss { color: #517918 } /* Literal.String.Symbol */
+.hl .bp { color: #007020 } /* Name.Builtin.Pseudo */
+.hl .fm { color: #06287E } /* Name.Function.Magic */
+.hl .vc { color: #BB60D5 } /* Name.Variable.Class */
+.hl .vg { color: #BB60D5 } /* Name.Variable.Global */
+.hl .vi { color: #BB60D5 } /* Name.Variable.Instance */
+.hl .vm { color: #BB60D5 } /* Name.Variable.Magic */
+.hl .il { color: #40A070 } /* Literal.Number.Integer.Long */</style></head>
+<body><div class="top"><a href="../">Causilo API guide</a><span class="sep">/</span>Quickstart</div>
+<main><h1>Causilo quickstart: classification and regression in one call each</h1>
+<div class="lead"><p>Causilo is a tabular foundation model served as an API. You send a table with
+the answers filled in and a table with them blank, and get a prediction for
+every blank row. There is no training step and nothing is stored between calls.</p>
+<p>You need an API key. Sign up at https://nums.world and the key arrives by
+mail. Put it in CAUSILO_KEY and the endpoint URL in CAUSILO_ENDPOINT, then:</p>
+<pre><code>pip install -U causilo-client scikit-learn
+python quickstart.py
+</code></pre></div>
+<div class="hl"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">fetch_openml</span><span class="p">,</span> <span class="n">load_diabetes</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">mean_absolute_error</span><span class="p">,</span> <span class="n">r2_score</span><span class="p">,</span> <span class="n">roc_auc_score</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">causilo_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">Causilo</span>
+
+<span class="n">cx</span> <span class="o">=</span> <span class="n">Causilo</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"CAUSILO_ENDPOINT"</span><span class="p">],</span> <span class="n">token</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">"CAUSILO_KEY"</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"ready:"</span><span class="p">,</span> <span class="n">cx</span><span class="o">.</span><span class="n">health</span><span class="p">())</span>
+</pre></div>
+
+<h2>Classification</h2>
+<p>The German credit dataset from OpenML: 1,000 applicants, 20 columns of mixed
+numeric and categorical features, and a good/bad label. Pass the DataFrame as
+it comes. Categorical columns, missing values and column order are handled on
+the server; no encoding or scaling on your side.</p>
+<div class="hl"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">fetch_openml</span><span class="p">(</span><span class="n">data_id</span><span class="o">=</span><span class="mi">31</span><span class="p">,</span> <span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">context</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">credit</span><span class="o">=</span><span class="n">y_train</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>   <span class="c1"># answers filled in</span>
+<span class="n">query</span> <span class="o">=</span> <span class="n">X_test</span>                                     <span class="c1"># answers blank</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"context"</span><span class="p">,</span> <span class="n">context</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="s2">"query"</span><span class="p">,</span> <span class="n">query</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+<span class="n">proba</span><span class="p">,</span> <span class="n">meta</span> <span class="o">=</span> <span class="n">cx</span><span class="o">.</span><span class="n">predict_with_metadata</span><span class="p">(</span><span class="n">context</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">"credit"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"causilo-clf"</span><span class="p">,</span> <span class="n">output_type</span><span class="o">=</span><span class="s2">"probas"</span><span class="p">)</span>
+<span class="n">proba</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">proba</span><span class="p">)</span>
+<span class="n">good</span> <span class="o">=</span> <span class="n">proba</span><span class="p">[:,</span> <span class="n">meta</span><span class="p">[</span><span class="s2">"classes"</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">"good"</span><span class="p">)]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"ROC AUC:"</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_test</span> <span class="o">==</span> <span class="s2">"good"</span><span class="p">,</span> <span class="n">good</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"accuracy:"</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">good</span> <span class="o">&gt;=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">"good"</span><span class="p">,</span> <span class="s2">"bad"</span><span class="p">)),</span> <span class="mi">4</span><span class="p">))</span>
+</pre></div>
+
+<p>predict_with_metadata also returns what the server did with the call. classes
+gives the column order of the probability matrix, served_by names the image
+and the weights that answered, and quota says how much of your allowance is
+left.</p>
+<div class="hl"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"classes:"</span><span class="p">,</span> <span class="n">meta</span><span class="p">[</span><span class="s2">"classes"</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"served_by:"</span><span class="p">,</span> <span class="n">meta</span><span class="p">[</span><span class="s2">"served_by"</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"quota:"</span><span class="p">,</span> <span class="n">meta</span><span class="p">[</span><span class="s2">"quota"</span><span class="p">])</span>
+</pre></div>
+
+<h2>Regression</h2>
+<p>The diabetes dataset from scikit-learn: 442 patients, 10 features, a
+disease-progression score. Ask for the mean, or for quantiles when you want
+an interval rather than a point.</p>
+<div class="hl"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">load_diabetes</span><span class="p">(</span><span class="n">as_frame</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">d</span><span class="o">.</span><span class="n">target</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">pred</span> <span class="o">=</span> <span class="n">cx</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">progression</span><span class="o">=</span><span class="n">y_train</span><span class="o">.</span><span class="n">values</span><span class="p">),</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">target</span><span class="o">=</span><span class="s2">"progression"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"causilo-reg"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"R2:"</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">r2_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">pred</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"MAE:"</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">mean_absolute_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">pred</span><span class="p">),</span> <span class="mi">2</span><span class="p">))</span>
+
+<span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">cx</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_train</span><span class="o">.</span><span class="n">assign</span><span class="p">(</span><span class="n">progression</span><span class="o">=</span><span class="n">y_train</span><span class="o">.</span><span class="n">values</span><span class="p">),</span> <span class="n">X_test</span><span class="p">,</span>
+                        <span class="n">target</span><span class="o">=</span><span class="s2">"progression"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"causilo-reg"</span><span class="p">,</span>
+                        <span class="n">output_type</span><span class="o">=</span><span class="s2">"quantiles"</span><span class="p">,</span> <span class="n">quantiles</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]))</span>
+<span class="n">inside</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">y_test</span><span class="o">.</span><span class="n">values</span> <span class="o">&gt;=</span> <span class="n">q</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">values</span> <span class="o">&lt;=</span> <span class="n">q</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"quantiles array shape (rows, quantiles):"</span><span class="p">,</span> <span class="n">q</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"share of held-out values inside the 10-90 band:"</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">inside</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+
+<h2>What you were charged</h2>
+<p>The unit is one cell of the table you sent, context and query together.
+Nothing else enters into it: not the number of estimators, not the output
+type, not the time it took. usage() reads the figures without spending any.</p>
+<div class="hl"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">cx</span><span class="o">.</span><span class="n">usage</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"usage:"</span><span class="p">,</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">u</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"scope"</span><span class="p">,</span> <span class="s2">"limit"</span><span class="p">,</span> <span class="s2">"used"</span><span class="p">,</span> <span class="s2">"remaining"</span><span class="p">,</span> <span class="s2">"resets_at"</span><span class="p">)})</span>
+</pre></div>
+<h2>Output</h2><p class="label">stdout</p><div class="hl out"><pre><span></span>ready: True
+context (800, 21) query (200, 20)
+ROC AUC: 0.7748
+accuracy: 0.745
+classes: ['bad', 'good']
+served_by: {'image': '0.8.17', 'checkpoint': '816917f93e74', 'n_estimators': 8, 'device': 'cuda:0', 'deterministic': False}
+quota: {'scope': 'daily', 'limit': 6250000, 'used': 608044, 'remaining': 5641956, 'resets_at': '2026-09-16T00:00:00+00:00'}
+R2: 0.508
+MAE: 40.45
+quantiles array shape (rows, quantiles): (89, 3)
+share of held-out values inside the 10-90 band: 0.831
+usage: {'scope': 'daily', 'limit': 6250000, 'used': 616884, 'remaining': 5633116, 'resets_at': '2026-09-16T00:00:00+00:00'}
+</pre></div>
+<p class="foot">Run on 2026-09-15 against the live API, image 0.8.17. The output shown is what came back that day.</p></main></body></html>
