@@ -1,0 +1,29 @@
+.listing { display: flex; flex-direction: column; }
+.emptyState { flex: 1; display: grid; align-content: center; padding-block: clamp(64px, 8vw, 112px); border-top: 1px solid var(--border); text-align: center; }
+.emptyState h2 { font-size: clamp(26px, 3vw, 32px); font-weight: 400; line-height: 1.25; letter-spacing: -.035em; }
+.emptyState p { max-width: 440px; margin: 16px auto 0; color: var(--secondary); font-size: 16px; line-height: 1.8; }
+.meta { display: flex; flex-wrap: wrap; gap: 8px 24px; align-items: baseline; color: var(--secondary); font-size: 12px; line-height: 1.5; }
+.back { display: inline-flex; align-items: center; gap: 10px; padding-block: 6px; font-size: 14px; color: var(--secondary); margin-bottom: 32px; text-decoration: underline; text-decoration-color: #c2c2c2; text-underline-offset: 6px; }
+.back svg { transform: rotate(180deg); width: 16px; height: 16px; }
+.back:hover { color: var(--text); text-decoration-color: var(--text); }
+.articleHeader { padding-bottom: 40px; border-bottom: 1px solid var(--border); }
+.articleHeader h1 { margin-top: 24px; }
+.articleHeader > p { font-size: 17px; line-height: 1.8; letter-spacing: -.01em; margin-top: 24px; color: var(--secondary); }
+.articleBody section { margin-top: 48px; }
+.articleBody h2 { font-size: 28px; line-height: 1.25; font-weight: 400; letter-spacing: -.035em; color: var(--text); }
+.articleBody p { font-size: 17px; line-height: 1.8; letter-spacing: -.01em; color: var(--secondary); margin-top: 20px; }
+.resources { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; margin-top: 40px; padding-top: 28px; border-top: 1px solid var(--border); }
+.resources a { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 500; padding-block: 6px; text-decoration: underline; text-underline-offset: 6px; text-decoration-color: #c2c2c2; }
+.resources a:hover { text-decoration-color: var(--text); }
+.resources svg { width: 16px; height: 16px; }
+@media (max-width: 850px) {
+  .articleHeader > p, .articleBody p { font-size: 16px; }
+}
+@media (max-width: 640px) {
+  .articleBody h2 { font-size: 26px; }
+  .meta { gap: 8px 20px; font-size: 11px; }
+  .articleHeader { padding-bottom: 32px; }
+  .articleHeader > p, .articleBody p { font-size: 15px; }
+  .articleBody section { margin-top: 36px; }
+  .back { margin-bottom: 28px; }
+}

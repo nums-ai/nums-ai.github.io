@@ -1,0 +1,563 @@
+{
+  "online_shoppers_intention": {
+    "group": "customers",
+    "title": {
+      "en": "Online purchase intent",
+      "ko": "온라인 구매 의향"
+    },
+    "description": {
+      "en": "Each row represents a visit to an online store. Page visits, browsing duration, bounce rates, and session context are used to predict whether the visit results in a purchase. The inputs bring together the amount of browsing activity and the way a visitor moves through the store during a session. This makes the dataset a purchase-intent benchmark built from structured website analytics, where several behavioral signals contribute to one session-level prediction.",
+      "ko": "온라인 쇼핑몰의 방문 세션을 담은 데이터입니다. 페이지 방문, 체류 시간, 이탈률, 세션 정보를 바탕으로 해당 방문이 구매로 이어지는지 예측합니다. 한 번의 방문에서 얼마나 많은 페이지를 살펴봤는지와 어떤 방식으로 쇼핑몰을 이용했는지를 함께 다룹니다. 구조화된 웹사이트 이용 기록을 바탕으로 여러 행동 신호를 종합해 방문 단위의 구매 의향을 추정하는 사례입니다."
+    }
+  },
+  "Bank_Customer_Churn": {
+    "group": "customers",
+    "title": {
+      "en": "Bank customer churn",
+      "ko": "은행 고객 이탈"
+    },
+    "description": {
+      "en": "Bank customer records combine account balance, tenure, product usage, activity, and customer attributes. The task is to predict whether a customer leaves the bank. The inputs bring together the length of the customer relationship and indicators of how the account is used. As a retention benchmark, it tests how account activity, product relationships, and customer characteristics can be combined to distinguish customers who stay from those who leave.",
+      "ko": "계좌 잔액, 거래 기간, 상품 이용, 활동 여부, 고객 특성을 담은 은행 고객 데이터입니다. 고객의 은행 이탈 여부를 예측하는 분류 과제입니다. 은행과 거래한 기간뿐 아니라 계좌를 얼마나 활발하게 이용하고 어떤 상품을 보유하는지도 함께 고려합니다. 고객 유지에 관한 벤치마크로, 계좌 활동과 상품 이용 관계, 고객 특성을 종합해 거래를 지속하는 고객과 이탈하는 고객을 구분하는 과제입니다."
+    }
+  },
+  "bank-marketing": {
+    "group": "customers",
+    "title": {
+      "en": "Term deposit subscriptions",
+      "ko": "정기 예금 가입"
+    },
+    "description": {
+      "en": "Records from bank marketing campaigns pair customer and account information with contact history. The target is whether a customer subscribes to a term deposit. Each record connects a customer profile with the context of a marketing contact and its observed outcome. The dataset illustrates campaign-response modeling with mixed numerical and categorical information, combining what is known about the customer with the history of contact around a specific financial product.",
+      "ko": "은행 마케팅 캠페인의 고객·계좌 정보와 연락 이력을 담은 데이터입니다. 고객이 정기 예금에 가입하는지 예측합니다. 각 기록은 고객의 특성과 마케팅 연락의 맥락을 실제 가입 결과에 연결합니다. 수치형·범주형 정보가 섞인 캠페인 반응 예측 사례로, 고객에 대해 알고 있는 정보와 특정 금융 상품에 관한 연락 이력을 함께 활용합니다."
+    }
+  },
+  "churn": {
+    "group": "customers",
+    "title": {
+      "en": "Telecom customer churn",
+      "ko": "통신 고객 이탈"
+    },
+    "description": {
+      "en": "Telephone account records include service plans, call usage, charges, and account history. The prediction target is whether a customer ends their service. Call activity and the associated charges describe a subscriber’s service usage, while plan and account information provide context for that activity. The dataset illustrates customer-retention modeling from regular account records, bringing several kinds of usage and billing measurements into a single prediction.",
+      "ko": "통신 요금제, 통화 사용량, 요금, 계정 이력을 담은 데이터입니다. 고객의 서비스 해지 여부를 예측합니다. 통화 이용량과 요금은 가입자의 서비스 이용 패턴을 나타내며, 요금제와 계정 정보는 그 활동의 배경을 설명합니다. 일상적인 이용·청구 기록에서 여러 종류의 측정값을 종합해 고객 유지 여부를 예측하는 사례입니다."
+    }
+  },
+  "customer_satisfaction_in_airline": {
+    "group": "customers",
+    "title": {
+      "en": "Airline passenger satisfaction",
+      "ko": "항공 승객 만족도"
+    },
+    "description": {
+      "en": "Passenger records combine travel details with ratings of seats, booking, entertainment, and other services. The task is to classify the passenger’s overall satisfaction. The inputs cover both the journey itself and the passenger’s ratings of individual parts of the experience. This is a structured customer-feedback task: the model combines several service assessments with travel context to predict the overall satisfaction label attached to the passenger record.",
+      "ko": "여행 정보와 좌석, 예약, 기내 엔터테인먼트 등 서비스 평가를 담은 승객 데이터입니다. 승객의 전반적인 만족도를 분류합니다. 여행 자체의 조건과 승객이 각 서비스 항목에 남긴 평가를 함께 사용합니다. 구조화된 고객 피드백을 다루는 과제로, 개별 서비스에 대한 평가와 여행 맥락을 종합해 승객 기록에 부여된 전반적인 만족도를 분류합니다."
+    }
+  },
+  "Fitness_Club": {
+    "group": "customers",
+    "title": {
+      "en": "Fitness class attendance",
+      "ko": "피트니스 수업 참석"
+    },
+    "description": {
+      "en": "Fitness class bookings include membership duration, booking lead time, weekday, time, and class category. The target records whether the member actually attended the booked class. Each booking is a prediction example with information about both the member and the scheduled class. It illustrates an attendance-forecasting problem in which booking behavior, timing, and class preferences are combined to estimate whether a reserved place will actually be used.",
+      "ko": "회원 가입 기간, 예약 시점, 요일, 시간, 수업 종류를 담은 피트니스 예약 데이터입니다. 예약한 회원의 실제 참석 여부를 예측합니다. 각 예약은 회원과 예정된 수업에 관한 정보를 함께 가진 하나의 예측 사례입니다. 예약 행동, 시간대, 수업 종류를 종합해 예약된 자리가 실제 참석으로 이어지는지를 추정하는 출석 예측 문제를 보여줍니다."
+    }
+  },
+  "in_vehicle_coupon_recommendation": {
+    "group": "customers",
+    "title": {
+      "en": "Coupon acceptance",
+      "ko": "쿠폰 수락"
+    },
+    "description": {
+      "en": "Survey responses describe driving situations, passengers, destinations, weather, and coupon offers. The task is to predict whether the respondent accepts the offered coupon. Each example combines the details of an offer with the travel context in which it is presented. The dataset illustrates a recommendation-response task where the same kind of coupon can be evaluated alongside different destinations, passengers, and driving conditions to predict the recorded acceptance decision.",
+      "ko": "운전 상황, 동승자, 목적지, 날씨, 쿠폰 제안을 담은 설문 데이터입니다. 응답자가 주어진 쿠폰을 수락하는지 예측합니다. 각 사례에는 제안된 쿠폰의 내용과 쿠폰을 접한 이동 상황이 함께 담겨 있습니다. 목적지, 동승자, 운전 환경처럼 서로 다른 맥락을 쿠폰 정보와 종합해 기록된 수락 여부를 예측하는 추천 반응 과제입니다."
+    }
+  },
+  "kddcup09_appetency": {
+    "group": "customers",
+    "title": {
+      "en": "Customer offer response",
+      "ko": "고객 제안 반응"
+    },
+    "description": {
+      "en": "Anonymized customer records from the KDD Cup 2009 challenge describe customer activity through numerical and categorical variables. The selected task predicts appetency, or a customer’s propensity to respond to an offer. The feature names are anonymized, so the prediction relies on patterns across the supplied customer variables. It is a benchmark for modeling an observed offer response from a broad customer record containing different data types, even when the business meaning of individual fields is not exposed.",
+      "ko": "KDD Cup 2009의 익명화된 고객 데이터로, 수치형·범주형 변수에 고객 활동을 담았습니다. 고객이 제안에 반응할 성향인 appetency를 예측합니다. 특성 이름이 익명화되어 있어 제공된 고객 변수 전반의 패턴을 이용해 예측합니다. 개별 필드의 업무상 의미가 공개되지 않은 상황에서도 여러 데이터 유형이 섞인 고객 기록을 바탕으로 제안에 대한 반응을 분류하는 벤치마크입니다."
+    }
+  },
+  "Marketing_Campaign": {
+    "group": "customers",
+    "title": {
+      "en": "Marketing campaign response",
+      "ko": "마케팅 캠페인 반응"
+    },
+    "description": {
+      "en": "Customer profiles include household information, purchasing history, product spending, and prior campaign interactions. The target is the customer’s response to a marketing campaign. The record combines a customer’s household context with how they have purchased products and interacted with earlier campaigns. This makes it an example of response prediction using a consolidated customer profile, where spending patterns and previous engagement can be considered together.",
+      "ko": "가구 정보, 구매 이력, 상품별 지출, 과거 캠페인 반응을 담은 고객 데이터입니다. 마케팅 캠페인에 대한 고객의 반응을 예측합니다. 고객의 가구 특성에 상품 구매 방식과 이전 캠페인 참여 이력을 연결한 기록입니다. 통합된 고객 프로필을 이용하는 반응 예측 사례로, 지출 패턴과 과거의 참여 행동을 함께 고려해 캠페인 결과를 분류합니다."
+    }
+  },
+  "GiveMeSomeCredit": {
+    "group": "finance",
+    "title": {
+      "en": "Future financial distress",
+      "ko": "향후 금융 연체"
+    },
+    "description": {
+      "en": "Borrower records include credit utilization, debt ratio, income, and past delinquency. The target indicates whether the borrower experiences financial distress within the next two years. The inputs describe both the borrower’s current financial position and their repayment history, while the label refers to a later outcome. It illustrates a forward-looking credit benchmark that combines outstanding obligations, available income, and earlier payment difficulties into one prediction of recorded financial distress.",
+      "ko": "신용 사용률, 부채 비율, 소득, 연체 이력을 담은 차입자 데이터입니다. 향후 2년 이내 금융 연체 발생 여부를 예측합니다. 입력은 차주의 현재 재무 상태와 상환 이력을 나타내며, 결과값은 이후의 상황을 가리킵니다. 부채 부담, 소득, 과거의 납부 어려움을 함께 고려해 기록된 재정적 곤란을 예측하는 미래 시점의 신용 벤치마크입니다."
+    }
+  },
+  "credit-g": {
+    "group": "finance",
+    "title": {
+      "en": "German credit risk",
+      "ko": "독일 신용 위험"
+    },
+    "description": {
+      "en": "Loan applications contain requested amounts, repayment duration, credit history, savings, and employment information. The benchmark predicts the recorded good-or-bad credit classification. Each row joins the terms of a requested loan with the applicant’s financial and employment background. The task combines numerical amounts and durations with categorical application fields, providing a compact benchmark for learning the relationship between application information and the supplied credit-risk label.",
+      "ko": "대출 금액, 상환 기간, 신용 이력, 저축, 고용 정보를 담은 대출 신청 데이터입니다. 데이터에 기록된 양호·불량 신용 등급을 분류합니다. 각 행은 신청한 대출의 조건과 신청자의 재무·고용 배경을 연결합니다. 금액과 기간 같은 수치형 정보에 범주형 신청 정보를 함께 사용하며, 신청 내용과 주어진 신용 위험 분류 사이의 관계를 학습하는 벤치마크입니다."
+    }
+  },
+  "credit_card_clients_default": {
+    "group": "finance",
+    "title": {
+      "en": "Credit card payment default",
+      "ko": "신용카드 대금 연체"
+    },
+    "description": {
+      "en": "Credit card account records describe credit limits, recent bills, repayments, and payment status. The task predicts default on the following month’s payment. The account history provides several views of repayment behavior: what was billed, what was paid, and how payments were classified. These related measurements are combined with the credit limit to predict a subsequent payment outcome, making this a benchmark for learning from repeated financial observations.",
+      "ko": "신용 한도, 최근 청구액, 상환액, 납부 상태를 담은 신용카드 고객 데이터입니다. 다음 달 대금의 연체 여부를 예측합니다. 계좌 이력에는 청구된 금액, 실제 상환한 금액, 납부 상태처럼 상환 행동을 서로 다른 측면에서 보여주는 정보가 담겨 있습니다. 이런 반복 관측값을 신용 한도와 함께 사용해 이후의 납부 결과를 예측하는 과제입니다."
+    }
+  },
+  "heloc": {
+    "group": "finance",
+    "title": {
+      "en": "Home equity credit performance",
+      "ko": "주택 담보 신용 상환"
+    },
+    "description": {
+      "en": "Home equity line of credit records summarize credit history, account age, trade counts, and delinquency indicators. The target is the recorded credit risk performance category. Each example summarizes a borrower’s credit record through multiple measures of account history and repayment behavior. It illustrates prediction from an aggregated credit profile, where the model must combine several related indicators to distinguish the performance categories supplied with the dataset.",
+      "ko": "주택 담보 신용 한도 고객의 신용 이력, 계정 기간, 거래 수, 연체 지표를 요약한 데이터입니다. 기록된 신용 상환 위험 범주를 예측합니다. 각 사례는 계좌 이력과 상환 행동을 나타내는 여러 지표로 차주의 신용 기록을 요약합니다. 집계된 신용 프로필을 이용하는 예측 사례로, 서로 관련된 지표들을 종합해 데이터셋에 기록된 상환 성과 범주를 구분합니다."
+    }
+  },
+  "polish_companies_bankruptcy": {
+    "group": "finance",
+    "title": {
+      "en": "Polish company bankruptcy",
+      "ko": "폴란드 기업 파산"
+    },
+    "description": {
+      "en": "Company financial ratios describe profitability, leverage, liquidity, and operating activity. TabArena uses the fifth-year dataset to predict bankruptcy over the subsequent year. Each row represents a company through a set of financial indicators, linking its measured condition to a later bankruptcy outcome. The benchmark combines different views of financial health in one table, so the prediction can draw on relationships among funding, earnings, liquidity, and operating performance.",
+      "ko": "기업의 수익성, 부채, 유동성, 영업 활동을 나타내는 재무 비율 데이터입니다. TabArena는 5년 차 데이터를 사용해 이후 1년의 파산 여부를 예측합니다. 각 행은 여러 재무 지표로 기업의 상태를 표현하고 이를 이후의 파산 결과에 연결합니다. 자금 조달, 이익, 유동성, 영업 성과처럼 재무 상태의 여러 측면을 하나의 표에서 함께 다루는 기업 위험 예측 사례입니다."
+    }
+  },
+  "taiwanese_bankruptcy_prediction": {
+    "group": "finance",
+    "title": {
+      "en": "Taiwanese company bankruptcy",
+      "ko": "대만 기업 파산"
+    },
+    "description": {
+      "en": "Corporate records contain financial ratios such as return on assets, operating margins, cash flow, and debt measures. The task is to predict the company’s bankruptcy label. The features offer several perspectives on a company’s ability to generate earnings, manage obligations, and sustain cash flow. The benchmark tests classification from a broad financial profile, with the recorded bankruptcy outcome learned from combinations of accounting indicators across the company records.",
+      "ko": "자산 수익률, 영업 이익률, 현금 흐름, 부채 지표 등 기업 재무 비율을 담은 데이터입니다. 기업의 파산 여부를 예측합니다. 특성들은 기업의 이익 창출, 채무 부담, 현금 흐름을 여러 측면에서 보여줍니다. 폭넓은 재무 프로필을 이용하는 분류 벤치마크로, 기업별 회계 지표의 조합에서 기록된 파산 결과와의 관계를 학습합니다."
+    }
+  },
+  "Is-this-a-good-customer": {
+    "group": "finance",
+    "title": {
+      "en": "Loan customer outcomes",
+      "ko": "대출 고객 결과"
+    },
+    "description": {
+      "en": "Customer loan records combine the loan amount and term with income, product type, and applicant attributes. The benchmark predicts the dataset’s recorded bad-client outcome. Each example combines information about the requested financial product with characteristics of the customer. The prediction uses the dataset’s existing outcome label, making this a benchmark for learning from mixed loan and applicant information collected together in a structured customer record.",
+      "ko": "대출 금액·기간, 소득, 상품 종류, 신청자 특성을 담은 고객 대출 데이터입니다. 데이터에 기록된 불량 고객 결과를 예측합니다. 각 사례에는 신청한 금융 상품의 정보와 고객의 특성이 함께 담겨 있습니다. 데이터에 이미 기록된 결과값을 예측 대상으로 사용하며, 대출 조건과 신청자 정보를 하나의 고객 기록에서 함께 학습하는 벤치마크입니다."
+    }
+  },
+  "coil2000_insurance_policies": {
+    "group": "finance",
+    "title": {
+      "en": "Insurance policy ownership",
+      "ko": "보험 상품 보유"
+    },
+    "description": {
+      "en": "Customer records combine demographic summaries with insurance product information. The COIL 2000 task predicts whether a customer holds a caravan or mobile-home insurance policy. The task brings together information about a customer’s broader profile and their existing insurance relationships. It illustrates product-ownership prediction from a consolidated customer table, using several demographic and portfolio indicators to identify the particular policy category represented by the target.",
+      "ko": "인구 통계 요약과 보험 상품 정보를 결합한 고객 데이터입니다. COIL 2000 과제는 고객의 캠핑카·이동식 주택 보험 보유 여부를 예측합니다. 고객의 전반적인 특성과 기존 보험 상품 이용 관계를 함께 다룹니다. 통합된 고객 표에서 인구 통계 정보와 보험 포트폴리오 지표를 종합해 특정 보험 상품의 보유 여부를 구분하는 상품 보유 예측 사례입니다."
+    }
+  },
+  "Diabetes130US": {
+    "group": "health",
+    "title": {
+      "en": "Hospital readmission",
+      "ko": "병원 재입원"
+    },
+    "description": {
+      "en": "Hospital encounter records for patients with diabetes include admission details, procedures, medications, and prior care. The curated task predicts early readmission and removes repeated patient records. Each example brings together the circumstances of a hospital encounter and the care recorded around it. The task combines several types of clinical and service-use information to predict the supplied readmission outcome, illustrating how a structured encounter record can be used for outcome modeling.",
+      "ko": "당뇨병 환자의 입원 정보, 검사·처치, 약물, 과거 진료 이력을 담은 데이터입니다. 중복 환자 기록을 제거한 TabArena 버전에서 조기 재입원 여부를 예측합니다. 각 사례에는 입원 당시의 상황과 그 과정에서 기록된 진료 정보가 함께 담겨 있습니다. 여러 종류의 임상 정보와 의료 이용 이력을 종합해 데이터에 주어진 재입원 결과를 예측하며, 구조화된 진료 기록을 활용하는 결과 예측 과제입니다."
+    }
+  },
+  "diabetes": {
+    "group": "health",
+    "title": {
+      "en": "Diabetes test outcomes",
+      "ko": "당뇨병 검사 결과"
+    },
+    "description": {
+      "en": "The Pima diabetes dataset contains measurements including glucose, blood pressure, insulin, BMI, and age. The prediction target is the recorded positive or negative diabetes test outcome. Each record contains a small set of numerical measurements, so the prediction combines several clinical attributes within one table row. The benchmark evaluates how these measurements jointly relate to the dataset’s recorded test label, using a binary outcome for each example.",
+      "ko": "혈당, 혈압, 인슐린, BMI, 나이 등의 측정값을 담은 Pima 당뇨병 데이터입니다. 기록된 당뇨병 검사 양성·음성 결과를 예측합니다. 각 기록은 소수의 수치형 측정값으로 구성되며, 한 행 안의 여러 임상 특성을 함께 사용해 예측합니다. 이런 측정값의 조합이 기록된 검사 결과와 어떤 관계를 갖는지 평가하는 벤치마크로, 각 사례의 결과는 두 범주로 구분됩니다."
+    }
+  },
+  "blood-transfusion-service-center": {
+    "group": "health",
+    "title": {
+      "en": "Blood donation return",
+      "ko": "헌혈 재참여"
+    },
+    "description": {
+      "en": "Blood donor histories record time since the first and latest donation, donation count, and total donated volume. The task predicts whether the donor returned to donate in March 2007. The inputs summarize both how recently a person donated and the extent of their donation history. It is a return-participation task built from a compact behavioral record, connecting patterns of recency, frequency, and cumulative activity with participation in a specific later donation period.",
+      "ko": "첫 헌혈과 최근 헌혈 이후 경과 기간, 헌혈 횟수, 총 헌혈량을 담은 데이터입니다. 헌혈자가 2007년 3월에 다시 헌혈했는지 예측합니다. 입력은 최근 헌혈 시점과 지금까지의 헌혈 이력을 함께 요약합니다. 간결한 행동 기록을 활용하는 재참여 예측 과제로, 최근성, 빈도, 누적 활동량의 패턴을 특정 후속 시기의 참여 결과와 연결합니다."
+    }
+  },
+  "maternal_health_risk": {
+    "group": "health",
+    "title": {
+      "en": "Maternal health risk categories",
+      "ko": "산모 건강 위험 범주"
+    },
+    "description": {
+      "en": "Maternal health observations include age, blood pressure, blood sugar, body temperature, and heart rate. The benchmark classifies each record into its assigned health risk category. Each row groups several physiological measurements into one observation, with a categorical risk label as the target. The benchmark evaluates how the model combines measurements recorded on different scales to distinguish the health-risk groups already assigned in the source data.",
+      "ko": "나이, 혈압, 혈당, 체온, 심박수를 담은 산모 건강 관측 데이터입니다. 각 기록에 부여된 건강 위험 범주를 분류합니다. 각 행은 여러 생리학적 측정값을 하나의 관측 기록으로 묶고 범주형 위험 표지를 예측 대상으로 사용합니다. 서로 다른 척도로 기록된 측정값을 종합해 원본 데이터에 부여된 건강 위험 그룹을 구분하는 성능을 평가합니다."
+    }
+  },
+  "MIC": {
+    "group": "health",
+    "title": {
+      "en": "Myocardial infarction outcomes",
+      "ko": "심근경색 환자 결과"
+    },
+    "description": {
+      "en": "Clinical records describe patients with myocardial infarction. TabArena uses the categorical LET_IS outcome and features from the final available observation time to distinguish the recorded outcomes. Each example summarizes a patient through the clinical information included in the curated benchmark. Because the input uses the final available observation time, the task concerns classification from that accumulated record; the target is the categorical outcome supplied with the dataset.",
+      "ko": "심근경색 환자의 임상 기록을 담은 데이터입니다. TabArena는 마지막 관측 시점까지의 특성과 범주형 LET_IS 결과를 사용해 기록된 환자 결과를 분류합니다. 각 사례는 정제된 벤치마크에 포함된 임상 정보로 환자를 요약합니다. 마지막으로 이용 가능한 관측 시점까지의 특성을 사용하므로, 그때까지 축적된 기록을 바탕으로 데이터에 주어진 범주형 결과를 분류하는 과제입니다."
+    }
+  },
+  "healthcare_insurance_expenses": {
+    "group": "health",
+    "title": {
+      "en": "Medical insurance expenses",
+      "ko": "의료 보험 비용"
+    },
+    "description": {
+      "en": "Insurance records pair charges with age, BMI, smoking status, family information, and region. The regression task estimates the recorded medical insurance expense. Each row links a set of personal and household attributes to a continuous expense amount. The benchmark studies cost estimation from a compact insurance profile, allowing the model to combine demographic, lifestyle, and regional information when predicting the recorded charge.",
+      "ko": "보험 청구 비용과 나이, BMI, 흡연 여부, 가족 정보, 지역을 담은 데이터입니다. 기록된 의료 보험 비용을 추정하는 회귀 과제입니다. 각 행은 개인·가구 특성을 연속적인 비용 금액에 연결합니다. 간결한 보험 가입자 프로필을 이용하는 비용 추정 벤치마크로, 인구 통계, 생활 습관, 지역 정보를 종합해 기록된 청구 비용을 예측합니다."
+    }
+  },
+  "APSFailure": {
+    "group": "operations",
+    "title": {
+      "en": "Truck air-pressure system failures",
+      "ko": "트럭 공압 시스템 고장"
+    },
+    "description": {
+      "en": "Truck operational measurements are used to distinguish failures related to the air-pressure system from other causes. The benchmark features are anonymized numerical measurements, including histogram-style sensor summaries. Each vehicle record brings many operating measurements into a single table row, while the label identifies the recorded failure category. It illustrates fault classification from a broad sensor profile, where a model combines information across measurements whose individual names have been anonymized.",
+      "ko": "트럭 운행 측정값으로 공압 시스템 관련 고장과 다른 원인의 고장을 구분합니다. 히스토그램 형태의 센서 요약을 포함한 익명화된 수치형 특성을 사용합니다. 각 차량 기록은 많은 운행 측정값을 하나의 행에 담고, 결과값은 기록된 고장 범주를 나타냅니다. 개별 측정 항목의 이름이 익명화된 상태에서 여러 센서 정보를 종합해 고장 유형을 분류하는 사례입니다."
+    }
+  },
+  "E-CommereShippingData": {
+    "group": "operations",
+    "title": {
+      "en": "E-commerce delivery delays",
+      "ko": "전자상거래 배송 지연"
+    },
+    "description": {
+      "en": "Shipping records include shipment mode, warehouse block, product cost and weight, discounts, and customer interactions. The curated target indicates whether the delivery arrived late. Each row describes an individual shipment using both logistics information and order-related attributes. The task illustrates delivery-outcome prediction from operational records, combining the way an item is handled and transported with details of the product and customer interaction attached to that shipment.",
+      "ko": "배송 방식, 창고 구역, 상품 가격·무게, 할인, 고객 응대 정보를 담은 배송 데이터입니다. 배송이 지연되었는지 예측합니다. 각 행은 하나의 배송 건을 물류 정보와 주문 관련 특성으로 표현합니다. 상품의 취급·운송 방식에 제품과 고객 응대 정보를 연결해 배송 결과를 예측하는 과제로, 운영 기록에 여러 종류의 정보가 함께 담긴 사례입니다."
+    }
+  },
+  "Food_Delivery_Time": {
+    "group": "operations",
+    "title": {
+      "en": "Food delivery duration",
+      "ko": "음식 배달 소요 시간"
+    },
+    "description": {
+      "en": "Delivery records pair restaurant and destination coordinates with courier attributes, order type, and vehicle type. The regression target is the delivery time in minutes. Each delivery is represented by information about the route endpoints and the person and vehicle handling the order. The task illustrates duration estimation from a mix of location and service attributes, with the model producing a continuous time estimate for each delivery record.",
+      "ko": "음식점·배달 목적지 좌표, 배달원 특성, 주문 종류, 이동 수단을 담은 데이터입니다. 분 단위 배달 소요 시간을 예측합니다. 각 배달 건은 출발지·목적지와 주문을 처리하는 배달원·이동 수단의 정보로 표현됩니다. 위치와 서비스 특성이 섞인 기록에서 소요 시간을 추정하는 사례로, 각 배달에 대해 연속적인 시간 값을 예측합니다."
+    }
+  },
+  "anneal": {
+    "group": "operations",
+    "title": {
+      "en": "Steel product classification",
+      "ko": "강철 제품 분류"
+    },
+    "description": {
+      "en": "Steel and annealing records describe material composition, hardness, strength, surface properties, and processing conditions. The task predicts the product’s recorded class. Each example brings together properties of the material and information about how it was processed. It is a manufacturing-classification benchmark in which numerical measurements and categorical production attributes jointly describe the product, and the model learns to assign its supplied class from that record.",
+      "ko": "재료 조성, 경도, 강도, 표면 특성, 가공 조건을 담은 강철·열처리 데이터입니다. 제품에 기록된 등급을 분류합니다. 각 사례에는 재료의 물성과 가공 방식에 관한 정보가 함께 담겨 있습니다. 수치형 측정값과 범주형 생산 특성으로 제품을 표현하는 제조 분야 분류 벤치마크로, 해당 기록에서 주어진 제품 등급과의 관계를 학습합니다."
+    }
+  },
+  "hazelnut-spread-contaminant-detection": {
+    "group": "operations",
+    "title": {
+      "en": "Food contaminant detection",
+      "ko": "식품 오염물 검출"
+    },
+    "description": {
+      "en": "Sensor measurements from hazelnut spread samples are paired with contamination labels. The task is to distinguish contaminated samples from uncontaminated ones. Each sample becomes a prediction example with a profile of sensor readings and a recorded contamination outcome. The dataset illustrates a food-quality inspection task in which the model combines multiple measurements from the same sample to distinguish the two supplied quality categories.",
+      "ko": "헤이즐넛 스프레드 시료의 센서 측정값과 오염 여부를 담은 데이터입니다. 오염된 시료와 오염되지 않은 시료를 구분합니다. 각 시료는 센서 측정 프로필과 기록된 오염 결과를 가진 하나의 예측 사례가 됩니다. 동일한 시료의 여러 측정값을 종합해 두 품질 범주를 구분하는 식품 품질 검사 과제를 보여줍니다."
+    }
+  },
+  "seismic-bumps": {
+    "group": "operations",
+    "title": {
+      "en": "Mining seismic events",
+      "ko": "광산 지진 이벤트"
+    },
+    "description": {
+      "en": "Coal-mine monitoring records summarize seismic and seismoacoustic activity, energy, pulses, and work shifts. The task predicts the occurrence of a high-energy seismic bump. Each monitoring record combines summaries of underground activity with the operational context of the work shift. The benchmark illustrates event prediction from measured activity, using several related energy and signal indicators to distinguish records associated with the target seismic outcome.",
+      "ko": "탄광의 지진·지진음향 활동, 에너지, 펄스, 작업 교대를 요약한 모니터링 데이터입니다. 고에너지 지진 이벤트의 발생 여부를 예측합니다. 각 모니터링 기록은 지하 활동의 요약과 작업 교대에 관한 운영 맥락을 함께 담습니다. 여러 에너지·신호 지표를 종합해 대상 지진 이벤트와 관련된 기록을 구분하는, 측정 활동 기반 이벤트 예측 사례입니다."
+    }
+  },
+  "concrete_compressive_strength": {
+    "group": "science",
+    "title": {
+      "en": "Concrete strength",
+      "ko": "콘크리트 강도"
+    },
+    "description": {
+      "en": "Concrete mixtures are described by cement, water, aggregates, additives, and curing age. The task predicts the mixture’s compressive strength from these composition and age measurements. Each row describes a particular mix at a particular curing age, connecting the material recipe to a measured mechanical property. The benchmark illustrates materials-property estimation, where the model must combine ingredient amounts and age because the prediction depends on the mixture as a whole.",
+      "ko": "시멘트, 물, 골재, 혼화제의 양과 재령으로 콘크리트 배합을 나타낸 데이터입니다. 배합과 재령 측정값으로 압축 강도를 예측합니다. 각 행은 특정 재령의 배합을 나타내며, 재료 구성과 측정된 기계적 물성을 연결합니다. 재료 물성 추정의 사례로, 배합 전체를 표현하는 각 성분의 양과 재령을 종합해 강도를 예측하는 과제입니다."
+    }
+  },
+  "airfoil_self_noise": {
+    "group": "science",
+    "title": {
+      "en": "Airfoil noise",
+      "ko": "익형 소음"
+    },
+    "description": {
+      "en": "Aerodynamic measurements include frequency, angle of attack, chord length, flow velocity, and boundary-layer thickness. The target is the scaled sound-pressure level generated by an airfoil. Each observation represents a combination of aerodynamic conditions and the corresponding sound measurement. It is an engineering regression task that connects geometry, flow, and measurement conditions to an acoustic response, requiring the model to use several continuous variables together for each prediction.",
+      "ko": "주파수, 받음각, 시위 길이, 유속, 경계층 두께를 담은 공기역학 데이터입니다. 익형에서 발생하는 조정 음압 수준을 예측합니다. 각 관측은 공기역학적 조건의 조합과 그에 대응하는 소음 측정값을 담고 있습니다. 형상, 유동, 측정 조건을 음향 반응에 연결하는 공학 회귀 과제로, 여러 연속형 변수를 함께 사용해 예측합니다."
+    }
+  },
+  "Bioresponse": {
+    "group": "science",
+    "title": {
+      "en": "Molecular biological response",
+      "ko": "분자의 생물학적 반응"
+    },
+    "description": {
+      "en": "Molecules are represented by numerical and binary molecular descriptors. The benchmark predicts whether a molecule elicits the measured biological response. Each compound becomes a row of descriptors that encode different aspects of its molecular representation. The task illustrates prediction from a large set of chemical features, with the model combining many numerical and indicator variables to assign a binary response to each molecule.",
+      "ko": "수치형·이진형 분자 기술자로 분자를 표현한 데이터입니다. 분자가 측정 대상 생물학적 반응을 일으키는지 예측합니다. 각 화합물은 분자 표현의 여러 측면을 담은 기술자들의 행으로 변환됩니다. 많은 화학 특성을 이용하는 예측 사례로, 여러 수치형 변수와 이진 지표를 종합해 분자마다 두 범주 중 하나의 반응을 예측합니다."
+    }
+  },
+  "hiva_agnostic": {
+    "group": "science",
+    "title": {
+      "en": "Compound activity classes",
+      "ko": "화합물 활성 분류"
+    },
+    "description": {
+      "en": "Molecular structure descriptors are used to predict compound activity. TabArena preserves the original three activity classes from the HIVA challenge training data, making this a multiclass task. Each compound is represented by a structured feature vector derived from its molecular representation. The benchmark tests how those descriptors can be combined to distinguish the supplied activity categories, providing a chemical classification task with more than two possible outcomes.",
+      "ko": "분자 구조 기술자로 화합물 활성을 예측하는 데이터입니다. TabArena는 HIVA 학습 데이터의 원래 세 가지 활성 범주를 유지한 다중 분류 과제를 사용합니다. 각 화합물은 분자 표현에서 얻은 구조화된 특성 벡터로 나타냅니다. 이런 기술자를 종합해 주어진 활성 범주를 구분하는 성능을 평가하며, 두 개를 넘는 결과 범주를 가진 화학 분야 분류 과제입니다."
+    }
+  },
+  "QSAR-TID-11": {
+    "group": "science",
+    "title": {
+      "en": "Molecular activity estimation",
+      "ko": "분자 활성 추정"
+    },
+    "description": {
+      "en": "Chemical compounds are encoded with FCFP6 molecular fingerprints. The regression target is the dataset’s median pXC50 activity measurement, linking molecular structure to measured activity. Each fingerprint represents a compound through a set of encoded molecular features, while the target remains a continuous experimental activity value. The task illustrates quantitative structure–activity modeling: using a tabular representation of chemical structure to estimate a measured response for another compound.",
+      "ko": "화합물을 FCFP6 분자 지문으로 표현한 데이터입니다. 분자 구조에서 데이터의 활성 측정값인 median pXC50을 추정하는 회귀 과제입니다. 분자 지문은 화합물을 여러 부호화된 구조 특성으로 표현하며, 예측 대상은 연속적인 실험 활성 값입니다. 화학 구조의 표 형식 표현에서 다른 화합물의 측정 반응을 추정하는 정량적 구조·활성 관계 모델링 사례입니다."
+    }
+  },
+  "QSAR_fish_toxicity": {
+    "group": "science",
+    "title": {
+      "en": "Chemical toxicity in fish",
+      "ko": "어류에 대한 화학 독성"
+    },
+    "description": {
+      "en": "Chemical descriptors summarize the structure and properties of compounds. The task predicts the recorded LC50 toxicity measurement for fish from those descriptors. Each row links a compound’s descriptor profile to a continuous toxicity outcome. It is a quantitative structure–activity benchmark in which the model learns from several chemical properties together, using the supplied structural representation to estimate the measured response associated with a compound.",
+      "ko": "화합물의 구조와 물성을 요약한 화학 기술자 데이터입니다. 기술자를 바탕으로 기록된 어류 독성 측정값 LC50을 예측합니다. 각 행은 화합물의 기술자 프로필을 연속적인 독성 결과에 연결합니다. 여러 화학적 특성을 함께 학습하고 주어진 구조 표현에서 화합물의 측정 반응을 추정하는 정량적 구조·활성 관계 벤치마크입니다."
+    }
+  },
+  "physiochemical_protein": {
+    "group": "science",
+    "title": {
+      "en": "Protein structure deviation",
+      "ko": "단백질 구조 편차"
+    },
+    "description": {
+      "en": "Protein structure measurements describe exposed surface areas, residue properties, and structural distances. The task estimates the recorded deviation of the protein structure. Each example summarizes a protein structure through numerical properties, paired with a continuous deviation value. The benchmark illustrates structural-property estimation from a compact descriptor table, where the model combines different geometric and physicochemical measurements to predict the recorded target.",
+      "ko": "노출 표면적, 잔기 특성, 구조적 거리를 나타내는 단백질 구조 데이터입니다. 기록된 단백질 구조의 편차를 추정합니다. 각 사례는 단백질 구조를 수치형 특성으로 요약하고 연속적인 편차 값과 연결합니다. 간결한 기술자 표에서 기하학적·물리화학적 측정값을 종합해 기록된 결과를 추정하는 구조 물성 예측 사례입니다."
+    }
+  },
+  "qsar-biodeg": {
+    "group": "science",
+    "title": {
+      "en": "Chemical biodegradability",
+      "ko": "화학물질 생분해성"
+    },
+    "description": {
+      "en": "Molecular descriptors capture structural properties of chemicals, including atom counts and connectivity. The classification task predicts whether a chemical is readily biodegradable. Each chemical is encoded by a collection of descriptors that summarize different parts of its molecular structure. This is a chemical-property classification task, with the model combining those descriptors to predict the supplied biodegradability label for each compound in the table.",
+      "ko": "원자 수와 연결성 등 화학물질의 구조적 특성을 담은 분자 기술자 데이터입니다. 화학물질의 생분해 용이성을 분류합니다. 각 화학 물질은 분자 구조의 여러 부분을 요약한 기술자들의 집합으로 표현됩니다. 화학적 특성을 분류하는 과제로, 이런 기술자를 종합해 표에 담긴 각 화합물의 생분해성 표지를 예측합니다."
+    }
+  },
+  "SDSS17": {
+    "group": "science",
+    "title": {
+      "en": "Astronomical object classification",
+      "ko": "천체 분류"
+    },
+    "description": {
+      "en": "Sloan Digital Sky Survey observations include positions, photometric measurements, and redshift. The task distinguishes stars, galaxies, and quasars from these observations. Each row describes one observed object through numerical measurements collected by the survey. It is a scientific classification task that brings together an object’s position and measured observational properties, allowing the model to distinguish among three object categories from a structured measurement table.",
+      "ko": "위치, 측광값, 적색편이를 담은 Sloan Digital Sky Survey 관측 데이터입니다. 관측값을 바탕으로 별, 은하, 퀘이사를 구분합니다. 각 행은 조사에서 수집한 수치형 측정값으로 하나의 관측 천체를 표현합니다. 천체의 위치와 관측 특성을 함께 사용하며, 구조화된 측정 표에서 세 가지 천체 범주를 구분하는 과학 분야 분류 과제입니다."
+    }
+  },
+  "splice": {
+    "group": "science",
+    "title": {
+      "en": "DNA splice-site classification",
+      "ko": "DNA 스플라이스 부위 분류"
+    },
+    "description": {
+      "en": "Fixed-length DNA sequences are represented as a table with one feature per nucleotide position. The task classifies the sequence’s splice-site type. Each row preserves the order of a DNA sequence through its column positions, so nearby and distant nucleotide values can be considered together. The benchmark illustrates biological sequence classification in a tabular format, with the model using combinations across positions to predict the supplied splice-site category.",
+      "ko": "고정 길이 DNA 서열의 각 염기 위치를 하나의 특성으로 변환한 테이블 데이터입니다. 서열의 스플라이스 부위 종류를 분류합니다. 각 행은 열의 위치를 통해 DNA 서열의 순서를 유지하므로, 가깝거나 멀리 떨어진 위치의 염기 값을 함께 고려할 수 있습니다. 표 형식으로 표현한 생물학적 서열에서 위치별 조합을 이용해 스플라이스 부위의 범주를 분류하는 사례입니다."
+    }
+  },
+  "superconductivity": {
+    "group": "science",
+    "title": {
+      "en": "Superconductor critical temperature",
+      "ko": "초전도체 임계 온도"
+    },
+    "description": {
+      "en": "Material compositions are summarized through statistics of their constituent elements, such as atomic mass and other properties. The regression task predicts superconducting critical temperature. Each material is represented by numerical summaries derived from the elements in its composition. The task illustrates property prediction from a chemical recipe, combining multiple element-level statistics into a single estimate of the temperature associated with the material’s superconducting transition.",
+      "ko": "원자량 등 구성 원소의 특성을 통계적으로 요약한 재료 데이터입니다. 초전도 임계 온도를 예측하는 회귀 과제입니다. 각 물질은 구성 원소에서 계산한 여러 수치형 요약값으로 표현됩니다. 화학 조성에서 물성을 예측하는 사례로, 원소별 통계량을 종합해 해당 물질의 초전도 전이에 대응하는 온도를 추정합니다."
+    }
+  },
+  "wine_quality": {
+    "group": "science",
+    "title": {
+      "en": "Wine quality scores",
+      "ko": "와인 품질 점수"
+    },
+    "description": {
+      "en": "Red and white wines are described by acidity, sugar, sulphur dioxide, density, alcohol, and other measurements. TabArena predicts the median quality score assigned by expert assessors. Each wine sample links laboratory measurements to an assessment of quality, providing a continuous prediction target. The benchmark connects several aspects of chemical composition with the supplied sensory score, illustrating how structured measurements can be used to estimate an externally assigned product-quality outcome.",
+      "ko": "산도, 당분, 이산화황, 밀도, 알코올 등으로 적·백포도주를 나타낸 데이터입니다. 전문가가 부여한 품질 점수의 중앙값을 예측합니다. 각 와인 시료는 실험실 측정값과 품질 평가를 연결하며, 연속적인 점수를 예측 대상으로 사용합니다. 화학적 조성의 여러 측면에서 주어진 관능 평가 점수를 추정하는, 측정값 기반의 제품 품질 예측 사례입니다."
+    }
+  },
+  "houses": {
+    "group": "pricing",
+    "title": {
+      "en": "California house values",
+      "ko": "캘리포니아 주택 가치"
+    },
+    "description": {
+      "en": "Neighborhood records include income, housing age, room counts, population, and location. The target is the natural logarithm of median house value, so the reported RMSE is on the log-value scale. Each example describes a neighborhood-level housing profile, bringing local economic and housing characteristics into one record. It illustrates area-level value estimation from structured census-style attributes; comparisons should be read in the transformed target’s units because the benchmark predicts the logged value.",
+      "ko": "소득, 주택 연령, 방 수, 인구, 위치를 담은 지역별 데이터입니다. 예측 대상은 주택 가격 중앙값의 자연로그이므로 RMSE 역시 로그값 기준입니다. 각 사례는 지역의 경제·주거 특성을 하나의 기록으로 묶은 지역 단위 주택 프로필입니다. 구조화된 지역 특성에서 가치를 추정하는 과제이며, 로그 변환된 가격을 예측하므로 성능 수치도 그 변환된 척도에서 해석해야 합니다."
+    }
+  },
+  "miami_housing": {
+    "group": "pricing",
+    "title": {
+      "en": "Miami house sale prices",
+      "ko": "마이애미 주택 매매 가격"
+    },
+    "description": {
+      "en": "Housing transactions describe living area, land area, age, location, and distances to local amenities and infrastructure. The regression target is the recorded property sale price. Each row links a property transaction to both the home’s physical attributes and its surrounding location. The task illustrates property-value estimation from mixed building and neighborhood measurements, where size, age, and proximity information can be considered together when predicting the recorded transaction price.",
+      "ko": "거주·대지 면적, 건물 연령, 위치, 주변 시설·인프라까지의 거리를 담은 주택 거래 데이터입니다. 기록된 주택 매매 가격을 예측합니다. 각 행은 주택 거래를 건물의 물리적 특성과 주변 입지 정보에 연결합니다. 면적, 연식, 주변 시설과의 거리 등을 함께 고려해 기록된 거래 가격을 예측하는, 건물·지역 측정값 기반의 부동산 가치 추정 사례입니다."
+    }
+  },
+  "diamonds": {
+    "group": "pricing",
+    "title": {
+      "en": "Diamond prices",
+      "ko": "다이아몬드 가격"
+    },
+    "description": {
+      "en": "Diamond records describe carat weight, cut, color, clarity, and physical dimensions. The task estimates the recorded price from these product characteristics. Each row describes an individual diamond with a mix of numerical measurements and categorical quality grades. The dataset illustrates product pricing from structured attributes, combining size and grading information to estimate the continuous price recorded for a particular item.",
+      "ko": "캐럿 중량, 컷, 색상, 투명도, 치수를 담은 다이아몬드 데이터입니다. 상품 특성을 바탕으로 기록된 가격을 추정합니다. 각 행은 수치형 측정값과 범주형 품질 등급을 함께 사용해 하나의 다이아몬드를 표현합니다. 크기와 등급 정보를 종합해 개별 상품에 기록된 연속적인 가격을 추정하는, 구조화된 상품 특성 기반의 가격 예측 사례입니다."
+    }
+  },
+  "Another-Dataset-on-used-Fiat-500": {
+    "group": "pricing",
+    "title": {
+      "en": "Used car prices",
+      "ko": "중고차 가격"
+    },
+    "description": {
+      "en": "Used Fiat 500 listings include model, engine power, vehicle age, mileage, previous owners, and location. The regression target is the listed vehicle price. Each example is a listing within the same vehicle family, so differences in price are modeled from the attributes of that particular car. The benchmark combines specification, usage history, and location information to estimate a continuous asking price from a structured listing record.",
+      "ko": "모델, 엔진 출력, 연식, 주행 거리, 이전 소유자 수, 위치를 담은 Fiat 500 중고차 매물 데이터입니다. 매물 가격을 예측합니다. 각 사례는 같은 차종 계열의 매물이며, 개별 차량의 특성에서 가격 차이를 예측합니다. 차량 사양, 사용 이력, 지역 정보를 구조화된 매물 기록에서 함께 활용해 연속적인 판매 제시 가격을 추정하는 벤치마크입니다."
+    }
+  },
+  "students_dropout_and_academic_success": {
+    "group": "people",
+    "title": {
+      "en": "Student academic outcomes",
+      "ko": "학생 학업 결과"
+    },
+    "description": {
+      "en": "Student records combine enrollment information, prior qualifications, and academic performance. The task classifies the recorded outcome as dropout, continued enrollment, or graduation. Each student is represented by background and study-related information collected in the dataset. The benchmark combines enrollment context with recorded academic performance to distinguish three outcomes, making it a multiclass example of learning from a structured educational record.",
+      "ko": "입학 정보, 이전 학력, 학업 성적을 결합한 학생 데이터입니다. 기록된 결과를 중도 탈락, 재학, 졸업으로 분류합니다. 각 학생은 데이터에 수집된 배경 정보와 학업 관련 정보로 표현됩니다. 등록 맥락과 기록된 학업 성과를 종합해 세 가지 결과를 구분하며, 구조화된 교육 기록을 활용하는 다중 분류 사례입니다."
+    }
+  },
+  "HR_Analytics_Job_Change_of_Data_Scientists": {
+    "group": "people",
+    "title": {
+      "en": "Job-change interest",
+      "ko": "이직 관심"
+    },
+    "description": {
+      "en": "Training participant records include education, experience, employer characteristics, location, and training hours. The target indicates whether the participant is looking for a job change. Each example connects a participant’s professional background with information about their training participation. The target captures recorded job-change interest, and the benchmark tests how education, experience, employer context, and training activity can be combined within a structured participant profile.",
+      "ko": "교육 수준, 경력, 고용 기업 특성, 지역, 교육 시간을 담은 교육 참여자 데이터입니다. 참여자의 이직 희망 여부를 예측합니다. 각 사례는 참가자의 직업적 배경을 교육 참여 정보와 연결합니다. 예측 대상은 기록된 이직 관심 여부이며, 학력, 경력, 고용주 특성, 교육 활동을 하나의 구조화된 참가자 프로필에서 종합하는 과제입니다."
+    }
+  },
+  "Amazon_employee_access": {
+    "group": "people",
+    "title": {
+      "en": "Employee resource access",
+      "ko": "직원 리소스 접근"
+    },
+    "description": {
+      "en": "Employee access requests identify resources, managers, departments, and job roles. The benchmark predicts whether the requested resource access was approved. Each row joins the resource being requested with the employee’s organizational context. The task illustrates classification from relationships among categorical identifiers, using the historical approval label to learn how resource, role, and reporting information relate within the supplied access-request records.",
+      "ko": "리소스, 관리자, 부서, 직무를 담은 직원 접근 요청 데이터입니다. 요청된 리소스 접근이 승인되었는지 예측합니다. 각 행은 요청한 리소스와 직원의 조직적 맥락을 연결합니다. 과거의 승인 표지를 이용해 리소스, 직무, 보고 체계 정보 사이의 관계를 학습하는 과제로, 범주형 식별자들의 조합을 활용하는 분류 사례입니다."
+    }
+  },
+  "NATICUSdroid": {
+    "group": "software",
+    "title": {
+      "en": "Android malware detection",
+      "ko": "안드로이드 악성 앱 탐지"
+    },
+    "description": {
+      "en": "Android applications are represented by the native and custom permissions they request. The task distinguishes malware from benign applications using these permission features. Each application becomes a row of permission indicators describing the capabilities it requests. The benchmark illustrates security classification from structured application metadata, combining patterns across requested permissions to predict the malware label associated with each application in the dataset.",
+      "ko": "안드로이드 앱이 요청하는 기본·사용자 정의 권한으로 앱을 표현한 데이터입니다. 권한 특성을 이용해 악성 앱과 정상 앱을 구분합니다. 각 앱은 요청하는 기능을 나타내는 권한 지표들의 행으로 표현됩니다. 구조화된 앱 메타데이터를 활용하는 보안 분류 사례로, 여러 권한 요청의 패턴을 종합해 데이터셋에 기록된 악성 여부를 예측합니다."
+    }
+  },
+  "website_phishing": {
+    "group": "software",
+    "title": {
+      "en": "Phishing website classification",
+      "ko": "피싱 웹사이트 분류"
+    },
+    "description": {
+      "en": "Website records describe URL characteristics, domain age, traffic, security indicators, and page behavior. The multiclass task predicts the recorded website type. Each website is summarized through a collection of indicators that describe its address, reputation-related attributes, and observed behavior. The benchmark combines several types of website evidence in one table, testing whether their joint pattern can distinguish the supplied categorical website labels.",
+      "ko": "URL 특성, 도메인 연령, 트래픽, 보안 지표, 페이지 동작을 담은 웹사이트 데이터입니다. 기록된 웹사이트 종류를 다중 분류합니다. 각 웹사이트는 주소, 평판 관련 특성, 관측된 행동을 설명하는 여러 지표로 요약됩니다. 서로 다른 종류의 웹사이트 정보를 하나의 표에 담고, 지표들의 조합에서 주어진 웹사이트 범주를 구분하는 성능을 평가합니다."
+    }
+  },
+  "jm1": {
+    "group": "software",
+    "title": {
+      "en": "Software defect detection",
+      "ko": "소프트웨어 결함 탐지"
+    },
+    "description": {
+      "en": "Software modules are described by static code measurements, including lines of code and complexity measures. The target indicates whether a module contains a recorded defect. Each module becomes one prediction example whose numerical features summarize aspects of its source code. The task illustrates software-quality classification from code metrics, combining size and complexity information to distinguish modules with and without a recorded defect in the benchmark.",
+      "ko": "코드 줄 수, 복잡도 등 정적 코드 측정값으로 소프트웨어 모듈을 표현한 데이터입니다. 모듈에 기록된 결함이 있는지 예측합니다. 각 모듈은 소스 코드의 여러 측면을 요약한 수치형 특성을 가진 하나의 예측 사례입니다. 코드의 크기와 복잡도 정보를 종합해 벤치마크에 결함이 기록된 모듈과 그렇지 않은 모듈을 구분하는 소프트웨어 품질 분류 과제입니다."
+    }
+  }
+}

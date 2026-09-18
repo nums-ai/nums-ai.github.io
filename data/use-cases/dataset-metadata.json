@@ -1,0 +1,516 @@
+{
+  "source": "https://github.com/autogluon/tabarena/tree/f87fecd888b67599418e600a84877a95c95f7c57/packages/tabarena/src/tabarena/benchmark/task/metadata",
+  "retrieved": "2026-09-16",
+  "datasets": {
+    "airfoil_self_noise": {
+      "openmlId": 46904,
+      "sourceUrl": "https://www.openml.org/d/46904",
+      "originalSource": "https://doi.org/10.24432/C5VW2C",
+      "rows": 1503,
+      "features": 5,
+      "target": "scaled-sound-pressure",
+      "problemType": "regression",
+      "splits": 30
+    },
+    "Amazon_employee_access": {
+      "openmlId": 46905,
+      "sourceUrl": "https://www.openml.org/d/46905",
+      "originalSource": "https://www.kaggle.com/c/amazon-employee-access-challenge",
+      "rows": 32769,
+      "features": 9,
+      "target": "ResourceApproved",
+      "problemType": "binary",
+      "splits": 9
+    },
+    "anneal": {
+      "openmlId": 46906,
+      "sourceUrl": "https://www.openml.org/d/46906",
+      "originalSource": "https://doi.org/10.24432/C5RW2F",
+      "rows": 898,
+      "features": 38,
+      "target": "classes",
+      "problemType": "multiclass",
+      "splits": 30
+    },
+    "Another-Dataset-on-used-Fiat-500": {
+      "openmlId": 46907,
+      "sourceUrl": "https://www.openml.org/d/46907",
+      "originalSource": "https://www.kaggle.com/datasets/paolocons/another-fiat-500-dataset-1538-rows",
+      "rows": 1538,
+      "features": 7,
+      "target": "price",
+      "problemType": "regression",
+      "splits": 30
+    },
+    "APSFailure": {
+      "openmlId": 46908,
+      "sourceUrl": "https://www.openml.org/d/46908",
+      "originalSource": "https://doi.org/10.24432/C5V60Q",
+      "rows": 76000,
+      "features": 170,
+      "target": "AirPressureSystemFailure",
+      "problemType": "binary",
+      "splits": 9
+    },
+    "bank-marketing": {
+      "openmlId": 46910,
+      "sourceUrl": "https://www.openml.org/d/46910",
+      "originalSource": "https://doi.org/10.24432/C5K306",
+      "rows": 45211,
+      "features": 13,
+      "target": "SubscribeTermDeposit",
+      "problemType": "binary",
+      "splits": 9
+    },
+    "Bank_Customer_Churn": {
+      "openmlId": 46911,
+      "sourceUrl": "https://www.openml.org/d/46911",
+      "originalSource": "https://www.kaggle.com/datasets/gauravtopre/bank-customer-churn-dataset",
+      "rows": 10000,
+      "features": 10,
+      "target": "churn",
+      "problemType": "binary",
+      "splits": 9
+    },
+    "Bioresponse": {
+      "openmlId": 46912,
+      "sourceUrl": "https://www.openml.org/d/46912",
+      "originalSource": "https://www.kaggle.com/c/bioresponse",
+      "rows": 3751,
+      "features": 1776,
+      "target": "MoleculeElicitsResponse",
+      "problemType": "binary",
+      "splits": 9
+    },
+    "blood-transfusion-service-center": {
+      "openmlId": 46913,
+      "sourceUrl": "https://www.openml.org/d/46913",
+      "originalSource": "https://doi.org/10.24432/C5GS39",
+      "rows": 748,
+      "features": 4,
+      "target": "DonatedBloodInMarch2007",
+      "problemType": "binary",
+      "splits": 30
+    },
+    "churn": {
+      "openmlId": 46915,
+      "sourceUrl": "https://www.openml.org/d/46915",
+      "originalSource": "https://github.com/EpistasisLab/pmlb/tree/master/datasets/churn",
+      "rows": 5000,
+      "features": 19,
+      "target": "CustomerChurned",
+      "problemType": "binary",
+      "splits": 9
+    },
+    "coil2000_insurance_policies": {
+      "openmlId": 46916,
+      "sourceUrl": "https://www.openml.org/d/46916",
+      "originalSource": "https://doi.org/10.24432/C5630S",
+      "rows": 9822,
+      "features": 85,
+      "target": "MobileHomePolicy",
+      "problemType": "binary",
+      "splits": 9
+    },
+    "concrete_compressive_strength": {
+      "openmlId": 46917,
+      "sourceUrl": "https://www.openml.org/d/46917",
+      "originalSource": "https://doi.org/10.24432/C5PK67",
+      "rows": 1030,
+      "features": 8,
+      "target": "ConcreteCompressiveStrength",
+      "problemType": "regression",
+      "splits": 30
+    },
+    "credit-g": {
+      "openmlId": 46918,
+      "sourceUrl": "https://www.openml.org/d/46918",
+      "originalSource": "https://doi.org/10.24432/C5NC77",
+      "rows": 1000,
+      "features": 20,
+      "target": "good_or_bad_customer",
+      "problemType": "binary",
+      "splits": 30
+    },
+    "credit_card_clients_default": {
+      "openmlId": 46919,
+      "sourceUrl": "https://www.openml.org/d/46919",
+      "originalSource": "https://doi.org/10.24432/C55S3H",
+      "rows": 30000,
+      "features": 23,
+      "target": "DefaultOnPaymentNextMonth",
+      "problemType": "binary",
+      "splits": 9
+    },
+    "customer_satisfaction_in_airline": {
+      "openmlId": 46920,
+      "sourceUrl": "https://www.openml.org/d/46920",
+      "originalSource": "https://www.kaggle.com/datasets/yakhyojon/customer-satisfaction-in-airline",
+      "rows": 129880,
+      "features": 21,
+      "target": "satisfaction",
+      "problemType": "binary",
+      "splits": 9
+    },
+    "diabetes": {
+      "openmlId": 46921,
+      "sourceUrl": "https://www.openml.org/d/46921",
+      "originalSource": "https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database",
+      "rows": 768,
+      "features": 8,
+      "target": "TestedPositiveForDiabetes",
+      "problemType": "binary",
+      "splits": 30
+    },
+    "Diabetes130US": {
+      "openmlId": 46922,
+      "sourceUrl": "https://www.openml.org/d/46922",
+      "originalSource": "https://doi.org/10.24432/C5230J",
+      "rows": 71518,
+      "features": 47,
+      "target": "EarlyReadmission",
+      "problemType": "binary",
+      "splits": 9
+    },
+    "diamonds": {
+      "openmlId": 46923,
+      "sourceUrl": "https://www.openml.org/d/46923",
+      "originalSource": "https://github.com/tidyverse/ggplot2/blob/main/data-raw/diamonds.csv",
+      "rows": 53940,
+      "features": 9,
+      "target": "price",
+      "problemType": "regression",
+      "splits": 9
+    },
+    "E-CommereShippingData": {
+      "openmlId": 46924,
+      "sourceUrl": "https://www.openml.org/d/46924",
+      "originalSource": "https://www.kaggle.com/datasets/prachi13/customer-analytics",
+      "rows": 10999,
+      "features": 10,
+      "target": "ArrivedLate",
+      "problemType": "binary",
+      "splits": 9
+    },
+    "Fitness_Club": {
+      "openmlId": 46927,
+      "sourceUrl": "https://www.openml.org/d/46927",
+      "originalSource": "https://www.kaggle.com/datasets/ddosad/datacamps-data-science-associate-certification",
+      "rows": 1500,
+      "features": 6,
+      "target": "attended",
+      "problemType": "binary",
+      "splits": 30
+    },
+    "Food_Delivery_Time": {
+      "openmlId": 46928,
+      "sourceUrl": "https://www.openml.org/d/46928",
+      "originalSource": "https://www.kaggle.com/datasets/rajatkumar30/food-delivery-time",
+      "rows": 45451,
+      "features": 9,
+      "target": "Time_taken(min)",
+      "problemType": "regression",
+      "splits": 9
+    },
+    "GiveMeSomeCredit": {
+      "openmlId": 46929,
+      "sourceUrl": "https://www.openml.org/d/46929",
+      "originalSource": "https://www.kaggle.com/competitions/GiveMeSomeCredit",
+      "rows": 150000,
+      "features": 10,
+      "target": "FinancialDistressNextTwoYears",
+      "problemType": "binary",
+      "splits": 9
+    },
+    "hazelnut-spread-contaminant-detection": {
+      "openmlId": 46930,
+      "sourceUrl": "https://www.openml.org/d/46930",
+      "originalSource": "https://www.openml.org/d/45538",
+      "rows": 2400,
+      "features": 30,
+      "target": "Contaminated",
+      "problemType": "binary",
+      "splits": 30
+    },
+    "healthcare_insurance_expenses": {
+      "openmlId": 46931,
+      "sourceUrl": "https://www.openml.org/d/46931",
+      "originalSource": "https://www.kaggle.com/datasets/arunjangir245/healthcare-insurance-expenses/",
+      "rows": 1338,
+      "features": 6,
+      "target": "charges",
+      "problemType": "regression",
+      "splits": 30
+    },
+    "heloc": {
+      "openmlId": 46932,
+      "sourceUrl": "https://www.openml.org/d/46932",
+      "originalSource": "https://www.kaggle.com/datasets/averkiyoliabev/home-equity-line-of-creditheloc",
+      "rows": 10459,
+      "features": 23,
+      "target": "RiskPerformance",
+      "problemType": "binary",
+      "splits": 9
+    },
+    "hiva_agnostic": {
+      "openmlId": 46933,
+      "sourceUrl": "https://www.openml.org/d/46933",
+      "originalSource": "http://www.agnostic.inf.ethz.ch",
+      "rows": 3845,
+      "features": 1617,
+      "target": "CompoundActivity",
+      "problemType": "multiclass",
+      "splits": 9
+    },
+    "houses": {
+      "openmlId": 46934,
+      "sourceUrl": "https://www.openml.org/d/46934",
+      "originalSource": "https://lib.stat.cmu.edu/datasets/",
+      "rows": 20640,
+      "features": 8,
+      "target": "LnMedianHouseValue",
+      "problemType": "regression",
+      "splits": 9
+    },
+    "HR_Analytics_Job_Change_of_Data_Scientists": {
+      "openmlId": 46935,
+      "sourceUrl": "https://www.openml.org/d/46935",
+      "originalSource": "https://www.kaggle.com/datasets/arashnic/hr-analytics-job-change-of-data-scientists",
+      "rows": 19158,
+      "features": 12,
+      "target": "LookingForJobChange",
+      "problemType": "binary",
+      "splits": 9
+    },
+    "in_vehicle_coupon_recommendation": {
+      "openmlId": 46937,
+      "sourceUrl": "https://www.openml.org/d/46937",
+      "originalSource": "https://doi.org/10.24432/C5GS4P",
+      "rows": 12684,
+      "features": 24,
+      "target": "AcceptCoupon",
+      "problemType": "binary",
+      "splits": 9
+    },
+    "Is-this-a-good-customer": {
+      "openmlId": 46938,
+      "sourceUrl": "https://www.openml.org/d/46938",
+      "originalSource": "https://www.kaggle.com/datasets/podsyp/is-this-a-good-customer",
+      "rows": 1723,
+      "features": 13,
+      "target": "bad_client_target",
+      "problemType": "binary",
+      "splits": 30
+    },
+    "kddcup09_appetency": {
+      "openmlId": 46939,
+      "sourceUrl": "https://www.openml.org/d/46939",
+      "originalSource": "https://kdd.org/kdd-cup/view/kdd-cup-2009/Intro",
+      "rows": 50000,
+      "features": 212,
+      "target": "appetency",
+      "problemType": "binary",
+      "splits": 9
+    },
+    "Marketing_Campaign": {
+      "openmlId": 46940,
+      "sourceUrl": "https://www.openml.org/d/46940",
+      "originalSource": "https://www.kaggle.com/datasets/rodsaldanha/arketing-campaign",
+      "rows": 2240,
+      "features": 25,
+      "target": "Response",
+      "problemType": "binary",
+      "splits": 30
+    },
+    "maternal_health_risk": {
+      "openmlId": 46941,
+      "sourceUrl": "https://www.openml.org/d/46941",
+      "originalSource": "https://doi.org/10.24432/C5DP5D",
+      "rows": 1014,
+      "features": 6,
+      "target": "RiskLevel",
+      "problemType": "multiclass",
+      "splits": 30
+    },
+    "miami_housing": {
+      "openmlId": 46942,
+      "sourceUrl": "https://www.openml.org/d/46942",
+      "originalSource": "https://www.openml.org/d/43093",
+      "rows": 13776,
+      "features": 15,
+      "target": "SALE_PRC",
+      "problemType": "regression",
+      "splits": 9
+    },
+    "MIC": {
+      "openmlId": 46980,
+      "sourceUrl": "https://www.openml.org/d/46980",
+      "originalSource": "https://doi.org/10.24432/C53P5M",
+      "rows": 1699,
+      "features": 111,
+      "target": "LET_IS",
+      "problemType": "multiclass",
+      "splits": 30
+    },
+    "NATICUSdroid": {
+      "openmlId": 46969,
+      "sourceUrl": "https://www.openml.org/d/46969",
+      "originalSource": "https://doi.org/10.24432/C5FS64",
+      "rows": 7491,
+      "features": 86,
+      "target": "Malware",
+      "problemType": "binary",
+      "splits": 9
+    },
+    "online_shoppers_intention": {
+      "openmlId": 46947,
+      "sourceUrl": "https://www.openml.org/d/46947",
+      "originalSource": "https://doi.org/10.24432/C5F88Q",
+      "rows": 12330,
+      "features": 17,
+      "target": "Revenue",
+      "problemType": "binary",
+      "splits": 9
+    },
+    "physiochemical_protein": {
+      "openmlId": 46949,
+      "sourceUrl": "https://www.openml.org/d/46949",
+      "originalSource": "https://doi.org/10.24432/C5QW3H",
+      "rows": 45730,
+      "features": 9,
+      "target": "ResidualSize",
+      "problemType": "regression",
+      "splits": 9
+    },
+    "polish_companies_bankruptcy": {
+      "openmlId": 46950,
+      "sourceUrl": "https://www.openml.org/d/46950",
+      "originalSource": "https://doi.org/10.24432/C5F600",
+      "rows": 5910,
+      "features": 64,
+      "target": "company_bankrupt",
+      "problemType": "binary",
+      "splits": 9
+    },
+    "qsar-biodeg": {
+      "openmlId": 46952,
+      "sourceUrl": "https://www.openml.org/d/46952",
+      "originalSource": "https://doi.org/10.24432/C5H60M",
+      "rows": 1054,
+      "features": 41,
+      "target": "Biodegradable",
+      "problemType": "binary",
+      "splits": 30
+    },
+    "QSAR-TID-11": {
+      "openmlId": 46953,
+      "sourceUrl": "https://www.openml.org/d/46953",
+      "originalSource": "https://www.openml.org/d/3050",
+      "rows": 5742,
+      "features": 1024,
+      "target": "MEDIAN_PXC50",
+      "problemType": "regression",
+      "splits": 9
+    },
+    "QSAR_fish_toxicity": {
+      "openmlId": 46954,
+      "sourceUrl": "https://www.openml.org/d/46954",
+      "originalSource": "https://doi.org/10.24432/C5JG7B",
+      "rows": 907,
+      "features": 6,
+      "target": "LC50",
+      "problemType": "regression",
+      "splits": 30
+    },
+    "SDSS17": {
+      "openmlId": 46955,
+      "sourceUrl": "https://www.openml.org/d/46955",
+      "originalSource": "https://www.kaggle.com/datasets/fedesoriano/stellar-classification-dataset-sdss17",
+      "rows": 78053,
+      "features": 11,
+      "target": "ObjectType",
+      "problemType": "multiclass",
+      "splits": 9
+    },
+    "seismic-bumps": {
+      "openmlId": 46956,
+      "sourceUrl": "https://www.openml.org/d/46956",
+      "originalSource": "https://doi.org/10.24432/C5W902",
+      "rows": 2584,
+      "features": 15,
+      "target": "HighEnergySeismicBump",
+      "problemType": "binary",
+      "splits": 9
+    },
+    "splice": {
+      "openmlId": 46958,
+      "sourceUrl": "https://www.openml.org/d/46958",
+      "originalSource": "https://doi.org/10.24432/C5M888",
+      "rows": 3190,
+      "features": 60,
+      "target": "SiteType",
+      "problemType": "multiclass",
+      "splits": 9
+    },
+    "students_dropout_and_academic_success": {
+      "openmlId": 46960,
+      "sourceUrl": "https://www.openml.org/d/46960",
+      "originalSource": "https://doi.org/10.24432/C5MC89",
+      "rows": 4424,
+      "features": 36,
+      "target": "AcademicOutcome",
+      "problemType": "multiclass",
+      "splits": 9
+    },
+    "superconductivity": {
+      "openmlId": 46961,
+      "sourceUrl": "https://www.openml.org/d/46961",
+      "originalSource": "https://doi.org/10.24432/C53P47",
+      "rows": 21263,
+      "features": 81,
+      "target": "critical_temp",
+      "problemType": "regression",
+      "splits": 9
+    },
+    "taiwanese_bankruptcy_prediction": {
+      "openmlId": 46962,
+      "sourceUrl": "https://www.openml.org/d/46962",
+      "originalSource": "https://doi.org/10.24432/C5004D",
+      "rows": 6819,
+      "features": 94,
+      "target": "Bankrupt",
+      "problemType": "binary",
+      "splits": 9
+    },
+    "website_phishing": {
+      "openmlId": 46963,
+      "sourceUrl": "https://www.openml.org/d/46963",
+      "originalSource": "https://doi.org/10.24432/C5B301",
+      "rows": 1353,
+      "features": 9,
+      "target": "WebsiteType",
+      "problemType": "multiclass",
+      "splits": 30
+    },
+    "wine_quality": {
+      "openmlId": 46964,
+      "sourceUrl": "https://www.openml.org/d/46964",
+      "originalSource": "https://doi.org/10.24432/C56S3T",
+      "rows": 6497,
+      "features": 12,
+      "target": "median_wine_quality",
+      "problemType": "regression",
+      "splits": 9
+    },
+    "jm1": {
+      "openmlId": 46979,
+      "sourceUrl": "https://www.openml.org/d/46979",
+      "originalSource": "https://www.openml.org/d/1053",
+      "rows": 10885,
+      "features": 21,
+      "target": "defects",
+      "problemType": "binary",
+      "splits": 9
+    }
+  }
+}

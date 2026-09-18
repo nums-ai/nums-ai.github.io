@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import type { ReactNode } from "react";
 import { notFound } from "next/navigation";
+import Navigation from "@/components/homepage/Navigation";
+import Footer from "@/components/homepage/Footer";
+import { Arrow } from "@/components/homepage/Icons";
+import shared from "@/components/homepage/homepage.module.css";
 import styles from "../careers.module.css";
 import { careersContentEn } from "../content.en";
-import { careersContentKo } from "../content.ko";
+import OutlineInteraction from "../OutlineInteraction";
 
 const contentByLocale = {
   en: careersContentEn,
-  ko: careersContentKo,
 } as const;
 
 type Locale = keyof typeof contentByLocale;
@@ -16,7 +19,7 @@ type CareersPageProps = { params: Promise<{ locale: string }> };
 export const dynamicParams = false;
 
 export function generateStaticParams() {
-  return [{ locale: "en" }, { locale: "ko" }];
+  return [{ locale: "en" }];
 }
 
 function getLocale(value?: string): Locale {
@@ -27,24 +30,16 @@ function getLocale(value?: string): Locale {
 
 function getMetadata(locale: Locale): Metadata {
   const content = contentByLocale[locale];
-  const isKorean = locale === "ko";
 
   return {
     title: content.metadata.title,
     description: content.metadata.description,
-    alternates: {
-      languages: {
-        en: "/careers/en/",
-        ko: "/careers/ko/",
-      },
-    },
     openGraph: {
       title: content.metadata.title,
       description: content.metadata.description,
       type: "website",
       siteName: "Nums AI",
-      locale: isKorean ? "ko_KR" : "en_US",
-      alternateLocale: [isKorean ? "en_US" : "ko_KR"],
+      locale: "en_US",
     },
   };
 }
@@ -65,168 +60,123 @@ function List({ children }: { children: readonly string[] }) {
   );
 }
 
+function Disclosure({ id, title, children }: { id: string; title: string; children: ReactNode }) {
+  return (
+    <details className={styles.disclosure} id={id} name="careers-positions">
+      <summary className={styles.disclosureSummary}>
+        <h2>Position: {title}</h2>
+        <svg className={styles.disclosureIcon} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M6 12h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+          <path d="M12 6v12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+        </svg>
+      </summary>
+      <div className={styles.disclosureBody}>{children}</div>
+    </details>
+  );
+}
+
 export default async function CareersPage({
   params,
 }: CareersPageProps) {
   const locale = getLocale((await params).locale);
   const content = contentByLocale[locale];
-  const isKorean = locale === "ko";
 
   return (
-    <>
-      <nav
-        className={styles.nav}
-        aria-label={isKorean ? "채용 페이지 내비게이션" : "Careers navigation"}
-      >
-        <Link className="brand" href="/" aria-label="Nums AI — home">
-          <span className="brand-mark" aria-hidden="true"></span>
-          <span className="brand-word" role="img" aria-label="nums ai"></span>
-        </Link>
-
-        <div className={styles.navActions}>
-          <div
-            className={styles.languageToggle}
-            aria-label={isKorean ? "언어 선택" : "Language selection"}
-          >
-            <Link
-              className={!isKorean ? styles.languageActive : undefined}
-              href="/careers/en/"
-              hrefLang="en"
-              aria-current={!isKorean ? "page" : undefined}
-            >
-              EN
-            </Link>
-            <Link
-              className={isKorean ? styles.languageActive : undefined}
-              href="/careers/ko/"
-              hrefLang="ko"
-              aria-current={isKorean ? "page" : undefined}
-            >
-              한국어
-            </Link>
-          </div>
-
-          <Link className={styles.homeLink} href="/">
-            {content.navigation.home}
-            <span aria-hidden="true">↗</span>
-          </Link>
-        </div>
-      </nav>
-
-      <main className={styles.page} lang={locale}>
-        <header className={styles.hero}>
-          <span className={styles.kicker}>{content.hero.kicker}</span>
-          <h1>{content.hero.title}</h1>
-          <p className={styles.heroLead}>{content.hero.subtitle}</p>
-          <a
-            className={styles.primaryCta}
-            href={`mailto:${content.application.email}`}
-          >
-            {content.hero.cta} <span aria-hidden="true">↗</span>
-          </a>
+    <div className={shared.site} lang={locale}>
+      <Navigation locale={locale} page="careers" />
+      <main id="main">
+        <header className={`${shared.container} ${shared.pageIntro}`}>
+          <h1 className={shared.pageTitle}>{content.hero.title}</h1>
+          <p className={shared.prose}>{content.hero.subtitle}</p>
         </header>
 
-        <div className={styles.contentGrid}>
-          <aside
-            className={styles.index}
-            aria-label={isKorean ? "페이지 목차" : "Page contents"}
-          >
-            <span className={styles.indexLabel}>{content.outline.label}</span>
-            <ol>
-              {content.outline.items.map(([number, label, id], index) => (
-                <li
-                  className={
-                    index >= 1 && index <= 3
-                      ? styles.roleOutlineItem
-                      : undefined
-                  }
-                  key={id}
-                >
-                  <a href={`#${id}`}>
-                    <span>{number}</span>
-                    {label}
-                  </a>
-                </li>
-              ))}
-            </ol>
-          </aside>
-
-          <article className={styles.article}>
-            <section className={styles.section} id="about">
-              <h2>{content.about.title}</h2>
-              <div className={styles.prose}>
-                {content.about.paragraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
-              </div>
-            </section>
-
-            {content.roles.map((role) => (
-              <section className={styles.section} id={role.id} key={role.id}>
-                <h2>{role.title}</h2>
-                <p className={styles.roleIntroduction}>{role.introduction}</p>
-
-                <div className={styles.requirementBlock}>
-                  <h3>{content.roleLabels.responsibilities}</h3>
-                  <List>{role.responsibilities}</List>
-                </div>
-                <div className={styles.requirementBlock}>
-                  <h3>{content.roleLabels.qualifications}</h3>
-                  <List>{role.qualifications}</List>
-                </div>
-                <div className={styles.requirementBlock}>
-                  <h3>{content.roleLabels.preferred}</h3>
-                  <List>{role.preferred}</List>
+        <div className={styles.contentBand}>
+          <div className={`${shared.container} ${styles.layout}`} data-careers>
+            <aside className={styles.outline}>
+              <p className={styles.outlineTitle} id="careers-outline-title">{content.outline.label}</p>
+              <nav className={styles.outlineNav} aria-labelledby="careers-outline-title" data-careers-outline>
+                <ul>
+                  <li><a href="#about">{content.about.title}</a></li>
+                  <li>
+                    <a href={`#${content.roles[0].id}`} id="careers-positions-label" data-outline-group>{content.outline.positionsLabel}</a>
+                    <ul className={styles.outlinePositions} aria-labelledby="careers-positions-label">
+                      {[...content.roles, content.openApplication].map(({ title, id }) => (
+                        <li key={id}><a href={`#${id}`}>{title}</a></li>
+                      ))}
+                    </ul>
+                  </li>
+                  <li><a href={`#${content.conditions.id}`}>{content.conditions.title}</a></li>
+                  <li><a href={`#${content.application.id}`}>{content.application.title}</a></li>
+                </ul>
+              </nav>
+            </aside>
+            <div className={styles.content}>
+              <section className={styles.section} id="about">
+                <h2>{content.about.title}</h2>
+                <div className={styles.prose}>
+                  {content.about.paragraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
                 </div>
               </section>
-            ))}
 
-            <section
-              className={styles.section}
-              id={content.openApplication.id}
-            >
-              <h2>{content.openApplication.title}</h2>
-              <div className={styles.prose}>
-                {content.openApplication.paragraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
+              <div className={styles.disclosures}>
+                {content.roles.map((role) => (
+                  <Disclosure id={role.id} title={role.title} key={role.id}>
+                    <p className={styles.roleIntroduction}>{role.introduction}</p>
+
+                    <div className={styles.requirementBlock}>
+                      <h3>{content.roleLabels.responsibilities}</h3>
+                      <List>{role.responsibilities}</List>
+                    </div>
+                    <div className={styles.requirementBlock}>
+                      <h3>{content.roleLabels.qualifications}</h3>
+                      <List>{role.qualifications}</List>
+                    </div>
+                    <div className={styles.requirementBlock}>
+                      <h3>{content.roleLabels.preferred}</h3>
+                      <List>{role.preferred}</List>
+                    </div>
+                  </Disclosure>
                 ))}
-              </div>
-              <List>{content.openApplication.bullets}</List>
-            </section>
 
-            <section className={styles.section} id={content.conditions.id}>
-              <h2>{content.conditions.title}</h2>
-              <div className={styles.prose}>
-                {content.conditions.paragraphs.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
+                <Disclosure id={content.openApplication.id} title={content.openApplication.title}>
+                  <div className={styles.prose}>
+                    {content.openApplication.paragraphs.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                  <List>{content.openApplication.bullets}</List>
+                </Disclosure>
               </div>
-              <List>{content.conditions.bullets}</List>
-            </section>
 
-            <section className={styles.section} id={content.application.id}>
-              <h2>{content.application.title}</h2>
-              <List>{content.application.bullets}</List>
-              <a
-                className={styles.applicationCta}
-                href={`mailto:${content.application.email}`}
-              >
-                {content.application.email} <span aria-hidden="true">↗</span>
-              </a>
-            </section>
-          </article>
+              <section className={styles.section} id={content.conditions.id}>
+                <h2>{content.conditions.title}</h2>
+                <div className={styles.prose}>
+                  {content.conditions.paragraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+                <List>{content.conditions.bullets}</List>
+              </section>
+
+              <section className={styles.section} id={content.application.id}>
+                <h2>{content.application.title}</h2>
+                <List>{content.application.bullets}</List>
+                <a
+                  className={styles.applicationCta}
+                  href={`mailto:${content.application.email}`}
+                >
+                  {content.application.email}<Arrow diagonal />
+                </a>
+              </section>
+            </div>
+          </div>
         </div>
+        <OutlineInteraction />
       </main>
 
-      <footer className={styles.footer}>
-        <div className="wrap foot">
-          <Link className="brand" href="/" aria-label="Nums AI — home">
-            <span className="brand-mark" aria-hidden="true"></span>
-            <span className="brand-word" role="img" aria-label="nums ai"></span>
-          </Link>
-          <span className="copy">{content.footer}</span>
-        </div>
-      </footer>
-    </>
+      <Footer locale={locale} />
+    </div>
   );
 }

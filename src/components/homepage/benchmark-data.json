@@ -1,0 +1,386 @@
+{
+  "sources": {
+    "leaderboard": {
+      "file": "tabarena_leaderboard_official.csv",
+      "sha256": "3278a2d212409f8d69aaeb6b2ee725db8a7c96ae6bc501c29d5d248378d7f100"
+    },
+    "splits": {
+      "file": "results_per_split_official.csv",
+      "sha256": "d7bffb24241e79aa98cfdd54d866fc82ef8ee37fba158b32bf9ffd1d091c9fda"
+    }
+  },
+  "datasetCount": 51,
+  "splitCount": 816,
+  "configurationCount": 83,
+  "familyCount": 39,
+  "plottedFamilyCount": 8,
+  "treeFamilyCount": 5,
+  "neuralFamilyCount": 2,
+  "plottedConfigurationCount": 22,
+  "datasetTypes": {
+    "binary": 30,
+    "regression": 13,
+    "multiclass": 8
+  },
+  "imputedResultCount": 2742,
+  "methodTypes": [
+    "config",
+    "hpo"
+  ],
+  "causilo": {
+    "method": "CAUSILO (default)",
+    "name": "Causilo",
+    "variant": "default",
+    "methodType": "config",
+    "elo": 1792.9,
+    "plus": 89.2,
+    "minus": 56.1,
+    "lower": 1736.8,
+    "upper": 1882.1,
+    "position": 1
+  },
+  "leaders": [
+    {
+      "method": "CAUSILO (default)",
+      "name": "Causilo",
+      "variant": "default",
+      "methodType": "config",
+      "elo": 1792.9,
+      "plus": 89.2,
+      "minus": 56.1,
+      "lower": 1736.8,
+      "upper": 1882.1,
+      "position": 1
+    },
+    {
+      "method": "TABFM (default)",
+      "name": "TabFM",
+      "variant": "default",
+      "methodType": "config",
+      "elo": 1764.4,
+      "plus": 110.1,
+      "minus": 101.5,
+      "lower": 1662.9,
+      "upper": 1874.5,
+      "position": 2
+    },
+    {
+      "method": "TA-EXAONE-TABULAR (default)",
+      "name": "EXAONE-Tabular",
+      "variant": "default",
+      "methodType": "config",
+      "elo": 1755.5,
+      "plus": 78.5,
+      "minus": 53.1,
+      "lower": 1702.4,
+      "upper": 1834.0,
+      "position": 3
+    }
+  ],
+  "plottedFamilies": [
+    {
+      "name": "RandomForest",
+      "variants": [
+        {
+          "method": "RF (tuned + ensemble)",
+          "name": "RandomForest",
+          "variant": "tuned_ensemble",
+          "methodType": "hpo",
+          "elo": 1170.8,
+          "plus": 50.3,
+          "minus": 42.2,
+          "lower": 1128.6,
+          "upper": 1221.1,
+          "position": 58
+        },
+        {
+          "method": "RF (tuned)",
+          "name": "RandomForest",
+          "variant": "tuned",
+          "methodType": "hpo",
+          "elo": 1135.2,
+          "plus": 48.0,
+          "minus": 41.2,
+          "lower": 1094.0,
+          "upper": 1183.2,
+          "position": 63
+        },
+        {
+          "method": "RF (default)",
+          "name": "RandomForest",
+          "variant": "default",
+          "methodType": "config",
+          "elo": 1000.0,
+          "plus": 43.5,
+          "minus": 42.6,
+          "lower": 957.4,
+          "upper": 1043.5,
+          "position": 75
+        }
+      ]
+    },
+    {
+      "name": "ExtraTrees",
+      "variants": [
+        {
+          "method": "XT (tuned + ensemble)",
+          "name": "ExtraTrees",
+          "variant": "tuned_ensemble",
+          "methodType": "hpo",
+          "elo": 1202.8,
+          "plus": 42.2,
+          "minus": 43.1,
+          "lower": 1159.7,
+          "upper": 1245.0,
+          "position": 52
+        },
+        {
+          "method": "XT (tuned)",
+          "name": "ExtraTrees",
+          "variant": "tuned",
+          "methodType": "hpo",
+          "elo": 1177.7,
+          "plus": 41.4,
+          "minus": 47.4,
+          "lower": 1130.3,
+          "upper": 1219.1,
+          "position": 57
+        },
+        {
+          "method": "XT (default)",
+          "name": "ExtraTrees",
+          "variant": "default",
+          "methodType": "config",
+          "elo": 1007.7,
+          "plus": 49.0,
+          "minus": 56.5,
+          "lower": 951.2,
+          "upper": 1056.7,
+          "position": 73
+        }
+      ]
+    },
+    {
+      "name": "XGBoost",
+      "variants": [
+        {
+          "method": "XGB (tuned + ensemble)",
+          "name": "XGBoost",
+          "variant": "tuned_ensemble",
+          "methodType": "hpo",
+          "elo": 1357.5,
+          "plus": 30.4,
+          "minus": 32.3,
+          "lower": 1325.2,
+          "upper": 1387.9,
+          "position": 25
+        },
+        {
+          "method": "XGB (tuned)",
+          "name": "XGBoost",
+          "variant": "tuned",
+          "methodType": "hpo",
+          "elo": 1334.1,
+          "plus": 29.3,
+          "minus": 30.7,
+          "lower": 1303.4,
+          "upper": 1363.4,
+          "position": 28
+        },
+        {
+          "method": "XGB (default)",
+          "name": "XGBoost",
+          "variant": "default",
+          "methodType": "config",
+          "elo": 1206.3,
+          "plus": 37.2,
+          "minus": 36.2,
+          "lower": 1170.1,
+          "upper": 1243.5,
+          "position": 51
+        }
+      ]
+    },
+    {
+      "name": "CatBoost",
+      "variants": [
+        {
+          "method": "CAT (tuned + ensemble)",
+          "name": "CatBoost",
+          "variant": "tuned_ensemble",
+          "methodType": "hpo",
+          "elo": 1399.2,
+          "plus": 37.0,
+          "minus": 33.2,
+          "lower": 1366.0,
+          "upper": 1436.2,
+          "position": 16
+        },
+        {
+          "method": "CAT (tuned)",
+          "name": "CatBoost",
+          "variant": "tuned",
+          "methodType": "hpo",
+          "elo": 1387.2,
+          "plus": 37.4,
+          "minus": 35.1,
+          "lower": 1352.1,
+          "upper": 1424.6,
+          "position": 17
+        },
+        {
+          "method": "CAT (default)",
+          "name": "CatBoost",
+          "variant": "default",
+          "methodType": "config",
+          "elo": 1358.5,
+          "plus": 37.4,
+          "minus": 38.8,
+          "lower": 1319.7,
+          "upper": 1395.9,
+          "position": 24
+        }
+      ]
+    },
+    {
+      "name": "LightGBM",
+      "variants": [
+        {
+          "method": "GBM (tuned + ensemble)",
+          "name": "LightGBM",
+          "variant": "tuned_ensemble",
+          "methodType": "hpo",
+          "elo": 1411.6,
+          "plus": 32.1,
+          "minus": 28.8,
+          "lower": 1382.8,
+          "upper": 1443.7,
+          "position": 14
+        },
+        {
+          "method": "GBM (tuned)",
+          "name": "LightGBM",
+          "variant": "tuned",
+          "methodType": "hpo",
+          "elo": 1367.0,
+          "plus": 27.0,
+          "minus": 26.0,
+          "lower": 1341.0,
+          "upper": 1394.0,
+          "position": 22
+        },
+        {
+          "method": "GBM (default)",
+          "name": "LightGBM",
+          "variant": "default",
+          "methodType": "config",
+          "elo": 1180.2,
+          "plus": 30.4,
+          "minus": 29.8,
+          "lower": 1150.4,
+          "upper": 1210.6,
+          "position": 56
+        }
+      ]
+    },
+    {
+      "name": "TabM",
+      "variants": [
+        {
+          "method": "TA-TABM (tuned + ensemble)",
+          "name": "TabM",
+          "variant": "tuned_ensemble",
+          "methodType": "hpo",
+          "elo": 1425.0,
+          "plus": 46.7,
+          "minus": 39.7,
+          "lower": 1385.3,
+          "upper": 1471.7,
+          "position": 13
+        },
+        {
+          "method": "TA-TABM (tuned)",
+          "name": "TabM",
+          "variant": "tuned",
+          "methodType": "hpo",
+          "elo": 1372.5,
+          "plus": 45.3,
+          "minus": 40.1,
+          "lower": 1332.4,
+          "upper": 1417.8,
+          "position": 20
+        },
+        {
+          "method": "TA-TABM (default)",
+          "name": "TabM",
+          "variant": "default",
+          "methodType": "config",
+          "elo": 1283.5,
+          "plus": 45.3,
+          "minus": 40.1,
+          "lower": 1243.4,
+          "upper": 1328.8,
+          "position": 40
+        }
+      ]
+    },
+    {
+      "name": "RealMLP_GPU",
+      "variants": [
+        {
+          "method": "REALMLP_GPU (tuned + ensemble)",
+          "name": "RealMLP_GPU",
+          "variant": "tuned_ensemble",
+          "methodType": "hpo",
+          "elo": 1481.2,
+          "plus": 50.7,
+          "minus": 42.8,
+          "lower": 1438.4,
+          "upper": 1531.9,
+          "position": 10
+        },
+        {
+          "method": "REALMLP_GPU (tuned)",
+          "name": "RealMLP_GPU",
+          "variant": "tuned",
+          "methodType": "hpo",
+          "elo": 1403.8,
+          "plus": 45.9,
+          "minus": 46.5,
+          "lower": 1357.3,
+          "upper": 1449.7,
+          "position": 15
+        },
+        {
+          "method": "REALMLP_GPU (default)",
+          "name": "RealMLP_GPU",
+          "variant": "default",
+          "methodType": "config",
+          "elo": 1218.5,
+          "plus": 33.2,
+          "minus": 37.5,
+          "lower": 1181.0,
+          "upper": 1251.7,
+          "position": 49
+        }
+      ]
+    },
+    {
+      "name": "Causilo",
+      "variants": [
+        {
+          "method": "CAUSILO (default)",
+          "name": "Causilo",
+          "variant": "default",
+          "methodType": "config",
+          "elo": 1792.9,
+          "plus": 89.2,
+          "minus": 56.1,
+          "lower": 1736.8,
+          "upper": 1882.1,
+          "position": 1
+        }
+      ]
+    }
+  ]
+}

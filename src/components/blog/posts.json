@@ -1,0 +1,76 @@
+[
+  {
+    "slug": "causilo-release",
+    "dateTime": "2026-09-15",
+    "date": { "en": "September 15, 2026", "ko": "2026년 9월 15일" },
+    "category": { "en": "Model release", "ko": "모델 공개" },
+    "title": { "en": "Causilo is now available", "ko": "Causilo를 공개했습니다" },
+    "summary": {
+      "en": "Explore the code and pretrained weights for Causilo, our foundation model for classification and regression.",
+      "ko": "분류와 회귀를 위한 파운데이션 모델 Causilo의 코드와 사전 학습된 모델 가중치를 살펴보세요."
+    },
+    "sections": [
+      {
+        "heading": { "en": "A foundation model for tables", "ko": "테이블을 위한 파운데이션 모델" },
+        "paragraphs": {
+          "en": [
+            "Causilo is Nums AI’s tabular foundation model for classification and regression. Pretrained across many datasets, it uses examples with known outcomes as context to predict an outcome for a new row.",
+            "The same pretrained model can work with different tables without retraining for each task. Causilo provides a familiar scikit-learn interface for exploring these predictions within existing machine learning workflows."
+          ],
+          "ko": [
+            "Causilo는 분류와 회귀를 위한 Nums AI의 테이블 파운데이션 모델입니다. 다양한 데이터셋으로 미리 학습한 모델이 결과를 알고 있는 예시를 맥락으로 삼아 새로운 행의 결과를 예측합니다.",
+            "같은 사전 학습 모델을 과제마다 다시 학습하지 않고 서로 다른 테이블에 적용할 수 있습니다. 익숙한 scikit-learn 인터페이스를 제공해 기존 머신러닝 작업 흐름에서 예측을 살펴볼 수 있습니다."
+          ]
+        }
+      },
+      {
+        "heading": { "en": "Explore Causilo", "ko": "Causilo 살펴보기" },
+        "paragraphs": {
+          "en": ["The code and pretrained model weights are available on GitHub and Hugging Face. Our Use Cases page brings together TabArena datasets across eight domains, pairing descriptions of the prediction tasks with model comparisons."],
+          "ko": ["GitHub와 Hugging Face에서 코드와 사전 학습된 모델 가중치를 확인할 수 있습니다. 활용 사례 페이지에서는 여덟 분야의 TabArena 데이터셋과 예측 과제 설명, 모델별 성능 비교를 함께 살펴볼 수 있습니다."]
+        }
+      }
+    ],
+    "links": [
+      { "label": { "en": "GitHub", "ko": "GitHub" }, "href": { "en": "https://github.com/nums-ai/causilo", "ko": "https://github.com/nums-ai/causilo" }, "external": true },
+      { "label": { "en": "Hugging Face", "ko": "Hugging Face" }, "href": { "en": "https://huggingface.co/nums-ai/causilo", "ko": "https://huggingface.co/nums-ai/causilo" }, "external": true },
+      { "label": { "en": "Explore use cases", "ko": "활용 사례 살펴보기" }, "href": { "en": "/use-cases/", "ko": "/ko/use-cases/" }, "external": false }
+    ]
+  },
+  {
+    "slug": "first-funding-round",
+    "dateTime": null,
+    "date": { "en": "2026", "ko": "2026년" },
+    "category": { "en": "Company news", "ko": "회사 소식" },
+    "title": { "en": "₩4 billion in our first funding round", "ko": "첫 투자 라운드에서 40억 원을 유치했습니다" },
+    "summary": {
+      "en": "Led by Stonebridge Ventures, with participation from SBVA, KT Investment, and BASS Ventures.",
+      "ko": "스톤브릿지벤처스가 주도하고 SBVA, KT인베스트먼트, 베이스벤처스가 참여했습니다."
+    },
+    "sections": [
+      {
+        "heading": { "en": "Building a foundation for structured data", "ko": "정형 데이터를 위한 새로운 기반" },
+        "paragraphs": {
+          "en": [
+            "Nums AI has raised ₩4 billion in its first funding round. Stonebridge Ventures led the round, joined by SBVA, KT Investment, and BASS Ventures.",
+            "We are building tabular foundation models for tables and numbers. Our work connects model research, pretraining, inference systems, and real customer problems. Causilo is our foundation model for classification and regression."
+          ],
+          "ko": [
+            "Nums AI가 첫 투자 라운드에서 40억 원을 유치했습니다. 스톤브릿지벤처스가 이번 라운드를 주도했고 SBVA, KT인베스트먼트, 베이스벤처스가 함께했습니다.",
+            "저희는 표와 숫자를 위한 테이블 파운데이션 모델을 만들고 있습니다. 모델 연구와 사전 학습, 추론 시스템, 실제 고객의 문제를 연결합니다. Causilo는 분류와 회귀를 위한 Nums AI의 파운데이션 모델입니다."
+          ]
+        }
+      },
+      {
+        "heading": { "en": "Join the team", "ko": "함께할 동료를 찾습니다" },
+        "paragraphs": {
+          "en": ["We are expanding our team in Seoul. Our Careers page introduces the work, current positions in machine learning engineering and business development, and the opportunity to propose a new role through an open application."],
+          "ko": ["서울에서 함께할 동료를 찾고 있습니다. 채용 페이지에서 저희가 하는 일과 머신러닝 엔지니어, 사업개발 직무를 확인할 수 있습니다. 자유 지원을 통해 새로운 역할을 제안할 수도 있습니다."]
+        }
+      }
+    ],
+    "links": [
+      { "label": { "en": "Explore careers", "ko": "채용 페이지 살펴보기" }, "href": { "en": "/careers/en/", "ko": "/careers/ko/" }, "external": false }
+    ]
+  }
+]

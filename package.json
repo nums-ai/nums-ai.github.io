@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "export:preview": "node scripts/export-preview.mjs",
+    "start": "python3 -m http.server 3000 --bind 127.0.0.1 --directory out",
+    "typecheck": "tsc --noEmit",
+    "share": "npm run build && npm run export:preview"
   },
   "dependencies": {
     "next": "16.3.0",
@@ -13,12 +16,12 @@
     "react-dom": "19.2.4"
   },
   "devDependencies": {
-    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "playwright": "^1.58.2",
-    "tailwindcss": "^4",
     "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=20.9.0"
   }
 }

@@ -1,0 +1,36 @@
+.figure { margin: 0; min-width: 0; }
+.caption { margin-top: 14px; color: var(--secondary); font-size: 13px; line-height: 1.6; text-align: center; }
+.panel { position: relative; background: #fff; border: 1px solid #e4e4e4; border-radius: var(--panel-radius); padding: 18px 10px 6px; overflow: hidden; box-shadow: 0 12px 48px #00000018; }
+.legend { display: flex; justify-content: center; align-items: center; gap: 8px; flex-wrap: wrap; padding: 0 4px 8px; }
+.legendButton { display: inline-flex; align-items: center; gap: 9px; padding: 8px 12px; border: 1px solid var(--border); border-radius: var(--control-radius); color: #444; background: #fff; font: inherit; font-size: 13px; line-height: 1.4; cursor: pointer; transition: opacity .15s, border-color .15s, background .15s; }
+.legendButton > span { width: 12px; height: 12px; border-radius: 1px; background: var(--series-color); }
+.legendButton[aria-pressed="false"] { opacity: .4; border-color: transparent; }
+.legendButton:hover { background: #f8f8f8; border-color: #bcbcbc; opacity: 1; }
+.legendButton[aria-disabled="true"] { cursor: default; }
+.legendButton:focus-visible { outline: 2px solid #333; outline-offset: 3px; }
+.viewport { overflow-x: auto; scrollbar-width: thin; scrollbar-color: #bbb #fff; padding-inline: 6px; }
+.chart { display: block; width: 100%; min-width: 480px; height: auto; overflow: visible; -webkit-user-select: none; user-select: none; }
+.axis line { stroke: #e9e9e9; stroke-width: 1; }
+.axis text { fill: #737373; font-size: 13px; }
+.barGroup { cursor: default; }
+.barGroup:focus, .barGroup:focus-visible { outline: none; }
+.bar { stroke: #fff; stroke-width: .6; transition: stroke .12s, stroke-width .12s, filter .12s; }
+.barGroup:focus-visible .bar { stroke: #171717; stroke-width: 1.8; filter: brightness(.88); }
+.focusRing { fill: none; stroke: transparent; stroke-width: 1.6; pointer-events: none; }
+.barGroup:focus-visible .focusRing { stroke: #333; stroke-dasharray: 3 3; }
+.scoreLabel { fill: #444; font-size: 13px; pointer-events: none; }
+.familyLabel { fill: #555; font-size: 13px; }
+.referenceLabel { fill: #171717; font-size: 18px; font-weight: 600; }
+.srOnly { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@media (hover: hover) {
+  .barGroup:hover .bar { stroke: #171717; stroke-width: 1.8; filter: brightness(.88); }
+}
+@media (max-width: 640px) {
+  .panel { padding: 16px 0 4px; }
+  .legend { gap: 5px; padding-inline: 9px; }
+  .legendButton { gap: 6px; padding: 8px; font-size: 11px; }
+  .legendButton > span { width: 10px; height: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .legendButton, .bar { transition: none; }
+}

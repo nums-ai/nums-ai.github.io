@@ -11,22 +11,13 @@ export const careersContentEn = {
     home: "Home",
   },
   hero: {
-    kicker: "Careers / Nums AI",
-    title: "Build the future of prediction.",
+    title: "Build the future of prediction",
     subtitle:
       "Join our first team expansion as we build a foundation model for tables and numbers.",
-    cta: "Apply",
   },
   outline: {
-    label: "Open positions",
-    items: [
-      ["00", "About Nums AI", "about"],
-      ["01", "Machine Learning Engineer", "machine-learning-engineer"],
-      ["02", "Business Development", "business-development"],
-      ["03", "Open Application", "open-application"],
-      ["04", "Working Conditions & Benefits", "conditions"],
-      ["05", "How to Apply", "application"],
-    ],
+    label: "On this page",
+    positionsLabel: "Open Positions",
   },
   about: {
     title: "About Nums AI",
@@ -45,7 +36,7 @@ export const careersContentEn = {
   roles: [
     {
       id: "machine-learning-engineer",
-      title: "Machine Learning Engineer",
+      title: "ML Engineer",
       introduction:
         "You will build the product systems that serve TFMs quickly and effectively. You’ll develop inference infrastructure that supports diverse data and deployment environments, then turn problems discovered with customers into better products and research.",
       responsibilities: [
@@ -112,7 +103,7 @@ export const careersContentEn = {
   },
   conditions: {
     id: "conditions",
-    title: "Working Conditions & Benefits",
+    title: "Working Conditions",
     paragraphs: [
       "Every position begins with a three-month contract. We see this as a valuable period of mutual evaluation: Nums AI can assess the fit, and you can decide whether Nums AI is the right team for you.",
     ],

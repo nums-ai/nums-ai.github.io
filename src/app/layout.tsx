@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Nums AI — Predicting the world through numbers",
+  title: "Nums AI",
   description:
-    "A foundation model that predicts across every industry — in a single inference pass.",
+    "We build a foundation model for structured data. New predictions without starting from scratch.",
   keywords: [
     "Nums AI",
     "foundation model",
@@ -13,9 +13,9 @@ export const metadata: Metadata = {
     "in-context learning",
   ],
   openGraph: {
-    title: "Nums AI — Predicting the world through numbers",
+    title: "Nums AI",
     description:
-      "A foundation model that predicts across every industry — in a single inference pass.",
+      "We build a foundation model for structured data. New predictions without starting from scratch.",
     type: "website",
     siteName: "Nums AI",
   },
@@ -27,10 +27,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="js" data-scroll-behavior="smooth">
+    <html lang="en" data-scroll-behavior="smooth">
       <body>
         <noscript>
-          <style>{`.reveal{opacity:1!important;transform:none!important}.feat .feat-icon{opacity:1!important;transform:none!important}.uc .uc-table .pred{opacity:1!important}.why-viz .link{stroke-dashoffset:0!important}`}</style>
+          <p className="no-script-notice">Enable JavaScript to switch datasets and chart settings.</p>
         </noscript>
         {children}
       </body>
