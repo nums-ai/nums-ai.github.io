@@ -92,17 +92,13 @@ A graph gives us additional information: **explicit connections along which evid
 
 Our hypothesis was that these routes could support in-context learning without dense attention across all node pairs. The model would still need to learn which connections matter for the current task, but it could make that decision within the graph's neighborhoods.
 
-This led us to design Ephris around sparse message passing, with a small set of learned global nodes for communication beyond the observed edges.
+This led us to design Ephris around sparse message passing.
 
 ## Build in-context learning around message passing {#inside-ephris}
 
-The core in-context learning stage in Ephris uses stacked message-passing blocks. At each step, a node gathers messages from its neighbors and updates its representation. Learned local attention determines which messages to emphasize, accounting for both the current representations and neighborhood size.
+In Ephris, each node combines its own features with information from its neighbors. Known labels provide the context for predicting unknown ones.
 
-Useful examples can be far away, and graph edges can be sparse or noisy. **Learned global nodes** provide shared meeting points, each connected to every original node. Distant nodes can exchange information through them, while their fixed number keeps the added work linear in graph size.
-
-Repeated updates let the labeled context influence query predictions across the graph. Residual connections help preserve information through deeper propagation.
-
-The architecture also uses graph information when preparing features for this stage:
+The graph also helps prepare the features used for prediction:
 
 ![Original Ephris architecture diagram: feature tokenization, graph-aware refinement, compression, message passing with global nodes, and label prediction.](/blog/ephris-a-new-graph-without-a-new-training-run/paper-figure-2-architecture.png)
 
@@ -111,7 +107,7 @@ The architecture also uses graph information when preparing features for this st
 3. **Compress each node.** The refined features become a fixed-size representation, allowing one model to handle datasets with different numbers of columns.
 4. **Predict through message passing.** Stacked blocks combine features, connections, and labeled examples. A shared head converts the final query representations into class probabilities.
 
-Graph structure thus guides both the information retained during compression and the communication used for prediction. The architecture supports attention within neighborhoods and through compact summaries, without requiring attention between every pair of nodes.
+Graph structure thus guides both the information retained during compression and the communication used for prediction.
 
 :::details[A few model details]
 
