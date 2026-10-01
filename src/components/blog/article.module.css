@@ -27,7 +27,7 @@ main.article { padding-top: 48px; }
 .mobileContents { display: none; }
 .article .header { max-width: var(--reading-width); margin-inline: auto; padding-bottom: 0; border: 0; }
 .article .category { margin: 0; font-size: 12px; line-height: 1.5; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
-.article .header h1 { margin-top: 16px; font-size: var(--post-title-size); font-weight: 400; line-height: 1.2; letter-spacing: -.035em; text-wrap: balance; }
+.article .header h1 { margin-top: 16px; font-size: var(--post-title-size); font-weight: 400; line-height: 1.2; letter-spacing: normal; text-wrap: balance; }
 .body { margin-top: 36px; font-size: 17px; line-height: 1.75; letter-spacing: -.01em; }
 .body p, .body ul { max-width: var(--reading-width); margin: 20px auto; }
 .body ol { max-width: var(--reading-width); margin: 20px auto; padding-left: 24px; }

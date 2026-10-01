@@ -16,8 +16,9 @@ type, restrained borders, and familiar navigation.
 - Category filters come from the listed posts. Adding a category adds its filter.
 - Cards use two equal columns above 850px and one column at narrower widths.
   This gives tablet titles and figures enough room, using fixed font sizes.
-- Titles balance their line lengths with CSS, keeping fixed font sizes and avoiding
-  isolated final words. Summaries wrap naturally. Text-only posts use the same card without
+- Post titles use the font's natural letter spacing and balance their line lengths
+  with CSS, keeping fixed font sizes and avoiding isolated final words.
+  Summaries wrap naturally. Text-only posts use the same card without
   reserving an empty image slot.
 
 ### Read and inspect
