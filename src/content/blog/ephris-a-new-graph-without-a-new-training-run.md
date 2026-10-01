@@ -7,9 +7,8 @@ readingMinutes: 7
 title: 'Ephris: Stronger In-Context Learning on Graphs with Linear Scaling'
 category: Research
 summary: >-
-  Ephris combines sparse message passing and synthetic pretraining to lead
-  aggregate performance across 51 graph datasets, with computation that scales
-  linearly in feature entries and edges.
+  Ephris ranks first overall across 51 node-classification datasets. Sparse
+  message passing keeps computation linear in feature entries and edges.
 cardSummary: >-
   Stronger graph in-context learning with sparse message passing and linear
   scaling.
@@ -38,8 +37,8 @@ figures:
     height: 452
     maxWidth: 380
     caption: >-
-      Figure 3. Ephris scales nearly linearly over the measured range. The
-      runtime gap widens as graphs grow; β near 1 indicates linear growth.
+      Figure 3. Runtime as graph size increases from 50,000 to 500,000 nodes.
+      β near 1 indicates linear growth.
   paper-figure-4-elo.svg:
     width: 436.35319
     height: 140.76544
@@ -53,7 +52,7 @@ figures:
     maxWidth: 530
     caption: >-
       Figure 6. Average ranks by dataset property, with 50% labeled context.
-      Farther out is better; N counts datasets in each group.
+      Farther out is better; N is the number of datasets in each group.
   paper-figure-5-performance-runtime.png:
     width: 2400
     height: 1040
@@ -62,138 +61,130 @@ figures:
       Figure 5. Lower is better on both axes. Ephris advances the
       performance–runtime frontier in both label settings.
 ---
-**A graph already tells us how its nodes are connected. Can a pretrained model use those connections to learn from examples efficiently?**
+**A graph already tells us how its nodes are connected. Can a pretrained model use those connections to learn from labeled examples at scale?**
 
-Ephris is our answer: a graph in-context learner built around sparse message passing. Given a new graph and some known node labels, it predicts the remaining labels with its pretrained weights fixed.
+Ephris is our answer. It uses sparse message passing to predict unknown node labels from a graph and its labeled examples, without updating its pretrained weights.
 
-The opening plot brings the result into view. Ephris advances the performance–runtime frontier across 51 datasets, combining stronger aggregate predictions with computation that scales linearly in feature entries and edges. The starting point was to reconsider an architectural choice inherited from tabular foundation models.
+Across 51 node-classification datasets, Ephris ranks first overall among the models we evaluated. The plot above shows its performance alongside adaptation time. Its computation also scales linearly in feature entries and edges.
 
 ## What is graph in-context learning? {#show-it-the-task}
 
-A tabular foundation model can predict missing labels in a new table using rows whose labels are already known. Those labeled rows form the *context*: examples that reveal the task. The pretrained model processes them without updating its weights for the new dataset.
+A tabular foundation model uses labeled rows in a new table to predict labels for the remaining rows. Those labeled rows form the *context*: examples from which the model infers the task, without retraining.
 
-**Graph in-context learning extends this idea to connected data.** Each node has features, like a row in a table, and edges describe relationships between nodes. Known node labels become context for predicting unknown ones.
+**Graph in-context learning extends this idea to connected data.** Nodes play the role of rows, with features describing each node and edges connecting them. Known node labels provide the context.
 
-Consider a collection of research papers. Papers are nodes, citations are edges, and numerical descriptions of the papers are features. Given topic labels for some papers, the model predicts topics for the rest. It receives:
+For example, suppose we want to predict the topics of research papers. Given topic labels for some papers, the model predicts topics for the rest using:
 
-- **Node features:** what we know about each paper.
-- **Edges:** which papers cite one another.
-- **Context labels:** examples of the topics to predict.
+- **Node features:** numerical descriptions of each paper.
+- **Edges:** citations connecting the papers.
+- **Context labels:** the known topics of some papers.
 
-Features and connections are available for the full graph; query labels stay hidden. The model's representations change as it reads the context, while its weights stay fixed.
+The model sees features and connections for every node. The labels it is asked to predict stay hidden.
 
-Early graph in-context learners built on tabular architectures. NodePFN adds a message-passing branch to TabPFN; GraphPFN adds graph-attention adapters to LimiX. These extensions bring graph information into established tabular models, while retaining their dense attention over context nodes.
+NodePFN and GraphPFN build on tabular foundation models. NodePFN adds a message-passing branch to TabPFN, and GraphPFN adds graph-attention adapters to LimiX. Both incorporate graph structure while retaining dense attention over context nodes.
 
 ## Does a graph need attention between every pair? {#use-the-connections}
 
-Dense attention lets a tabular model compare rows and discover useful relationships among them. As the context grows, however, the number of pairwise comparisons grows quadratically. With a fixed labeled fraction, doubling the graph size creates roughly four times as many context pairs.
+Dense attention lets a tabular model compare rows and learn relationships between them. But the number of pairwise comparisons grows quadratically with the context size. If the labeled fraction stays fixed, doubling the graph size means roughly four times as many context pairs.
 
-A graph gives us additional information: **explicit connections along which evidence can travel.** In the paper example, a citation supplies a plausible route for sharing information about topics.
+A graph already provides **connections through which nodes can share information.** In our paper example, a citation connects papers that may have related topics.
 
-Our hypothesis was that these routes could support in-context learning without dense attention across all node pairs. The model would still need to learn which connections matter for the current task, but it could make that decision within the graph's neighborhoods.
+We built Ephris around sparse message passing to use those connections for in-context learning. The model learns how to use information from graph neighborhoods, avoiding dense attention across all node pairs.
 
-This led us to design Ephris around sparse message passing.
-
-## Build in-context learning around message passing {#inside-ephris}
+## How Ephris uses the graph {#inside-ephris}
 
 In Ephris, each node combines its own features with information from its neighbors. Known labels provide the context for predicting unknown ones.
 
-The graph also helps prepare the features used for prediction:
+Graph structure also shapes how the model processes features:
 
 ![Original Ephris architecture diagram: feature tokenization, graph-aware refinement, compression, message passing with global nodes, and label prediction.](/blog/ephris-a-new-graph-without-a-new-training-run/paper-figure-2-architecture.png)
 
-1. **Read the values.** Scalar features become learned tokens, and embeddings introduce the observed labels.
-2. **Refine with the dataset and graph.** Shared summary tokens gather information about feature distributions. Node summaries exchange messages over the graph, then return the updates to the feature tokens.
-3. **Compress each node.** The refined features become a fixed-size representation, allowing one model to handle datasets with different numbers of columns.
-4. **Predict through message passing.** Stacked blocks combine features, connections, and labeled examples. A shared head converts the final query representations into class probabilities.
+1. **Encode features and known labels.** Each feature value becomes a learned token; known labels receive their own embeddings.
+2. **Refine features using the dataset and graph.** Summary tokens capture feature distributions. Node summaries exchange information over graph edges and feed it back into the feature tokens.
+3. **Compress each node.** The refined features are combined into a fixed-size representation, so the model can work with different numbers of features.
+4. **Predict missing labels.** Message-passing blocks combine features, connections, and labeled examples. A shared prediction head outputs class probabilities for the unlabeled nodes.
 
-Graph structure thus guides both the information retained during compression and the communication used for prediction.
+Graph structure guides both feature compression and label prediction.
 
 :::details[A few model details]
 
-The evaluated model has 50.16 million parameters. It uses three feature-refinement blocks, compresses each node to 512 dimensions, and applies ten message-passing blocks. Each of the latter has eight global nodes.
+The evaluated model has 50.16 million parameters. It uses three feature-refinement blocks, compresses each node to 512 dimensions, and applies ten message-passing blocks. Each message-passing block includes eight global nodes.
 
-The prediction head handles up to ten classes directly. For tasks with more classes, a fixed coding scheme breaks the task into smaller classification problems and combines their probabilities, using the same pretrained weights.
+The prediction head handles up to ten classes directly. For tasks with more classes, a fixed coding scheme divides the task into smaller classification problems and combines their probabilities, using the same pretrained weights.
 
 :::
 
-## Teach one model many prediction rules {#practice-before-the-real-graph}
+## Learning from synthetic graph tasks {#practice-before-the-real-graph}
 
-An efficient communication mechanism still needs to learn how to use examples. Ephris was pretrained on **3.84 million synthetic graph tasks**, with no real benchmark datasets used in pretraining.
+We pretrained Ephris on **3.84 million synthetic graph tasks** to teach it how to use labeled examples. No real benchmark datasets were used in pretraining.
 
-The generator varies both graph structure and the relationships among features and labels. Graphs can contain communities, hubs, or route-like connections. Information can spread gradually, trigger a cascade, or influence nodes differently according to their connectivity.
+The generator varies the graph structure and the relationships among features and labels. Graphs can contain communities, hubs, or paths. Tasks also vary how information spreads through the graph, from gradual propagation to cascades and effects that depend on how nodes are connected.
 
-Each task reveals some labels and asks the model to predict the rest. Across these tasks, the model practices inferring a prediction rule from a new set of examples.
-
-The next question is how well that practice transfers to real datasets.
+In each task, the model sees some labels and predicts the rest. Across millions of these tasks, it learns to infer a prediction rule from a new set of examples.
 
 ## Stronger predictions across 51 datasets {#does-it-hold-up}
 
-We evaluated Ephris on **51 node-classification datasets across six application domains**, comparing it with 15 graph neural networks and six graph foundation models. The tuned neural networks underwent an extensive validation-based search.
+We evaluated Ephris on **51 node-classification datasets across six application domains**, comparing it with 15 graph neural networks (GNNs) and six graph foundation models. The tuned GNNs used an extensive hyperparameter search on validation data.
 
-The Elo leaderboard summarizes pairwise model comparisons across the benchmark. Ephris leads in both settings: **50% and 10% labeled context**.
+Elo summarizes pairwise model comparisons across datasets. Ephris has the highest Elo with both **50% and 10% labeled context**.
 
 ![Original Elo leaderboard across 51 datasets. Ephris has the highest aggregate Elo in both label settings; intervals show uncertainty.](/blog/ephris-a-new-graph-without-a-new-training-run/paper-figure-4-elo.svg)
 
-The result extends beyond Elo. Ephris also ranks first on improvability, average rank, and average accuracy in both settings. Its advantage over tuned GNNs is narrower with less labeled context, but the aggregate lead remains.
+Ephris also ranks first on improvability, average rank, and average accuracy in both settings. Its lead over tuned GNNs narrows with less labeled context, but it remains ahead overall.
 
-### Predictive performance and runtime together
+### Performance and runtime
 
-Does that performance require more computation? The next plot pairs adaptation time with *improvability*, the normalized performance gap to the best model. **Lower is better on both axes.**
+The next plot compares the time needed to apply each model to a new dataset with *improvability*, the normalized performance gap to the best model. **Lower is better on both axes.** Initial pretraining is excluded.
 
 ![Original improvability–runtime Pareto comparison under 50% and 10% labeled context. Ephris improves the lower-left frontier in both panels.](/blog/ephris-a-new-graph-without-a-new-training-run/paper-figure-5-performance-runtime.png)
 
-Ephris advances the frontier in both label settings. Its adaptation time is much lower than GraphPFN's and remains in the same general range as training a single GNN once.
-
-These plots show that sparse message passing can support strong graph in-context learning at a practical cost. The benchmark compares adaptation to real datasets; a separate experiment tests how that cost grows with graph size.
+Ephris improves the trade-off in both label settings. Its adaptation time is much lower than GraphPFN's and in the same general range as training a single GNN once.
 
 :::details[Evaluation details]
 
-Train/validation/test proportions were 50/25/25 and 10/10/80, with five splits per setting. Ephris used training labels as context. Supervised baselines used validation labels for model selection and early stopping; each tuned GNN selected from 200 configurations.
+We used train/validation/test proportions of 50/25/25 and 10/10/80, with five splits per setting. Ephris used training labels as context. Supervised baselines used validation labels for model selection and early stopping; each tuned GNN selected from 200 configurations.
 
-Elo summarizes pairwise outcomes across datasets; it is a relative rating, not classification accuracy. Elo, improvability, and average rank use AUROC on binary tasks and accuracy on multiclass tasks. Average accuracy uses accuracy throughout. Elo intervals are 95% confidence intervals; hatched bars include imputed default GCN scores for runs that exhausted memory.
+Elo is a relative rating based on pairwise outcomes across datasets. Elo, improvability, and average rank use AUROC on binary tasks and accuracy on multiclass tasks. Average accuracy uses accuracy throughout. Elo intervals are 95% confidence intervals; hatched bars include imputed default GCN scores for runs that exhausted memory.
 
-Runtime covers adaptation to each dataset: a single training run for default GNNs, the hyperparameter search for tuned GNNs, and the relevant procedure for foundation models. The comparison excludes initial pretraining. All results shown here are from the paper.
+Runtime covers adaptation to each dataset: a single training run for default GNNs, the hyperparameter search for tuned GNNs, and each foundation model's adaptation procedure. It excludes initial pretraining.
 
 :::
 
 ## Scalability {#how-it-scales}
 
-Sparse communication changes how inference grows with the input. Ephris processes feature values and exchanges messages over graph edges, while the number of summary tokens and global nodes stays fixed.
+Ephris processes feature entries and passes messages along edges, with a fixed number of summary tokens and global nodes.
 
-For a graph with **N nodes, F features per node, and E edges**, each prediction pass has complexity **`O(NF + E)`**, with the model dimensions, token counts, and depth fixed. The `NF` term counts feature entries; the `E` term counts graph connections. Dense graphs can have quadratically many edges, so runtime follows the actual input size, including those edges.
+For a graph with **N nodes, F features per node, and E edges**, a prediction pass costs **`O(NF + E)`** when model dimensions, token counts, and depth are fixed. Here, `NF` counts feature entries and `E` counts edges. The cost is linear in the input size; a dense graph can still have quadratically many edges.
 
 To measure scaling directly, we increased synthetic graph size from **50,000 to 500,000 nodes**, keeping feature count, average degree, and labeled fraction fixed:
 
 ![Original runtime scaling experiment over graphs with 50,000 to 500,000 nodes. Ephris grows nearly linearly, while NodePFN and GraphPFN grow nearly quadratically.](/blog/ephris-a-new-graph-without-a-new-training-run/paper-figure-3-scaling.png)
 
-Ephris grows nearly linearly over the measured range, while NodePFN and GraphPFN grow nearly quadratically. As the graphs become larger, the runtime gap widens.
-
-This supports the architectural scaling claim under the tested settings. Together with the benchmark, it shows that stronger aggregate predictions and linear scaling can coexist in graph in-context learning.
+Ephris grows nearly linearly over the measured range, while NodePFN and GraphPFN grow nearly quadratically. The runtime gap widens as the graphs grow.
 
 :::details[Scaling experiment details]
 
-Graphs had 32 features per node, average degree 8, and 50% labeled context. Each point is the median over three seeds on one NVIDIA H200, without ensembling. Timing includes preprocessing and inference, and excludes model loading. The fitted exponent describes growth over this measured range.
+Graphs had 32 features per node, average degree 8, and 50% labeled context. Each point is the median over three seeds on a single NVIDIA H200, without ensembling. Timing includes preprocessing and inference but excludes model loading. The fitted exponent describes growth over the measured range.
 
 :::
 
-## Performance across the subgroups {#where-it-still-struggles}
+## Performance across different graphs {#where-it-still-struggles}
 
-An aggregate leaderboard can hide differences between datasets. We therefore grouped the benchmark by properties such as graph size, feature count, class count, and how often connected nodes share a label.
+To see how performance varies between datasets, we grouped them by graph size, feature count, class count, and how often connected nodes share a label.
 
 ![Original subgroup ranking plot. Ephris generally leads the aggregate subgroup comparisons, while tuned GCNII leads the highest-feature and highest-class groups.](/blog/ephris-a-new-graph-without-a-new-training-run/paper-figure-6-subgroups.svg)
 
-Ephris performs strongly across most groups, suggesting that its aggregate lead spans a range of graph characteristics. The clearest exceptions against tuned GCNII are datasets with **at least 5,000 features or more than ten classes**, beyond the ranges directly seen during pretraining.
+Ephris performs well across most groups. Tuned GCNII has the advantage in the groups with **at least 5,000 features or more than ten classes**, both outside the ranges seen during pretraining.
 
-These exceptions help identify where broader pretraining could matter. The current results establish performance for node classification; extending the approach to other graph tasks remains a further step.
+These gaps suggest where broader pretraining could help.
 
 ## What comes next? {#spend-the-time-on-the-data}
 
-Ephris combines strong node-classification performance with linear scaling. This opens up two directions we want to explore.
+We want to build on these results in two directions.
 
 **Beyond node classification.** How can we extend scalable graph in-context learning to edge-level and graph-level tasks? Predicting a connection or classifying an entire graph changes how we represent labeled examples and use them as context.
 
-**Discovering relationships in tables.** In tabular data, relationships between rows are usually not given explicitly. Can we discover useful, sparse connections and use them to guide in-context learning? If those connections can also be constructed efficiently, could this improve the scalability of tabular foundation models while preserving their predictive strength?
+**Discovering relationships in tables.** In tabular data, we usually don't have an explicit graph. Can we discover useful, sparse connections between rows and use them for in-context learning? If we can build those connections efficiently, could they make tabular foundation models more scalable while preserving predictive performance?
 
 ### Cite this work
 
