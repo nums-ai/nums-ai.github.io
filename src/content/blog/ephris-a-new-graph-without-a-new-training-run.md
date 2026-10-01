@@ -1,5 +1,5 @@
 ---
-slug: ephris-a-new-graph-without-a-new-training-run
+slug: ephris
 status: published
 date: '2026-09-30'
 author: Dooho Lee
