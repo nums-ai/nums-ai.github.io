@@ -187,13 +187,13 @@ Ephris performs strongly across most groups, suggesting that its aggregate lead 
 
 These exceptions help identify where broader pretraining could matter. The current results establish performance for node classification; extending the approach to other graph tasks remains a further step.
 
-## Stronger predictions, with room to grow {#spend-the-time-on-the-data}
+## What comes next? {#spend-the-time-on-the-data}
 
-Graph in-context learning began by extending tabular foundation models. Ephris develops an architecture around the additional structure that graphs provide: explicit connections for exchanging information.
+Ephris combines strong node-classification performance with linear scaling. This opens up two directions we want to explore.
 
-Combined with graph-aware feature processing and diverse synthetic pretraining, sparse message passing supports leading aggregate performance while keeping computation linear in feature entries and edges. For a new graph, we can supply features, connections, and labeled examples to the same pretrained model.
+**Beyond node classification.** How can we extend scalable graph in-context learning to edge-level and graph-level tasks? Predicting a connection or classifying an entire graph changes how we represent labeled examples and use them as context.
 
-The next question is how far this approach can go: **what new graph tasks become practical when a strong in-context learner can scale with the data we give it?**
+**Discovering relationships in tables.** In tabular data, relationships between rows are usually not given explicitly. Can we discover useful, sparse connections and use them to guide in-context learning? If those connections can also be constructed efficiently, could this improve the scalability of tabular foundation models while preserving their predictive strength?
 
 ### Cite this work
 
