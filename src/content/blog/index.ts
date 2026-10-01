@@ -1,6 +1,8 @@
 import { localizePost, validatePosts, type BlogPost } from "@/lib/blog";
 import type { Locale } from "@/components/homepage/content";
 import { markdownPost } from "@/lib/markdown-blog";
+import imageCompletion from "./can-a-tabular-foundation-model-complete-an-image.md";
+import imageCompletionKo from "./can-a-tabular-foundation-model-complete-an-image.ko.md";
 import causiloRelease from "./causilo-release.md";
 import causiloReleaseKo from "./causilo-release.ko.md";
 import firstFundingRound from "./first-funding-round.md";
@@ -9,6 +11,7 @@ import post_ephris_a_new_graph_without_a_new_training_run from "./ephris-a-new-g
 // BLOG_IMPORTS: new-post.mjs inserts imports above this line.
 
 const posts: readonly BlogPost[] = [
+  markdownPost(imageCompletion, imageCompletionKo),
   markdownPost(causiloRelease, causiloReleaseKo),
   markdownPost(firstFundingRound, firstFundingRoundKo),
   markdownPost(post_ephris_a_new_graph_without_a_new_training_run),
