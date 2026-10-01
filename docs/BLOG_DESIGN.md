@@ -16,7 +16,7 @@ type, restrained borders, and familiar navigation.
 - Category filters come from the listed posts. Adding a category adds its filter.
 - Cards use two equal columns above 850px and one column at narrower widths.
   This gives tablet titles and figures enough room, using fixed font sizes.
-- Post titles use the font's natural letter spacing and balance their line lengths
+- Card titles use the font's natural letter spacing and balance their line lengths
   with CSS, keeping fixed font sizes and avoiding isolated final words.
   Summaries wrap naturally. Text-only posts use the same card without
   reserving an empty image slot.
@@ -25,6 +25,8 @@ type, restrained borders, and familiar navigation.
 
 - The reading column is at most 720px wide. It remains centered on wide screens,
   with a left contents rail and matching space on the right.
+- Article titles wrap naturally across the available width, with fixed font sizes
+  and natural letter spacing. They do not balance line lengths.
 - At 1200px and below, the contents move below the title and byline. Opening
   a section closes the disclosure and moves to the matching heading.
 - Section IDs supply both headings and contents links. Desktop contents track
