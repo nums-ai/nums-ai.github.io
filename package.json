@@ -8,12 +8,21 @@
     "export:preview": "node scripts/export-preview.mjs",
     "start": "python3 -m http.server 3000 --bind 127.0.0.1 --directory out",
     "typecheck": "tsc --noEmit",
+    "blog:new": "node scripts/new-post.mjs",
     "share": "npm run build && npm run export:preview"
   },
   "dependencies": {
+    "gray-matter": "^4.0.3",
+    "mdast-util-to-string": "^4.0.0",
     "next": "16.3.0",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "react-markdown": "^10.1.0",
+    "remark-directive": "^4.0.0",
+    "remark-gfm": "^4.0.1",
+    "remark-parse": "^11.0.0",
+    "unified": "^11.0.5",
+    "unist-util-visit": "^5.1.0"
   },
   "devDependencies": {
     "@types/node": "^20",

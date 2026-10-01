@@ -46,16 +46,60 @@ Run the export again after every build to refresh the shareable HTML.
 - `src/components/homepage/`: homepage sections, navigation, footer, animated
   Causilo figure, performance chart, and Python quick start.
 - `src/components/use-cases/`: dataset explorer, metric plots, and generated scores.
-- `src/components/blog/`: Blog empty state and retained article content.
+- `src/components/blog/`: Shared blog listing, article layout, contents, and blocks.
+- `src/content/blog/`: One file per blog post, a starter template, and the registry.
 - `public/`: brand assets, investor logos, hero image, and custom-domain settings.
 - `data/use-cases/`: dataset descriptions, domain assignments, and source metadata.
 - `scripts/`: benchmark data builders and standalone HTML exporter.
 
 Only English routes are published: `/`, `/use-cases/`, `/blog/`, `/careers/`,
-and `/careers/en/`. Translation fields in shared content are retained for future
-use. The Blog index shows a Coming soon message. The existing
-`/blog/causilo-release/` and `/blog/first-funding-round/` article routes are retained
-but are not listed on the index; their content lives in `posts.json`.
+and `/careers/en/`. Existing Korean Markdown translations are retained for future use.
+
+## Write a blog post
+
+Start with the [step-by-step writing guide](docs/WRITING_A_BLOG_POST.md).
+
+```bash
+npm run blog:new -- your-post-slug
+npm run dev
+```
+
+The command creates and registers a draft in `src/content/blog/your-post-slug.md`
+and creates its image directory. Edit that one file for the title, author, date,
+summary, and prose. The manuscript is the site’s source; saving it updates the
+running development preview. The common template renders the design and creates
+the table of contents from Markdown `##` headings. `hero` is the single
+source for the first image, listing thumbnail, and Open Graph image.
+
+Drafts appear in the normal listing during local development and are omitted from
+production pages. Category filters are created from the posts currently listed.
+Set `status: published` when ready for review and the next deployment. `unlisted`
+posts remain available at their public URLs without appearing in the listing.
+The existing Causilo release and funding posts retain their URLs and unlisted status.
+The generator refuses to overwrite an existing post.
+
+The listing inherits the site's shared 1200px width and font. Posts use a two-column
+grid (one column at 850px and below), showing the first image, category, title, a short introduction,
+and a “Read full article” cue. Use optional `cardSummary` for the introduction;
+it falls back to `summary`. Cards have 32px padding (24px at 850px and below). Thumbnails
+fit a shared 5:2 frame without cropping. Category filters remain above the grid.
+Each card is one clickable area with rounded borders and a subtle hover overlay
+covering the image and all of its text.
+Articles share a centered 720px reading column, local Pretendard, a 180px desktop
+contents rail, and static inline images. At 1200px and below, the contents become
+a disclosure after the title and byline. Tall figures fit a 560px image height limit;
+wide paper figures scroll within their own region when necessary, with an accurate
+scroll hint. Each article ends with links to other listed posts and the blog index.
+Title sizes are fixed at 36px/26px (desktop/mobile), card titles at 28px/24px,
+body text at 17px, and section headings at 28px/24px. Edit the shared CSS rather
+than adding post-specific style rules. No image enlargement UI is used.
+See [the blog design system](docs/BLOG_DESIGN.md) for shared rules and review criteria.
+
+The Ephris article lives in
+`src/content/blog/ephris-a-new-graph-without-a-new-training-run.md`. Its figures
+come from the paper; preserve the claims, source metadata, citations, and figures
+together when editing. Assets live under `public/blog/<slug>/` and local fonts
+under `public/fonts/pretendard/`.
 
 ## Design and interactions
 

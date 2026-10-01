@@ -1,0 +1,82 @@
+{
+  "paper": "https://arxiv.org/html/2609.37057v1",
+  "version": "v1",
+  "assets": [
+    {
+      "figure": "S3.F2",
+      "file": "paper-figure-2-architecture.png",
+      "source": "https://arxiv.org/html/2609.37057v1/architecture_overview.png",
+      "sha256": "fbe0606dd9bfcc6438702b27211ceb5f848ae5156e63d7389658419ca9492d09",
+      "width": 912,
+      "height": 252
+    },
+    {
+      "figure": "S3.F3",
+      "file": "paper-figure-3-scaling.png",
+      "source": "https://arxiv.org/html/2609.37057v1/images/node-inference-scaling.png",
+      "sha256": "fe7146c277ff866609737a050bb6171cc4377044624ee335f130ddef35c6c65e",
+      "width": 653,
+      "height": 452
+    },
+    {
+      "figure": "S4.F4",
+      "file": "paper-figure-4-elo.svg",
+      "source": "https://arxiv.org/html/2609.37057v1/elo-paired.svg",
+      "sha256": "cfebca142c39d83f7dfb261fe99238bae970901fd55e72387ff782fe0dc94237",
+      "width": 436.35319,
+      "height": 140.76544
+    },
+    {
+      "figure": "S5.F5",
+      "file": "paper-figure-5-performance-runtime.svg",
+      "source": "https://arxiv.org/html/2609.37057v1/figure-08-fit_time-paired.svg",
+      "sha256": "427fa9873d68d3312ff5276184432f4160954dee4a76e0ad4b3cab609feedec5",
+      "width": 446.89936,
+      "height": 193.64206
+    },
+    {
+      "figure": "S5.F6",
+      "file": "paper-figure-6-subgroups.svg",
+      "source": "https://arxiv.org/html/2609.37057v1/subgroup-rank-50-25-25.svg",
+      "sha256": "2b59d4baad9c329498f974a06cc7cc6347366fbd94e6581a0012ef5434ef0c70",
+      "width": 155.8486,
+      "height": 147.3696
+    },
+    {
+      "figure": "S5.F7",
+      "file": "paper-figure-7-architecture-prior.png",
+      "source": "https://arxiv.org/html/2609.37057v1/architecture-prior-heatmap.png",
+      "sha256": "fa2600f351dc33d4759602cbfb1cbc5b01dde54933d5b6b849016f9ad02496e0",
+      "width": 235,
+      "height": 265
+    },
+    {
+      "figure": "A8.F10.sf1",
+      "file": "paper-figure-10a-elo-runtime.svg",
+      "source": "https://arxiv.org/html/2609.37057v1/fit-time-elo-paired.svg",
+      "sha256": "47ccd496a862c3b7dc278c22afe47eb48762ba3da552d7f7cc2802c3524d06d3",
+      "width": 455.3603,
+      "height": 193.64206
+    }
+  ],
+  "derivedAssets": [
+    {
+      "figure": "S5.F5",
+      "file": "paper-figure-5-performance-runtime.png",
+      "derivedFrom": "paper-figure-5-performance-runtime.svg",
+      "transformation": "SVG rendered to PNG at 2400 pixels wide; aspect ratio and content preserved.",
+      "width": 2400,
+      "height": 1040,
+      "sha256": "c5e25c697c6c80c1043a599b4516f0baa5220a0f6f45390f52cbc2f9f41711cf"
+    },
+    {
+      "figure": "A8.F10.sf1",
+      "file": "paper-figure-10a-elo-runtime.png",
+      "derivedFrom": "paper-figure-10a-elo-runtime.svg",
+      "transformation": "Original SVG rendered to PNG at 2400 pixels wide using Sharp; aspect ratio and contents preserved.",
+      "width": 2400,
+      "height": 1021,
+      "sha256": "cc51c729b3d9c85832284934f4db9f44ac8d14d3f90dd6db685e0d1fbf9ea6de"
+    }
+  ]
+}

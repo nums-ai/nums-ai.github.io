@@ -1,10 +1,14 @@
-import { readFile, writeFile, mkdir } from "node:fs/promises";
+import { readFile, writeFile, mkdir, readdir } from "node:fs/promises";
 import { join, extname } from "node:path";
 
 // Run after `npm run build`. Package the rendered routes without a Next server.
 const root = process.cwd();
-const blogPosts = JSON.parse(await readFile(join(root, "src/components/blog/posts.json"), "utf8"));
-const routes = ["/", "/use-cases/", "/blog/", ...blogPosts.map(post => `/blog/${post.slug}/`), "/careers/", "/careers/en/"];
+// Discover only exported pages: source drafts must not enter the shareable HTML.
+const blogDirectories = (await readdir(join(root, "out/blog"), { withFileTypes: true })).filter(entry => entry.isDirectory());
+const blogRoutes = (await Promise.all(blogDirectories.map(async entry =>
+  (await readdir(join(root, "out/blog", entry.name))).includes("index.html") ? `/blog/${entry.name}/` : null,
+))).filter(Boolean).sort();
+const routes = ["/", "/use-cases/", "/blog/", ...blogRoutes, "/careers/", "/careers/en/"];
 const stylesheets = new Set();
 const assetCache = new Map();
 const pages = {};
