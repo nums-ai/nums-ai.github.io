@@ -46,6 +46,7 @@ Change the common template rather than styling individual posts.
 | Setting | Source | Default |
 | --- | --- | --- |
 | Listing width and site gutters | `homepage.module.css` | 1200px; shared responsive gutters |
+| Font family | `--sans` in `homepage.module.css` | Shared system font stack: Helvetica Neue, Helvetica, Arial, and Korean fallbacks; no web font downloads |
 | Article title | `blog.module.css` | 36px; 26px at 850px and below |
 | Card title | `blog.module.css` | 28px; 24px at 850px and below |
 | Reading width | `--blog-reading-width` | 720px |

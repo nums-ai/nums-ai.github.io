@@ -85,7 +85,7 @@ it falls back to `summary`. Cards have 32px padding (24px at 850px and below). T
 fit a shared 5:2 frame without cropping. Category filters remain above the grid.
 Each card is one clickable area with rounded borders and a subtle hover overlay
 covering the image and all of its text.
-Articles share a centered 720px reading column, local Pretendard, a 180px desktop
+Articles share the site's system font stack, a centered 720px reading column, a 180px desktop
 contents rail, and static inline images. At 1200px and below, the contents become
 a disclosure after the title and byline. Tall figures fit a 560px image height limit;
 wide paper figures scroll within their own region when necessary, with an accurate
@@ -98,8 +98,7 @@ See [the blog design system](docs/BLOG_DESIGN.md) for shared rules and review cr
 The Ephris article lives in
 `src/content/blog/ephris-a-new-graph-without-a-new-training-run.md`. Its figures
 come from the paper; preserve the claims, source metadata, citations, and figures
-together when editing. Assets live under `public/blog/<slug>/` and local fonts
-under `public/fonts/pretendard/`.
+together when editing. Assets live under `public/blog/<slug>/`.
 
 ## Design and interactions
 

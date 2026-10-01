@@ -1,9 +1,5 @@
-@font-face { font-family: "Pretendard"; src: url("/fonts/pretendard/Pretendard-Regular.ttf") format("truetype"); font-weight: 400; font-display: swap; }
-@font-face { font-family: "Pretendard"; src: url("/fonts/pretendard/Pretendard-SemiBold.ttf") format("truetype"); font-weight: 600; font-display: swap; }
-
 :global(html):has(.article) { scroll-behavior: auto; }
 .article {
-  --sans: "Pretendard", Arial, system-ui, sans-serif;
   --text: #000;
   --secondary: #000;
   --reading-width: var(--blog-reading-width);
