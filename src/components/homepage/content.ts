@@ -4,6 +4,7 @@ export type Locale = "en" | "ko";
 export const links = {
   github: "https://github.com/nums-ai/causilo",
   model: "https://huggingface.co/nums-ai/causilo",
+  techReport: "https://arxiv.org/abs/2609.22866",
   linkedin: "https://www.linkedin.com/company/numsai",
   contact: "mailto:contact@nums.world",
 } as const;
@@ -17,6 +18,7 @@ export const content = {
     headline: ["From predictions", "To better decisions"],
     heroDescription: "We build a foundation model for structured data.",
     heroDescriptionSecond: "New predictions without starting from scratch.",
+    techReport: "Tech Report",
     backed: "Backed by",
     modelTitle: "Meet Causilo by Nums AI",
     modelDescription: "Causilo is a tabular foundation model (TFM) pretrained on millions of tasks to learn structured data. With Causilo, you can make infinite predictions without retraining or fine-tuning.",
@@ -44,6 +46,7 @@ export const content = {
     headline: ["예측에서", "더 나은 결정으로"],
     heroDescription: "정형 데이터를 위한 파운데이션 모델을 만듭니다.",
     heroDescriptionSecond: "매번 처음부터 학습할 필요 없이 새로운 예측을.",
+    techReport: "기술 보고서",
     backed: "함께하는 투자사",
     modelTitle: "Nums AI의 Causilo를 소개합니다",
     modelDescription: "Causilo는 정형 데이터의 패턴을 학습하기 위해 수백만 개의 과제로 사전 학습된 테이블 파운데이션 모델(TFM)입니다. Causilo를 사용하면 재학습이나 파인튜닝 없이 무한한 예측을 할 수 있습니다.",

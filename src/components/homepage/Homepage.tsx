@@ -47,6 +47,9 @@ export default function Homepage({ locale }: { locale: Locale }) {
               <a href={links.model} className={`${styles.primaryLink} ${styles.secondaryLink}`} target="_blank" rel="noopener noreferrer">
                 Hugging Face<Arrow diagonal />
               </a>
+              <a href={links.techReport} className={`${styles.primaryLink} ${styles.secondaryLink}`} target="_blank" rel="noopener noreferrer">
+                {copy.techReport}<Arrow diagonal />
+              </a>
             </div>
           </div>
         </section>

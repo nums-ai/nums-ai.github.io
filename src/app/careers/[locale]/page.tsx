@@ -8,6 +8,8 @@ import shared from "@/components/homepage/homepage.module.css";
 import styles from "../careers.module.css";
 import { careersContentEn } from "../content.en";
 import OutlineInteraction from "../OutlineInteraction";
+import JobDescription from "../JobDescription";
+import { getJobDescriptions } from "@/lib/careers";
 
 const contentByLocale = {
   en: careersContentEn,
@@ -60,11 +62,11 @@ function List({ children }: { children: readonly string[] }) {
   );
 }
 
-function Disclosure({ id, title, children }: { id: string; title: string; children: ReactNode }) {
+function Disclosure({ id, title, positionNumber, children }: { id: string; title: string; positionNumber: number; children: ReactNode }) {
   return (
     <details className={styles.disclosure} id={id} name="careers-positions">
       <summary className={styles.disclosureSummary}>
-        <h2>Position: {title}</h2>
+        <h2>Position {positionNumber}: {title}</h2>
         <svg className={styles.disclosureIcon} viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M6 12h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
           <path d="M12 6v12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -80,6 +82,7 @@ export default async function CareersPage({
 }: CareersPageProps) {
   const locale = getLocale((await params).locale);
   const content = contentByLocale[locale];
+  const jobs = await getJobDescriptions();
 
   return (
     <div className={shared.site} lang={locale}>
@@ -98,10 +101,10 @@ export default async function CareersPage({
                 <ul>
                   <li><a href="#about">{content.about.title}</a></li>
                   <li>
-                    <a href={`#${content.roles[0].id}`} id="careers-positions-label" data-outline-group>{content.outline.positionsLabel}</a>
+                    <a href={`#${jobs[0]?.id ?? "open-positions"}`} id="careers-positions-label" data-outline-group>{content.outline.positionsLabel}</a>
                     <ul className={styles.outlinePositions} aria-labelledby="careers-positions-label">
-                      {[...content.roles, content.openApplication].map(({ title, id }) => (
-                        <li key={id}><a href={`#${id}`}>{title}</a></li>
+                      {jobs.map(({ title, id }, index) => (
+                        <li key={id}><a href={`#${id}`}>{index + 1}. {title}</a></li>
                       ))}
                     </ul>
                   </li>
@@ -120,34 +123,13 @@ export default async function CareersPage({
                 </div>
               </section>
 
-              <div className={styles.disclosures}>
-                {content.roles.map((role) => (
-                  <Disclosure id={role.id} title={role.title} key={role.id}>
-                    <p className={styles.roleIntroduction}>{role.introduction}</p>
-
-                    <div className={styles.requirementBlock}>
-                      <h3>{content.roleLabels.responsibilities}</h3>
-                      <List>{role.responsibilities}</List>
-                    </div>
-                    <div className={styles.requirementBlock}>
-                      <h3>{content.roleLabels.qualifications}</h3>
-                      <List>{role.qualifications}</List>
-                    </div>
-                    <div className={styles.requirementBlock}>
-                      <h3>{content.roleLabels.preferred}</h3>
-                      <List>{role.preferred}</List>
-                    </div>
+              <div className={styles.disclosures} id="open-positions">
+                {jobs.map((job, index) => (
+                  <Disclosure id={job.id} title={job.title} positionNumber={index + 1} key={job.id}>
+                    <JobDescription body={job.body} />
                   </Disclosure>
                 ))}
-
-                <Disclosure id={content.openApplication.id} title={content.openApplication.title}>
-                  <div className={styles.prose}>
-                    {content.openApplication.paragraphs.map((paragraph) => (
-                      <p key={paragraph}>{paragraph}</p>
-                    ))}
-                  </div>
-                  <List>{content.openApplication.bullets}</List>
-                </Disclosure>
+                {jobs.length === 0 && <p className={styles.section}>{content.noOpenPositions}</p>}
               </div>
 
               <section className={styles.section} id={content.conditions.id}>

@@ -44,10 +44,27 @@
   font-size: clamp(28px, 2.8vw, 36px); font-weight: 400; line-height: 1.2;
   letter-spacing: -.035em; color: var(--text);
 }
-.prose, .roleIntroduction { font-size: 15px; line-height: 1.8; color: var(--secondary); margin-top: 24px; }
+.prose { font-size: 15px; line-height: 1.8; color: var(--secondary); margin-top: 24px; }
 .prose p + p { margin-top: 20px; }
-.requirementBlock { margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--border); }
-.requirementBlock h3 { font-size: 18px; font-weight: 500; line-height: 1.4; letter-spacing: -.025em; color: var(--text); }
+.jobDescription { font-size: 15px; line-height: 1.8; color: var(--secondary); overflow-wrap: anywhere; }
+.jobDescription > :first-child { margin-top: 0; }
+.jobDescription p + p, .jobDescription li > p + p { margin-top: 20px; }
+.jobDescription > h3 { margin-top: 32px; padding-top: 28px; border-top: 1px solid var(--border); font-size: 18px; font-weight: 500; line-height: 1.4; letter-spacing: -.025em; color: var(--text); }
+.jobDescription > h3:first-child { padding-top: 0; border-top: 0; }
+.jobDescription :is(h4, h5, h6) { margin-top: 24px; font-size: 16px; font-weight: 500; color: var(--text); }
+.jobDescription :is(h3, h4, h5, h6) + p { margin-top: 18px; }
+.jobDescription :is(ul, ol) + p { margin-top: 20px; }
+.jobDescription ol { margin-top: 18px; padding-left: 20px; list-style: decimal; }
+.jobDescription ol > li { padding-block: 4px; }
+.jobDescription li :is(ul, ol) { margin-top: 4px; }
+.jobDescription a { text-decoration: underline; text-underline-offset: 3px; }
+.jobDescription a:hover { color: var(--text); }
+.jobDescription strong { font-weight: 600; color: var(--text); }
+.jobDescription blockquote { margin-top: 20px; padding-left: 20px; border-left: 2px solid var(--border); }
+.jobDescription img { max-width: 100%; height: auto; }
+.tableScroll { max-width: 100%; overflow-x: auto; margin-top: 20px; }
+.tableScroll table { width: 100%; border-collapse: collapse; }
+.tableScroll :is(th, td) { padding: 8px 12px; border: 1px solid var(--border); text-align: left; }
 .list { list-style: none; margin-top: 18px; }
 .list li { position: relative; padding: 4px 0 4px 20px; font-size: 15px; line-height: 1.8; color: var(--secondary); }
 .list li::before {
@@ -78,7 +95,6 @@
   .disclosureSummary { padding: 12px 20px; }
   .section, .disclosureBody { padding: 24px; }
   .section h2 { font-size: 26px; }
-  .prose, .roleIntroduction, .list li { font-size: 15px; }
-  .requirementBlock { margin-top: 28px; padding-top: 24px; }
-  .requirementBlock h3 { font-size: 17px; }
+  .prose, .list li { font-size: 15px; }
+  .jobDescription > h3 { margin-top: 28px; padding-top: 24px; font-size: 17px; }
 }

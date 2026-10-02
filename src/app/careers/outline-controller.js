@@ -15,6 +15,7 @@ export function initCareersOutline(root) {
   const header = root.closest("main")?.previousElementSibling;
   let current = null;
   let frame = 0;
+  let scrollFrame = 0;
 
   function update() {
     frame = 0;
@@ -47,7 +48,9 @@ export function initCareersOutline(root) {
         positions[positions.length - 1].section.getBoundingClientRect().bottom,
       );
       if (positions.includes(active) || positionsHeight > activeHeight) {
-        activeLink = positionsLink ?? activeLink;
+        // Collapsed positions still belong to the currently expanded role.
+        const openPosition = positions.find(({ section }) => section.open);
+        activeLink = openPosition?.link ?? positionsLink ?? activeLink;
       }
     }
     if (activeLink === current) return;
@@ -64,17 +67,36 @@ export function initCareersOutline(root) {
 
   function togglePosition(event) {
     if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    const link = event.target instanceof Element ? event.target.closest('a[href^="#"]') : null;
-    const position = positions.find(entry => entry.link === link);
+    if (!(event.target instanceof Element)) return;
+    const link = event.target.closest('a[href^="#"]');
+    const summary = event.target.closest("summary");
+    const position = positions.find(entry => entry.link === link || entry.section.querySelector("summary") === summary);
     if (!position) return;
-    // Toggle before the native anchor or preview router scrolls to the target.
-    position.section.open = !position.section.open;
+    // Handle summary activation ourselves; sidebar links retain their URL/history behavior.
+    if (summary) event.preventDefault();
+    const opening = !position.section.open;
+    if (opening) {
+      for (const { section } of positions) {
+        if (section !== position.section) section.open = false;
+      }
+    }
+    position.section.open = opening;
+    cancelAnimationFrame(scrollFrame);
+    // Keep the selected heading in place after opening, switching, or collapsing.
+    // Wait for layout/scroll anchoring and the standalone preview's anchor navigation.
+    scrollFrame = requestAnimationFrame(() => {
+      scrollFrame = requestAnimationFrame(() => {
+        scrollFrame = 0;
+        position.section.scrollIntoView({ block: "start", behavior: "instant" });
+        schedule();
+      });
+    });
     schedule();
   }
 
   const observer = new ResizeObserver(schedule);
   entries.forEach(entry => observer.observe(entry.section));
-  outline.addEventListener("click", togglePosition);
+  root.addEventListener("click", togglePosition);
   window.addEventListener("scroll", schedule, { passive: true });
   window.addEventListener("resize", schedule);
   root.addEventListener("toggle", schedule, true);
@@ -82,8 +104,9 @@ export function initCareersOutline(root) {
 
   return () => {
     cancelAnimationFrame(frame);
+    cancelAnimationFrame(scrollFrame);
     observer.disconnect();
-    outline.removeEventListener("click", togglePosition);
+    root.removeEventListener("click", togglePosition);
     window.removeEventListener("scroll", schedule);
     window.removeEventListener("resize", schedule);
     root.removeEventListener("toggle", schedule, true);

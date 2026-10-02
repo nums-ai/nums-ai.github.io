@@ -63,12 +63,25 @@ Run the export again after every build to refresh the shareable HTML.
 - `src/components/use-cases/`: dataset explorer, metric plots, and generated scores.
 - `src/components/blog/`: Shared blog listing, article layout, contents, and blocks.
 - `src/content/blog/`: One file per blog post, a starter template, and the registry.
+- `src/content/careers/`: Automatically discovered Markdown job descriptions and a starter template.
 - `public/`: brand assets, investor logos, hero image, and custom-domain settings.
 - `data/use-cases/`: dataset descriptions, domain assignments, and source metadata.
 - `scripts/`: benchmark data builders and standalone HTML exporter.
 
 Only English routes are published: `/`, `/use-cases/`, `/blog/`, `/careers/`,
 and `/careers/en/`. Existing Korean Markdown translations are retained for future use.
+
+## Write a job description
+
+Add or upload one `.md` file to `src/content/careers/`, using `_template.md` as
+the starting point. Set `title`, `order`, and `status` in the frontmatter, then
+write the JD in Markdown. Open positions appear automatically in the Careers
+page and its outline; no code registration is needed. Set `status: closed` to
+remove a role from the site while retaining the file.
+
+See the [job description guide](docs/WRITING_A_JOB_DESCRIPTION.md) for the format,
+preview instructions, and publishing workflow. Pushing to `main` publishes changes
+through the existing GitHub Pages deployment.
 
 ## Write a blog post
 
