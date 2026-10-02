@@ -2,8 +2,23 @@
 
 The Nums AI website at [nums.world](https://nums.world), built with Next.js,
 React, TypeScript, and CSS Modules. Pages are statically exported and published
-through GitHub Pages. Images, fonts, styles, and scripts are served locally;
-external links are only opened when a visitor follows them.
+through GitHub Pages. Images, fonts, styles, and application scripts are served
+locally. The published site also loads Cloudflare's Web Analytics beacon.
+
+## Website analytics
+
+Cloudflare Web Analytics records page views, visits, and page performance for
+`nums.world`. The beacon loads once from the root layout after hydration, and
+Cloudflare tracks client-side route changes automatically. No custom user IDs
+or events are sent by the application.
+
+`src/components/analytics/CloudflareAnalytics.tsx` enables the beacon only in
+production builds on the exact `nums.world` hostname. Development, localhost
+production previews, other preview hosts, and standalone HTML files do not load
+it. The embedded site token is a public beacon identifier, not an API credential.
+
+View the reports under **Analytics → Web analytics** in the company-managed
+Cloudflare account. Dashboard access is controlled through Cloudflare members.
 
 ## Development
 
