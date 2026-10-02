@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import CloudflareAnalytics from "@/components/analytics/CloudflareAnalytics";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -33,6 +34,7 @@ export default function RootLayout({
           <p className="no-script-notice">Enable JavaScript to switch datasets and chart settings.</p>
         </noscript>
         {children}
+        <CloudflareAnalytics />
       </body>
     </html>
   );
